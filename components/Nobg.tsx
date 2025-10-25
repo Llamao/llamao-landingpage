@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Nobg = () => {
   return (
-    <div className="pb-16">
+    <div className="">
       <Image
         src="/nobg.gif"
         alt="Llama Character"

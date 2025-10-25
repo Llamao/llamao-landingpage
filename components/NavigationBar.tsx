@@ -75,7 +75,7 @@ const NavigationBar = () => {
           />
         )}
 
-        <div className="press-start-2p-regular relative z-10 flex items-center justify-between px-4 py-3 md:hidden">
+        <div className="press-start-2p-regular relative z-10 flex items-center justify-between px-4 py-3 lg:hidden">
           <a
             href={navLinks[0].href}
             className="bg-[#B091FF] px-4 py-2 text-xs tracking-tight text-white"
@@ -109,7 +109,7 @@ const NavigationBar = () => {
           </button>
         </div>
 
-        <ul className="press-start-2p-regular relative z-10 hidden w-full flex-wrap items-center justify-center gap-4 px-6 py-3 md:flex md:gap-6 md:px-8 md:py-4 lg:gap-8 lg:px-12">
+        <ul className="press-start-2p-regular relative z-10 hidden w-full flex-wrap items-center justify-center gap-4 px-6 py-3 lg:flex md:gap-6 md:px-8 md:py-4 lg:gap-8 lg:px-12">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a

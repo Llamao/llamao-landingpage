@@ -16,13 +16,13 @@ export default function Home() {
           width={1440}
           height={961}
           quality={100}
-          className="w-full h-auto object-contain scale-[170%] -translate-y-40"
+          className="w-full h-auto object-contain scale-[170%] -translate-y-40 md:scale-120 md:-translate-y-20"
           priority
         />
       </div>
 
       {/* Bottom Grass Border - Behind trees */}
-      <div className="absolute h-[200px] bottom-0 left-0 right-0 -z-10 pointer-events-none">
+      <div className="absolute h-[200px] md:h-[170px] bottom-0 left-0 right-0 -z-10 pointer-events-none">
         <Image
           src="/footertree.svg"
           alt="Bottom grass"
@@ -35,7 +35,7 @@ export default function Home() {
       {/* Tree container */}
       {/* <div> */}
       {/* Left Tree Border - Above grass */}
-      <div className="absolute z-10 w-[210%] pointer-events-none -bottom-10 -left-[155%]">
+      <div className="absolute z-10 pointer-events-none w-[210%] -bottom-10 -left-[155%] md:w-[200%] md:-bottom-20 md:-left-[135%]">
         <Image
           src="/tree.svg"
           alt="Left tree"
@@ -48,7 +48,7 @@ export default function Home() {
       {/* </div> */}
 
       {/* Right Tree Border - Above grass */}
-      <div className="absolute z-10 w-[210%] pointer-events-none -bottom-10 -right-[155%] scale-x-[-1]">
+      <div className="absolute z-10 pointer-events-none scale-x-[-1] w-[210%] -bottom-10 -right-[155%] md:w-[200%] md:-bottom-20 md:-right-[135%]">
         <Image
           src="/tree.svg"
           alt="Right tree"
@@ -58,13 +58,13 @@ export default function Home() {
         />
       </div>
 
-      <div className="h-full flex flex-col justify-between w-[95%] mx-auto z-30">
+      <div className="h-full flex flex-col justify-between w-[95%] mx-auto">
         <div className="flex flex-col items-center mx-auto w-full mt-3 z-30">
           <NavigationBar />
           <Logo />
           <SocialMedias />
         </div>
-        <div className="flex flex-col items-center w-full">
+        <div className="flex flex-col items-center z-30 w-full mx-auto pb-16 md:pb-12 md:w-[80%]  ">
           <Nobg />
         </div>
       </div>

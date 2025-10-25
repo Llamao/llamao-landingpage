@@ -9,7 +9,7 @@ const SocialMedias = () => {
         rel="noopener noreferrer"
         className="transition-transform hover:scale-110 active:scale-95"
       >
-        <div className="w-16 h-16 relative">
+        <div className="relative w-16 h-16 md:w-20 md:h-20">
           <Image
             src="/twitter.svg"
             alt="Twitter"
@@ -25,7 +25,7 @@ const SocialMedias = () => {
         rel="noopener noreferrer"
         className="transition-transform hover:scale-110 active:scale-95"
       >
-        <div className="w-16 h-16 relative">
+        <div className="relative w-16 h-16 md:w-20 md:h-20">
           <Image
             src="/discord.svg"
             alt="Discord"
@@ -41,7 +41,7 @@ const SocialMedias = () => {
         rel="noopener noreferrer"
         className="transition-transform hover:scale-110 active:scale-95"
       >
-        <div className="w-16 h-16 relative">
+        <div className="relative w-16 h-16 md:w-20 md:h-20">
           <Image
             src="/telegram.svg"
             alt="Telegram"
