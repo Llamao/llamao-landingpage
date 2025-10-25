@@ -7,7 +7,6 @@ body {
   margin: 0;
   /* Đây là chìa khóa: Cắt bỏ mọi thứ tràn ra ngoài, 
      buộc không có thanh cuộn */
-  overflow: hidden;
   min-height: 100vh;
 
   /* Dòng quan trọng để đặt nền */
