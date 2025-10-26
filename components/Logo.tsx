@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Logo = () => {
   return (
-    <div className="w-[93%] mt-3 lg:max-w-[550px]">
+    <div className="w-[93%] mt-3 lg:max-w-[550px] xl:max-w-[600px]">
       <Image
         src="/logo.svg"
         alt="LLAMA Logo"
