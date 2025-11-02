@@ -19,12 +19,12 @@ const Nobg = () => {
         }}
       >
         <Image
-          src="/nobg.gif"
+          src="/llamao_chillpose2.gif"
           alt="Llama Character"
           unoptimized
           width={860}
           height={850}
-          className="xl:w-[500px] 2xl:w-[600px] h-auto"
+          className="w-[350px] md:w-[500px] xl:w-[500px] 2xl:w-[600px] h-auto"
           priority
         />
       </motion.div>

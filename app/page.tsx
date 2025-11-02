@@ -36,15 +36,15 @@ export default function Home() {
         initial={{ scale: 1.1, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed inset-0 flex items-end justify-center -z-10"
+        className="fixed inset-0 flex items-end justify-center -z-10 w-full h-full"
       >
         <Image
-          src="/background.svg"
+          src="/BGmockup.gif"
           alt="Background"
           width={1440}
           height={961}
           quality={100}
-          className="w-full h-auto object-contain scale-[170%] -translate-y-40 md:scale-120 md:-translate-y-20 lg:-translate-y-10 xl:translate-y-8 xl:scale-100 2xl:translate-y-15"
+          className="blur-xs w-full h-auto scale-[100%] -translate-y-25 md:scale-120 md:-translate-y-20 lg:-translate-y-10 xl:translate-y-8 xl:scale-[100%] 2xl:translate-y-50"
           priority
         />
       </motion.div>
@@ -54,20 +54,20 @@ export default function Home() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="fixed h-[200px] md:h-[170px] bottom-0 left-0 right-0 -z-10 pointer-events-none"
+        className="fixed h-[200px] md:h-[250px] 2xl:h-[250px] bottom-0 left-0 right-0 -z-10 pointer-events-none"
       >
         <Image
-          src="/footertree.svg"
+          src="/Ground2.gif"
           alt="Bottom grass"
           width={2133}
           height={202}
-          className="w-auto h-full object-cover translate-y-1"
+          className="w-full h-full object-cover translate-y-1"
         />
       </motion.div>
 
-      <div className="fixed z-0 pointer-events-none w-[210%] -bottom-10 -left-[155%] md:w-[200%] md:-bottom-20 md:-left-[135%] lg:w-full lg:-bottom-28 lg:-left-[50%] 2xl:w-[70%] 2xl:-bottom-16 2xl:-left-[30%]">
+      <div className="scale-x-[-1] fixed z-0 pointer-events-none w-[150%] -bottom-10 -left-[95%] md:w-[100%] md:-bottom-12 md:-left-[52%] lg:w-[80%] lg:-bottom-20 lg:-left-[40%] 2xl:w-[50%] 2xl:-bottom-16 2xl:-left-[22%]">
         <Image
-          src="/tree.svg"
+          src="/Trees1.gif"
           alt="Left tree"
           width={1444}
           height={1444}
@@ -76,9 +76,9 @@ export default function Home() {
         />
       </div>
 
-      <div className="fixed z-0 pointer-events-none scale-x-[-1] w-[210%] -bottom-10 -right-[155%] md:w-[200%] md:-bottom-20 md:-right-[135%] lg:w-full lg:-bottom-28 lg:-right-[50%] 2xl:w-[70%] 2xl:-bottom-16 2xl:-right-[30%]">
+      <div className="fixed z-0 pointer-events-none w-[150%] -bottom-10 -right-[95%] md:w-[100%] md:-bottom-12 md:-right-[52%] lg:w-[80%] lg:-bottom-20 lg:-right-[40%] 2xl:w-[50%] 2xl:-bottom-16 2xl:-right-[22%]">
         <Image
-          src="/tree.svg"
+          src="/Trees1.gif"
           alt="Right tree"
           width={1444}
           height={1444}
@@ -100,7 +100,7 @@ export default function Home() {
         </motion.div>
         <motion.div
           variants={stackVariants}
-          className="flex flex-col items-center z-30 w-full mx-auto pb-16 md:pb-12 md:w-[80%] lg:w-[60%] xl:w-[50%] xl:pb-8"
+          className="flex flex-col items-center z-30 w-full mx-auto pb-10 md:pb-12 md:w-[80%] lg:w-[60%] xl:w-[50%] xl:pb-8"
         >
           <Nobg />
         </motion.div>
