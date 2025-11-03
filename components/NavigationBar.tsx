@@ -33,7 +33,7 @@ const NavigationBar = () => {
     { href: "#about", label: "Llabout", variant: "default" },
     { href: "#lore", label: "Llore", variant: "default" },
     { href: "#traits", label: "Lltraits", variant: "default" },
-    { href: "#rewards", label: "Reward Pools", variant: "cta" },
+    { href: "/reward-pools", label: "Reward Pools", variant: "cta" },
   ];
 
   useEffect(() => {
@@ -88,7 +88,7 @@ const NavigationBar = () => {
   return (
     <>
       {/* Backdrop overlay for non-home sections */}
-      {activeHash !== "#home" && (
+      {activeHash !== "#home" && activeHash !== "reward-pools" && (
         <div className="fixed inset-0 bg-black/50 z-40" aria-hidden="true" />
       )}
 
@@ -222,7 +222,10 @@ const NavigationBar = () => {
                       visible: {
                         opacity: 1,
                         scale: 1,
-                        transition: { delayChildren: 0.1, staggerChildren: 0.08 },
+                        transition: {
+                          delayChildren: 0.1,
+                          staggerChildren: 0.08,
+                        },
                       },
                     }}
                     className="relative press-start-2p-regular flex flex-col gap-16 max-w-[380px] px-5 mx-auto py-12 text-center z-20"
@@ -258,45 +261,47 @@ const NavigationBar = () => {
           </AnimatePresence>
         </div>
       </motion.nav>
-      {activeHash !== "#home" && !isMenuOpen && (
-        <>
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="absolute left-1/2 -translate-x-1/2 top-[15%] lg:top-[50%] 2xl:top-[50%] w-[90%] lg:w-auto lg:-translate-y-[41%] z-50 flex flex-col gap-5"
-          >
-            {activeHash === "#about" && <About />}
-            {activeHash === "#lore" && <Lore />}
-            {activeHash === "#traits" && <Traits />}
-            {activeHash !== "#traits" && (
-              <div className="mx-auto">
-                <MotionButton
-                  onClick={() => handleLinkClick("#home")}
-                  className="text-xl px-6 py-6 bg-[#6043AF] hover:bg-[#4a2f8f] transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Back
-                </MotionButton>
-              </div>
-            )}
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="fixed z-50 -right-16 -bottom-[10%] hidden lg:block"
-          >
-            <Image
-              src={"/llamao_walk.gif"}
-              alt="llamaowalk"
-              width={481}
-              height={510}
-            />
-          </motion.div>
-        </>
-      )}
+      {activeHash !== "#home" &&
+        activeHash !== "reward-pools" &&
+        !isMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="absolute left-1/2 -translate-x-1/2 top-[15%] lg:top-[50%] 2xl:top-[50%] w-[90%] lg:w-auto lg:-translate-y-[41%] z-50 flex flex-col gap-5"
+            >
+              {activeHash === "#about" && <About />}
+              {activeHash === "#lore" && <Lore />}
+              {activeHash === "#traits" && <Traits />}
+              {activeHash !== "#traits" && (
+                <div className="mx-auto">
+                  <MotionButton
+                    onClick={() => handleLinkClick("#home")}
+                    className="text-xl px-6 py-6 bg-[#6043AF] hover:bg-[#4a2f8f] transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    Back
+                  </MotionButton>
+                </div>
+              )}
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 60 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="fixed z-50 -right-16 -bottom-[10%] hidden lg:block"
+            >
+              <Image
+                src={"/llamao_walk.gif"}
+                alt="llamaowalk"
+                width={481}
+                height={510}
+              />
+            </motion.div>
+          </>
+        )}
     </>
   );
 };
