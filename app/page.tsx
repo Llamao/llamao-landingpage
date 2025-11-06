@@ -6,6 +6,7 @@ import Nobg from "@/components/Nobg";
 import SocialMedias from "@/components/SocialMedias";
 import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 const mainVariants: Variants = {
   hidden: { opacity: 0 },
@@ -25,6 +26,29 @@ const stackVariants: Variants = {
 };
 
 export default function Home() {
+  const [activeHash, setActiveHash] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.location.hash || "#home";
+    }
+    return "#home";
+  });
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash || "#home";
+      setActiveHash(hash);
+    };
+
+    // Set initial hash
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash || "#home";
+      setActiveHash(hash);
+    }
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
   return (
     <motion.main
       initial="hidden"
@@ -95,15 +119,24 @@ export default function Home() {
           className="flex flex-col items-center mx-auto w-full mt-3 z-40"
         >
           <NavigationBar />
-          <Logo />
-          <SocialMedias />
+          {activeHash === "#home" && (
+            <>
+              <Logo />
+              <SocialMedias />
+            </>
+          )}
         </motion.div>
-        <motion.div
-          variants={stackVariants}
-          className="flex flex-col items-center z-30 w-full mx-auto pb-10 md:pb-12 md:w-[80%] lg:w-[60%] xl:w-[50%] xl:pb-8"
-        >
-          <Nobg />
-        </motion.div>
+        {activeHash === "#home" && (
+          <motion.div
+            key="nobg-container"
+            variants={stackVariants}
+            className="flex flex-col items-center z-30 w-full mx-auto pb-10 md:pb-12 md:w-[80%] lg:w-[60%] xl:w-[50%] xl:pb-8"
+            initial="hidden"
+            animate="visible"
+          >
+            <Nobg />
+          </motion.div>
+        )}
       </motion.div>
     </motion.main>
   );

@@ -6,6 +6,7 @@ import About from "./About";
 import { Button } from "./ui/8bit/button";
 import Lore from "./Lore";
 import Traits from "./Traits";
+import RewardPools from "./RewardPools";
 import { AnimatePresence, motion } from "framer-motion";
 
 const MotionButton = motion(Button);
@@ -33,14 +34,26 @@ const NavigationBar = () => {
     { href: "#about", label: "Llabout", variant: "default" },
     { href: "#lore", label: "Llore", variant: "default" },
     { href: "#traits", label: "Lltraits", variant: "default" },
-    { href: "/reward-pools", label: "Reward Pools", variant: "cta" },
+    { href: "#reward-pools", label: "Reward Pools", variant: "cta" },
   ];
 
   useEffect(() => {
     // Listen for hash changes
     const handleHashChange = () => {
-      setActiveHash(window.location.hash || "#home");
+      const hash = window.location.hash || "#home";
+      setActiveHash(hash);
+      
+      // Scroll to top when reward-pools is accessed (overlay mode)
+      if (hash === "#reward-pools") {
+        window.scrollTo({ top: 0, behavior: "instant" });
+      }
     };
+
+    // Check initial hash on mount
+    const initialHash = window.location.hash || "#home";
+    if (initialHash === "#reward-pools") {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
 
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
@@ -57,6 +70,20 @@ const NavigationBar = () => {
   const handleLinkClick = (href: string) => {
     setActiveHash(href);
     handleCloseMenu();
+    
+    // Scroll to top when clicking reward-pools (overlay mode)
+    if (href === "#reward-pools") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    
+    // Smooth scroll to section if it's a hash link
+    if (href.startsWith("#")) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
   };
 
   const getActiveVariant = (link: NavLink): NavVariant => {
@@ -88,7 +115,7 @@ const NavigationBar = () => {
   return (
     <>
       {/* Backdrop overlay for non-home sections */}
-      {activeHash !== "#home" && activeHash !== "reward-pools" && (
+      {activeHash !== "#home" && (
         <div className="fixed inset-0 bg-black/50 z-40" aria-hidden="true" />
       )}
 
@@ -262,52 +289,62 @@ const NavigationBar = () => {
         </div>
       </motion.nav>
       {activeHash !== "#home" &&
-        activeHash !== "reward-pools" &&
         !isMenuOpen && (
           <>
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
-              className="absolute left-1/2 -translate-x-1/2 top-[15%] lg:top-[50%] 2xl:top-[50%] w-[90%] lg:w-auto lg:-translate-y-[41%] z-50 flex flex-col gap-5"
-            >
-              {activeHash === "#about" && <About />}
-              {activeHash === "#lore" && <Lore />}
-              {activeHash === "#traits" && <Traits />}
-              {/* {activeHash !== "#traits" && (
-                <div className="mx-auto flex items-center justify-center gap-10">
-                  {activeHash === "#lore" && (
-                    <div className="hover:scale-110 transition-transform duration-300 cursor-pointer lg:hidden">
-                      <Image
-                        src={"/arrow.svg"}
-                        alt="leftarrow"
-                        width={35}
-                        height={52}
-                      />
-                    </div>
-                  )}
-                  <MotionButton
-                    onClick={() => handleLinkClick("#home")}
-                    className="text-xl px-6 py-6 bg-[#6043AF] hover:bg-[#4a2f8f] transition-colors"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Back
-                  </MotionButton>
-                  {activeHash === "#lore" && (
-                    <div className="hover:scale-110 transition-transform duration-300 cursor-pointer lg:hidden">
-                      <Image
-                        src={"/arrow.svg"}
-                        alt="rightarrow"
-                        width={35}
-                        height={52}
-                        className="scale-x-[-1]"
-                      />
-                    </div>
-                  )}
-                </div>
-              )} */}
-            </motion.div>
+            {activeHash === "#reward-pools" ? (
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="absolute left-1/2 -translate-x-1/2 top-[40%] sm:top-[22%] lg:top-[55%] 2xl:top-[62%] w-[98%] sm:w-[95%] lg:w-[95%] max-w-[1600px] lg:-translate-y-[41%] z-50 flex flex-col gap-5 overflow-visible"
+              >
+                <RewardPools />
+              </motion.div>
+            ) : (
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="absolute left-1/2 -translate-x-1/2 top-[15%] lg:top-[50%] 2xl:top-[50%] w-[90%] lg:w-auto lg:-translate-y-[41%] z-50 flex flex-col gap-5"
+              >
+                {activeHash === "#about" && <About />}
+                {activeHash === "#lore" && <Lore />}
+                {activeHash === "#traits" && <Traits />}
+              </motion.div>
+            )}
+            {/* {activeHash !== "#traits" && (
+              <div className="mx-auto flex items-center justify-center gap-10">
+                {activeHash === "#lore" && (
+                  <div className="hover:scale-110 transition-transform duration-300 cursor-pointer lg:hidden">
+                    <Image
+                      src={"/arrow.svg"}
+                      alt="leftarrow"
+                      width={35}
+                      height={52}
+                    />
+                  </div>
+                )}
+                <MotionButton
+                  onClick={() => handleLinkClick("#home")}
+                  className="text-xl px-6 py-6 bg-[#6043AF] hover:bg-[#4a2f8f] transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Back
+                </MotionButton>
+                {activeHash === "#lore" && (
+                  <div className="hover:scale-110 transition-transform duration-300 cursor-pointer lg:hidden">
+                    <Image
+                      src={"/arrow.svg"}
+                      alt="rightarrow"
+                      width={35}
+                      height={52}
+                      className="scale-x-[-1]"
+                    />
+                  </div>
+                )}
+              </div>
+            )} */}
             {/* <motion.div
               initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
