@@ -274,11 +274,16 @@ const NavigationBar = () => {
               {activeHash === "#about" && <About />}
               {activeHash === "#lore" && <Lore />}
               {activeHash === "#traits" && <Traits />}
-              {activeHash !== "#traits" && (
+              {/* {activeHash !== "#traits" && (
                 <div className="mx-auto flex items-center justify-center gap-10">
                   {activeHash === "#lore" && (
                     <div className="hover:scale-110 transition-transform duration-300 cursor-pointer lg:hidden">
-                      <Image src={"/arrow.svg"} alt="leftarrow" width={35} height={52} />
+                      <Image
+                        src={"/arrow.svg"}
+                        alt="leftarrow"
+                        width={35}
+                        height={52}
+                      />
                     </div>
                   )}
                   <MotionButton
@@ -301,9 +306,9 @@ const NavigationBar = () => {
                     </div>
                   )}
                 </div>
-              )}
+              )} */}
             </motion.div>
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, x: 60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -315,7 +320,7 @@ const NavigationBar = () => {
                 width={481}
                 height={510}
               />
-            </motion.div>
+            </motion.div> */}
           </>
         )}
     </>

@@ -43,7 +43,7 @@ const Lore = () => {
           alt="rightarrow"
           width={90}
           height={135}
-          className="scale-x-[-1]"
+          className="scale-x-[-1] "
         />
       </div>
     </div>

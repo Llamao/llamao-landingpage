@@ -54,10 +54,10 @@ export default function Home() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="fixed h-[200px] md:h-[250px] 2xl:h-[250px] bottom-0 left-0 right-0 -z-10 pointer-events-none"
+        className="fixed h-[300px] md:h-[400px] 2xl:h-[500px] bottom-0 left-0 right-0 -z-10 pointer-events-none"
       >
         <Image
-          src="/Ground2.gif"
+          src="/Ground1.gif"
           alt="Bottom grass"
           width={2133}
           height={202}

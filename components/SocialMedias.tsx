@@ -6,17 +6,17 @@ import { motion } from "framer-motion";
 const socialLinks = [
   {
     href: "https://x.com/llamao_",
-    src: "/twitter.svg",
-    alt: "Twitter",
+    src: "/x.png",
+    alt: "X",
   },
   {
     href: "discord.com/invite/llamao",
-    src: "/discord.svg",
+    src: "/discord.png",
     alt: "Discord",
   },
   {
     href: "https://t.me/llamaomeme",
-    src: "/telegram.svg",
+    src: "/telegram.png",
     alt: "Telegram",
   },
 ];
