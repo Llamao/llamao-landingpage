@@ -101,7 +101,7 @@ const Lore = () => {
   };
 
   const slideTransition = {
-    x: { type: "spring", stiffness: 400, damping: 35 },
+    x: { type: "spring" as const, stiffness: 400, damping: 35 },
     opacity: { duration: 0.15 },
   };
 

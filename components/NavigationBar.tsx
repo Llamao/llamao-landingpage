@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import About from "./About";
 import { Button } from "./ui/8bit/button";
 import Lore from "./Lore";
@@ -20,6 +20,14 @@ type NavLink = {
 
 const NavigationBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [skipInitialAnimation, setSkipInitialAnimation] = useState(() => {
+    // Check if we have a hash from URL on initial load
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash || "#home";
+      return hash !== "#home";
+    }
+    return false;
+  });
 
   // Initialize activeHash from URL
   const [activeHash, setActiveHash] = useState(() => {
@@ -28,6 +36,26 @@ const NavigationBar = () => {
     }
     return "#home";
   });
+
+  // Use useLayoutEffect to set hash synchronously before paint
+  useLayoutEffect(() => {
+    const hash = window.location.hash || "#home";
+    if (hash !== activeHash) {
+      setActiveHash(hash);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Reset skipInitialAnimation after first render with hash
+  useEffect(() => {
+    if (skipInitialAnimation) {
+      // Reset after mount to allow subsequent navigations to have animation
+      const timer = setTimeout(() => {
+        setSkipInitialAnimation(false);
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+  }, [skipInitialAnimation]);
 
   const navLinks: NavLink[] = [
     { href: "#home", label: "Llome", variant: "default" },
@@ -48,12 +76,6 @@ const NavigationBar = () => {
         window.scrollTo({ top: 0, behavior: "instant" });
       }
     };
-
-    // Check initial hash on mount
-    const initialHash = window.location.hash || "#home";
-    if (initialHash === "#reward-pools") {
-      window.scrollTo({ top: 0, behavior: "instant" });
-    }
 
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
@@ -292,25 +314,43 @@ const NavigationBar = () => {
         !isMenuOpen && (
           <>
             {activeHash === "#reward-pools" ? (
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="absolute left-1/2 -translate-x-1/2 top-[40%] sm:top-[22%] lg:top-[55%] 2xl:top-[62%] w-[98%] sm:w-[95%] lg:w-[95%] max-w-[1600px] lg:-translate-y-[41%] z-50 flex flex-col gap-5 overflow-visible"
-              >
-                <RewardPools />
-              </motion.div>
+              skipInitialAnimation ? (
+                <div
+                  className="fixed left-1/2 -translate-x-1/2 top-[40%] sm:top-[22%] lg:top-[55%] 2xl:top-[62%] w-[98%] sm:w-[95%] lg:w-[95%] max-w-[1600px] lg:-translate-y-[41%] z-50 flex flex-col gap-5 overflow-visible"
+                >
+                  <RewardPools />
+                </div>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="fixed left-1/2 -translate-x-1/2 top-[40%] sm:top-[22%] lg:top-[55%] 2xl:top-[62%] w-[98%] sm:w-[95%] lg:w-[95%] max-w-[1600px] lg:-translate-y-[41%] z-50 flex flex-col gap-5 overflow-visible"
+                >
+                  <RewardPools />
+                </motion.div>
+              )
             ) : (
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="absolute left-1/2 -translate-x-1/2 top-[15%] lg:top-[50%] 2xl:top-[50%] w-[90%] lg:w-auto lg:-translate-y-[41%] z-50 flex flex-col gap-5"
-              >
-                {activeHash === "#about" && <About />}
-                {activeHash === "#lore" && <Lore />}
-                {activeHash === "#traits" && <Traits />}
-              </motion.div>
+              skipInitialAnimation ? (
+                <div
+                  className="fixed left-1/2 -translate-x-1/2 top-[15%] lg:top-[50%] 2xl:top-[50%] w-[90%] lg:w-auto lg:-translate-y-[41%] z-50 flex flex-col gap-5"
+                >
+                  {activeHash === "#about" && <About />}
+                  {activeHash === "#lore" && <Lore />}
+                  {activeHash === "#traits" && <Traits />}
+                </div>
+              ) : (
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4 }}
+                  className="fixed left-1/2 -translate-x-1/2 top-[15%] lg:top-[50%] 2xl:top-[50%] w-[90%] lg:w-auto lg:-translate-y-[41%] z-50 flex flex-col gap-5"
+                >
+                  {activeHash === "#about" && <About />}
+                  {activeHash === "#lore" && <Lore />}
+                  {activeHash === "#traits" && <Traits />}
+                </motion.div>
+              )
             )}
             {/* {activeHash !== "#traits" && (
               <div className="mx-auto flex items-center justify-center gap-10">

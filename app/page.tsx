@@ -6,7 +6,7 @@ import Nobg from "@/components/Nobg";
 import SocialMedias from "@/components/SocialMedias";
 import { motion, type Variants } from "framer-motion";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 
 const mainVariants: Variants = {
   hidden: { opacity: 0 },
@@ -33,17 +33,22 @@ export default function Home() {
     return "#home";
   });
 
+  // Use useLayoutEffect to set hash synchronously before paint
+  // This ensures the hash is set before the browser paints, preventing layout shift
+  useLayoutEffect(() => {
+    const hash = window.location.hash || "#home";
+    // Only update if different to avoid unnecessary re-renders
+    if (hash !== activeHash) {
+      setActiveHash(hash);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash || "#home";
       setActiveHash(hash);
     };
-
-    // Set initial hash
-    if (typeof window !== "undefined") {
-      const hash = window.location.hash || "#home";
-      setActiveHash(hash);
-    }
 
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
@@ -54,7 +59,7 @@ export default function Home() {
       initial="hidden"
       animate="visible"
       variants={mainVariants}
-      className="relative w-full h-screen overflow-x-clip"
+      className="relative w-full h-screen overflow-x-clip min-h-screen"
     >
       <motion.div
         initial={{ scale: 1.1, opacity: 0 }}
