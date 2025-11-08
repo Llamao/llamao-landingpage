@@ -5,24 +5,7 @@ const About = () => {
     <Alert borderColor="#6043AF" className="lg:w-4xl xl:w-5xl">
       <AlertDescription className="pixelify-sans-500 text-lg md:text-xl lg:text-2xl lg:text-justify text-black">
         <p className="">
-          Llamao-ism is the first and finest ideology born on Monad — rooted in
-          one simple principle:
-        </p>
-        <ul className="list-disc ml-8 2xl:ml-12 my-8">
-          <li>
-            <p>Create real value, stay chill, no matter the market.</p>
-          </li>
-          <li>
-            <p>
-              {`Whether it's bull or bear, llamao-ists don't chase hype. They
-                  build. They meme. They make markets better — quietly but
-                  consistently.`}
-            </p>
-          </li>
-        </ul>
-        <p className="pixelify-sans-500 text-lg md:text-xl lg:text-2xl">
-          {`Llamao-ism is not a cult. It’s a vibe, productive collective. Welcome to the future of sustainable clout, only on
-              Monad.`}
+        Llamao is a mindfulness-first IP brand building a wellness ecosystem focused on calm, clarity, and balance. The core is Llamaoism, a mindful philosophy that helps people stay mentally stable, true to themselves, and fully present
         </p>
       </AlertDescription>
     </Alert>
