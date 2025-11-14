@@ -26,6 +26,10 @@ const Traits = () => {
       canvas.remove(transform.target);
       canvas.requestRenderAll();
     }
+
+    if (rectRef.current === transform.target) {
+      rectRef.current = undefined;
+    }
   }
 
   function renderIcon(
@@ -67,6 +71,7 @@ const Traits = () => {
 
     canvas.add(rect);
     canvas.requestRenderAll();
+    rectRef.current = rect;
     return rect;
   };
 
@@ -129,7 +134,7 @@ const Traits = () => {
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const canvas = canvasRef.current;
     const rect = rectRef.current;
-    if (!canvas || !rect) return;
+    if (!canvas) return;
 
     const file = e.target.files?.[0];
     if (!file) return;
@@ -193,17 +198,19 @@ const Traits = () => {
 
         // Set clipPath for rectangle to hide parts outside the image
         // Rectangle can move and resize freely, but parts outside image will be hidden
-        const rectClipRect = new Rect({
-          left: 0,
-          top: 0,
-          width: targetWidth,
-          height: scaledHeight,
-          absolutePositioned: true,
-        });
-        rect.clipPath = rectClipRect;
+        if (rect) {
+          const rectClipRect = new Rect({
+            left: 0,
+            top: 0,
+            width: targetWidth,
+            height: scaledHeight,
+            absolutePositioned: true,
+          });
+          rect.clipPath = rectClipRect;
 
-        // Move rectangle to top (bring to front)
-        canvas.bringObjectToFront(rect);
+          // Move rectangle to top (bring to front)
+          canvas.bringObjectToFront(rect);
+        }
         canvas.requestRenderAll();
       } catch (error) {
         console.error("Error loading image:", error);
@@ -229,14 +236,16 @@ const Traits = () => {
     const canvas = canvasRef.current;
     const image = imageRef.current;
     const rect = rectRef.current;
-    if (!canvas || !image || !rect) return;
+    if (!canvas || !image) return;
 
     canvas.remove(image);
     imageRef.current = undefined;
     setHasImage(false);
 
     // Remove clipPath from rectangle
-    rect.clipPath = undefined;
+    if (rect) {
+      rect.clipPath = undefined;
+    }
 
     canvas.requestRenderAll();
   };
@@ -270,7 +279,7 @@ const Traits = () => {
   };
 
   return (
-    <div className="flex items-stretch">
+    <div className="flex flex-col md:flex-row items-center md:items-stretch gap-6 md:gap-8">
       <Alert
         borderColor="#1E3445"
         className="max-w-[430px] max-h-[80%] mx-auto flex flex-col justify-between p-0 gap-0 self-stretch"
@@ -278,7 +287,7 @@ const Traits = () => {
         <div className="relative">
           <canvas id="canvas" />
           {hasImage && (
-            <div className="absolute top-4 left-0 right-0 flex justify-between px-4">
+            <div className="absolute top-4 left-0 right-0 flex justify-center gap-4 md:gap-0 md:justify-between px-4">
               <Button
                 onClick={handleFlip}
                 size={"sm"}
@@ -320,11 +329,11 @@ const Traits = () => {
           </div>
         </div>
       </Alert>
-      <div className="flex flex-col justify-around ml-8 self-stretch">
+      <div className="flex flex-row flex-wrap justify-center gap-4 w-full md:flex-col md:justify-around md:ml-8 md:w-auto">
         <button
           type="button"
           onClick={handleAddRectangle}
-          className="cursor-pointer hover:opacity-80 transition-opacity"
+          className="cursor-pointer hover:opacity-80 transition-opacity flex justify-center"
         >
           <Image
             src="/traits-btn.png"
@@ -337,7 +346,7 @@ const Traits = () => {
         <button
           type="button"
           onClick={handleAddRectangle}
-          className="cursor-pointer hover:opacity-80 transition-opacity"
+          className="cursor-pointer hover:opacity-80 transition-opacity flex justify-center"
         >
           <Image
             src="/traits-btn.png"
@@ -350,7 +359,7 @@ const Traits = () => {
         <button
           type="button"
           onClick={handleAddRectangle}
-          className="cursor-pointer hover:opacity-80 transition-opacity"
+          className="cursor-pointer hover:opacity-80 transition-opacity flex justify-center"
         >
           <Image
             src="/traits-btn.png"

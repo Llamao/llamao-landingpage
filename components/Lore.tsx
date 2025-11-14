@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { Alert } from "./ui/8bit/alert";
-import { Button } from "./ui/8bit/button";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -130,14 +129,6 @@ const Lore = () => {
               borderColor="#1E3445"
               className="max-w-[430px] max-h-[80%] flex flex-col justify-between p-0 gap-0 relative"
             >
-              <motion.div
-                className="hover:scale-110 transition-transform duration-300 cursor-pointer absolute left-2 top-1/2 -translate-y-1/2 md:hidden z-10"
-                onClick={handlePrevious}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Image src={"/arrow.svg"} alt="leftarrow" width={50} height={75} />
-              </motion.div>
               <Image
                 src={currentItem.image}
                 alt={currentItem.name}
@@ -164,23 +155,33 @@ const Lore = () => {
                   {currentItem.content}
                 </motion.p>
               </div>
-              <motion.div
-                className="hover:scale-110 transition-transform duration-300 cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 md:hidden z-10"
-                onClick={handleNext}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Image
-                  src={"/arrow.svg"}
-                  alt="rightarrow"
-                  width={50}
-                  height={75}
-                  className="scale-x-[-1]"
-                />
-              </motion.div>
             </Alert>
           </motion.div>
         </AnimatePresence>
+        <div className="flex md:hidden items-center justify-center gap-16 mt-6">
+          <motion.div
+            className="hover:scale-110 transition-transform duration-300 cursor-pointer"
+            onClick={handlePrevious}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Image src={"/arrow.svg"} alt="leftarrow" width={60} height={90} />
+          </motion.div>
+          <motion.div
+            className="hover:scale-110 transition-transform duration-300 cursor-pointer"
+            onClick={handleNext}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Image
+              src={"/arrow.svg"}
+              alt="rightarrow"
+              width={60}
+              height={90}
+              className="scale-x-[-1]"
+            />
+          </motion.div>
+        </div>
       </div>
       <motion.div
         className="hover:scale-110 transition-transform duration-300 cursor-pointer hidden md:block"

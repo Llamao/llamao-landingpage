@@ -249,9 +249,7 @@ export default function RewardPools() {
       animate="visible"
       variants={staggerContainer}
     >
-      <motion.div
-        className="flex w-full flex-col mt-10 mb-6 items-center justify-center px-2 sm:px-4 relative z-30 overflow-visible"
-      >
+      <motion.div className="flex w-full flex-col mt-10 mb-6 items-center justify-center px-2 sm:px-4 relative z-30 overflow-visible">
         <motion.div
           className="flex h-auto w-full items-center justify-center border-2 border-[#B091FF] bg-white py-2 sm:border-4 md:border-6 lg:border-8 overflow-visible"
           variants={fadeInUp}
@@ -277,7 +275,7 @@ export default function RewardPools() {
                 variants={staggerContainer}
               >
                 <motion.div
-                  className="grid w-full grid-cols-1 gap-2 -mt-6 sm:mt-0 sm:grid-cols-2 sm:gap-3 md:gap-4"
+                  className="grid w-full grid-cols-1 gap-4 -mt-6 mb-4 sm:-mt-6 sm:mb-3 md:-mt-7 md:mb-4 lg:-mt-8 lg:mb-5 xl:mt-0 xl:mb-0 sm:grid-cols-2 sm:gap-4 md:gap-5"
                   variants={staggerList}
                 >
                   {tabs.map((tab) => (
@@ -365,7 +363,7 @@ export default function RewardPools() {
                       {rewardSummaries.map((summary) => (
                         <motion.div key={summary.id} variants={fadeInUp}>
                           <Alert borderColor="black">
-                            <AlertDescription className="pixelify-sans-500 px-0 py-0 text-black sm:px-0.5 sm:py-0">
+                            <AlertDescription className="pixelify-sans-500 flex flex-row items-center justify-between gap-2 px-0 py-0 text-black sm:px-0.5 sm:py-0 sm:flex-col sm:items-start sm:gap-0">
                               <p className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
                                 {summary.label}
                               </p>
@@ -424,21 +422,23 @@ export default function RewardPools() {
                       variants={staggerList}
                     >
                       {(() => {
-                        const sortedCards = [...rewardCardsData].sort((a, b) => {
-                          switch (sortOption) {
-                            case "value-asc":
-                              return a.value - b.value;
-                            case "value-desc":
-                              return b.value - a.value;
-                            case "quantity-asc":
-                              return a.quantity - b.quantity;
-                            case "quantity-desc":
-                              return b.quantity - a.quantity;
-                            case "recently-added":
-                            default:
-                              return a.daysAgo - b.daysAgo;
+                        const sortedCards = [...rewardCardsData].sort(
+                          (a, b) => {
+                            switch (sortOption) {
+                              case "value-asc":
+                                return a.value - b.value;
+                              case "value-desc":
+                                return b.value - a.value;
+                              case "quantity-asc":
+                                return a.quantity - b.quantity;
+                              case "quantity-desc":
+                                return b.quantity - a.quantity;
+                              case "recently-added":
+                              default:
+                                return a.daysAgo - b.daysAgo;
+                            }
                           }
-                        });
+                        );
                         return sortedCards;
                       })().map((card) => (
                         <motion.div key={card.id} variants={fadeInUp}>
@@ -500,139 +500,147 @@ export default function RewardPools() {
                       </motion.div>
                     </div>
                     <div className="blur-sm">
-                    <motion.div className="w-full my-3 mb-4 sm:my-4 sm:mb-5" variants={fadeInUp}>
-                      <Alert borderColor="black">
-                        <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-0.5 px-0.5 py-0 text-black sm:flex-row sm:items-center sm:justify-between sm:gap-1 sm:px-0.5 sm:py-0">
-                          <div className="flex items-center gap-1 sm:gap-1.5">
-                            <div className="h-auto w-4 shrink-0 sm:w-4 md:w-5 lg:w-6">
-                              <Image
-                                src="/search.svg"
-                                alt="search"
-                                width={20}
-                                height={20}
-                                className="h-auto w-full"
-                              />
-                            </div>
-                            <p className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
-                              Search participant address
-                            </p>
-                          </div>
-                        </AlertDescription>
-                      </Alert>
-                    </motion.div>
-
-                    {hasParticipants ? (
                       <motion.div
-                        className="w-full space-y-2 pixelify-sans-500 sm:space-y-3"
-                        initial="hidden"
-                        animate="visible"
-                        variants={staggerContainer}
+                        className="w-full my-3 mb-4 sm:my-4 sm:mb-5"
+                        variants={fadeInUp}
                       >
-                        <motion.div
-                          className="hidden grid-cols-2 gap-2 px-1 text-[8px] text-[#1E3445] sm:grid sm:grid-cols-4 sm:gap-3 sm:text-[10px] md:text-xs"
-                          variants={fadeInUp}
-                        >
-                          <p className="sm:pl-3">Participant</p>
-                          <p className="sm:pl-2">Total NFT Owned</p>
-                          <p className="sm:pl-2">Total NFT Purchase</p>
-                          <p className="sm:pl-3 md:pl-4">Date Added</p>
-                        </motion.div>
+                        <Alert borderColor="black">
+                          <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-0.5 px-0.5 py-0 text-black sm:flex-row sm:items-center sm:justify-between sm:gap-1 sm:px-0.5 sm:py-0">
+                            <div className="flex items-center gap-1 sm:gap-1.5">
+                              <div className="h-auto w-4 shrink-0 sm:w-4 md:w-5 lg:w-6">
+                                <Image
+                                  src="/search.svg"
+                                  alt="search"
+                                  width={20}
+                                  height={20}
+                                  className="h-auto w-full"
+                                />
+                              </div>
+                              <p className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
+                                Search participant address
+                              </p>
+                            </div>
+                          </AlertDescription>
+                        </Alert>
+                      </motion.div>
 
+                      {hasParticipants ? (
                         <motion.div
-                          className="space-y-4 sm:space-y-4"
-                          variants={staggerList}
+                          className="w-full space-y-2 pixelify-sans-500 sm:space-y-3"
+                          initial="hidden"
+                          animate="visible"
+                          variants={staggerContainer}
                         >
-                          {participantRows.map((row) => (
-                            <motion.div key={row.id} variants={fadeInUp}>
-                              <Alert borderColor="black">
-                                <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-2 px-0.5 py-0 text-black sm:gap-3 sm:px-1 sm:py-0">
-                                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 md:gap-5">
-                                    {participantFields.map(({ key, label }) => (
-                                      <div
-                                        key={`${row.id}-${key}`}
-                                        className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden"
-                                      >
-                                        <span className="text-[8px] uppercase text-[#475160] sm:hidden">
-                                          {label}
+                          <motion.div
+                            className="hidden grid-cols-2 gap-2 px-1 text-[8px] text-[#1E3445] sm:grid sm:grid-cols-4 sm:gap-3 sm:text-[10px] md:text-xs"
+                            variants={fadeInUp}
+                          >
+                            <p className="sm:pl-3">Participant</p>
+                            <p className="sm:pl-2">Total NFT Owned</p>
+                            <p className="sm:pl-2">Total NFT Purchase</p>
+                            <p className="sm:pl-3 md:pl-4">Date Added</p>
+                          </motion.div>
+
+                          <motion.div
+                            className="space-y-4 sm:space-y-4"
+                            variants={staggerList}
+                          >
+                            {participantRows.map((row) => (
+                              <motion.div key={row.id} variants={fadeInUp}>
+                                <Alert borderColor="black">
+                                  <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-2 px-0.5 py-0 text-black sm:gap-3 sm:px-1 sm:py-0">
+                                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 md:gap-5">
+                                      {participantFields.map(
+                                        ({ key, label }) => (
+                                          <div
+                                            key={`${row.id}-${key}`}
+                                            className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden"
+                                          >
+                                            <span className="text-[8px] uppercase text-[#475160] sm:hidden">
+                                              {label}
+                                            </span>
+                                            <p className="press-start-2p-regular break-words break-all text-[8px] sm:break-words sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
+                                              {row[key]}
+                                            </p>
+                                          </div>
+                                        )
+                                      )}
+                                    </div>
+                                  </AlertDescription>
+                                </Alert>
+                              </motion.div>
+                            ))}
+
+                            <motion.div variants={fadeInUp}>
+                              <Alert
+                                borderColor="black"
+                                className="bg-[#C9B9F7]"
+                              >
+                                <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-3 px-0 py-0 text-black sm:gap-4 sm:px-0.5 sm:py-0">
+                                  <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-5 md:gap-7">
+                                    <div className="flex items-start gap-3 sm:items-center sm:gap-4">
+                                      <div className="h-auto w-8 shrink-0 sm:w-10 md:w-12">
+                                        <Image
+                                          src="/llamao-gen.png"
+                                          alt="llamao"
+                                          width={100}
+                                          height={100}
+                                          className="h-auto w-full"
+                                        />
+                                      </div>
+                                      <div className="flex flex-col gap-1.5 min-w-0 flex-1 overflow-hidden">
+                                        <span className="text-[9px] uppercase text-[#475160] sm:hidden">
+                                          Participant
                                         </span>
+                                        <p className="pixelify-sans-500 text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
+                                          YOU
+                                        </p>
                                         <p className="press-start-2p-regular break-words break-all text-[8px] sm:break-words sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
-                                          {row[key]}
+                                          {highlightedParticipant.address}
                                         </p>
                                       </div>
-                                    ))}
+                                    </div>
+
+                                    <div className="grid w-full gap-3 sm:grid-cols-3 sm:gap-4 md:gap-5">
+                                      {participantStatFields.map(
+                                        ({ key, label }) => (
+                                          <div
+                                            key={`highlight-${key}`}
+                                            className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden"
+                                          >
+                                            <span className="text-[8px] uppercase text-[#475160] sm:hidden">
+                                              {label}
+                                            </span>
+                                            <p className="press-start-2p-regular break-words break-all text-[8px] sm:break-words sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
+                                              {highlightedParticipant[key]}
+                                            </p>
+                                          </div>
+                                        )
+                                      )}
+                                    </div>
                                   </div>
                                 </AlertDescription>
                               </Alert>
                             </motion.div>
-                          ))}
-
-                          <motion.div variants={fadeInUp}>
-                            <Alert borderColor="black" className="bg-[#C9B9F7]">
-                              <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-3 px-0 py-0 text-black sm:gap-4 sm:px-0.5 sm:py-0">
-                                <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-5 md:gap-7">
-                                  <div className="flex items-start gap-3 sm:items-center sm:gap-4">
-                                    <div className="h-auto w-8 shrink-0 sm:w-10 md:w-12">
-                                      <Image
-                                        src="/llamao-gen.png"
-                                        alt="llamao"
-                                        width={100}
-                                        height={100}
-                                        className="h-auto w-full"
-                                      />
-                                    </div>
-                                    <div className="flex flex-col gap-1.5 min-w-0 flex-1 overflow-hidden">
-                                      <span className="text-[9px] uppercase text-[#475160] sm:hidden">
-                                        Participant
-                                      </span>
-                                      <p className="pixelify-sans-500 text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
-                                        YOU
-                                      </p>
-                                      <p className="press-start-2p-regular break-words break-all text-[8px] sm:break-words sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
-                                        {highlightedParticipant.address}
-                                      </p>
-                                    </div>
-                                  </div>
-
-                                  <div className="grid w-full gap-3 sm:grid-cols-3 sm:gap-4 md:gap-5">
-                                    {participantStatFields.map(
-                                      ({ key, label }) => (
-                                        <div
-                                          key={`highlight-${key}`}
-                                          className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden"
-                                        >
-                                          <span className="text-[8px] uppercase text-[#475160] sm:hidden">
-                                            {label}
-                                          </span>
-                                          <p className="press-start-2p-regular break-words break-all text-[8px] sm:break-words sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
-                                            {highlightedParticipant[key]}
-                                          </p>
-                                        </div>
-                                      )
-                                    )}
-                                  </div>
-                                </div>
-                              </AlertDescription>
-                            </Alert>
                           </motion.div>
                         </motion.div>
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        className="press-start-2p-regular flex w-full flex-col items-center justify-center gap-2 rounded-md border border-dashed border-[#B091FF] bg-[#F7F2FF] py-6 text-center text-[#6043AF] sm:gap-3 sm:border-2 sm:py-8 md:gap-4 md:border-4 md:py-10 lg:py-12"
-                        variants={fadeInUp}
-                      >
-                        <Image
-                          src="/reward-pool-bg.svg"
-                          alt="participants coming soon"
-                          width={220}
-                          height={48}
-                          className="h-auto w-full max-w-[140px] select-none sm:max-w-[180px] md:max-w-[200px] lg:max-w-[220px]"
-                        />
-                        <p className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm px-2">
-                          Participants list is coming soon.
-                        </p>
-                      </motion.div>
-                    )}
+                      ) : (
+                        <motion.div
+                          className="press-start-2p-regular flex w-full flex-col items-center justify-center gap-2 rounded-md border border-dashed border-[#B091FF] bg-[#F7F2FF] py-6 text-center text-[#6043AF] sm:gap-3 sm:border-2 sm:py-8 md:gap-4 md:border-4 md:py-10 lg:py-12"
+                          variants={fadeInUp}
+                        >
+                          <Image
+                            src="/reward-pool-bg.svg"
+                            alt="participants coming soon"
+                            width={220}
+                            height={48}
+                            className="h-auto w-full max-w-[140px] select-none sm:max-w-[180px] md:max-w-[200px] lg:max-w-[220px]"
+                          />
+                          <p className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm px-2">
+                            Participants list is coming soon.
+                          </p>
+                        </motion.div>
+                      )}
                     </div>
                   </motion.div>
                 )}
@@ -654,8 +662,9 @@ export default function RewardPools() {
                       <BlurredBackgroundButton text="COMING SOON" id="nft" />
 
                       <div className="w-full text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
-                      The Llamao Blessing Pool is a reward campaign designed to appreciate and celebrate our community members who support Llamao by minting and holding NFTs on mainnet
-
+                        The Llamao Blessing Pool is a reward campaign designed
+                        to appreciate and celebrate our community members who
+                        support Llamao by minting and holding NFTs on mainnet
                       </div>
                     </AlertDescription>
                   </Alert>
@@ -670,7 +679,10 @@ export default function RewardPools() {
                         </p>
                       </div>
 
-                      <BlurredBackgroundButton text="STAY TUNED" id="countdown" />
+                      <BlurredBackgroundButton
+                        text="STAY TUNED"
+                        id="countdown"
+                      />
 
                       <div className="w-full text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
                         {`Once the raffle date is set, the countdown is on. Don’t miss it`}
@@ -686,4 +698,3 @@ export default function RewardPools() {
     </motion.div>
   );
 }
-
