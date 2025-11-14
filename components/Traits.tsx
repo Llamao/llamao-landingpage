@@ -340,7 +340,7 @@ const Traits = () => {
             <div className="relative" ref={canvasWrapperRef}>
               <canvas id="canvas" className="w-full h-auto block" />
               {hasImage && (
-                <div className="absolute top-4 left-0 right-0 flex justify-center gap-4 md:gap-0 md:justify-between px-4">
+                <div className="absolute top-4 left-0 right-0 flex justify-between gap-4 px-4">
                   <Button
                     onClick={handleFlip}
                     size={"sm"}

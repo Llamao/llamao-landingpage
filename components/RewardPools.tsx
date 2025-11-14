@@ -372,37 +372,39 @@ export default function RewardPools() {
                       <p className="text-xs sm:text-sm md:text-base lg:text-lg 2xl:text-base">
                         All Items
                       </p>
-                      <div className="relative flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6">
-                        <select
-                          value={sortOption}
-                          onChange={(e) =>
-                            setSortOption(e.target.value as SortOption)
-                          }
-                          className="pixelify-sans-500 text-[8px] sm:text-[10px] md:text-xs lg:text-sm appearance-none bg-transparent border-none outline-none cursor-pointer pr-6"
-                        >
-                          <option value="recently-added">
-                            Sort by: Recently Added
-                          </option>
-                          <option value="value-asc">
-                            Sort by: Value (Ascending)
-                          </option>
-                          <option value="value-desc">
-                            Sort by: Value (Descending)
-                          </option>
-                          <option value="quantity-asc">
-                            Sort by: Quantity (Ascending)
-                          </option>
-                          <option value="quantity-desc">
-                            Sort by: Quantity (Descending)
-                          </option>
-                        </select>
-                        <Image
-                          src="/arrow-black.svg"
-                          alt="arrow"
-                          width={20}
-                          height={12}
-                          className="h-auto w-3 sm:w-4 md:w-5 lg:w-6 absolute right-0 pointer-events-none"
-                        />
+                      <div className="flex items-center gap-0 sm:gap-3 md:gap-4 lg:gap-6">
+                        <div className="relative inline-flex items-center">
+                          <select
+                            value={sortOption}
+                            onChange={(e) =>
+                              setSortOption(e.target.value as SortOption)
+                            }
+                            className="pixelify-sans-500 text-[8px] sm:text-[10px] md:text-xs lg:text-sm appearance-none bg-transparent border-none outline-none cursor-pointer pr-10 sm:pr-8"
+                          >
+                            <option value="recently-added">
+                              Sort by: Recently Added
+                            </option>
+                            <option value="value-asc">
+                              Sort by: Value (Ascending)
+                            </option>
+                            <option value="value-desc">
+                              Sort by: Value (Descending)
+                            </option>
+                            <option value="quantity-asc">
+                              Sort by: Quantity (Ascending)
+                            </option>
+                            <option value="quantity-desc">
+                              Sort by: Quantity (Descending)
+                            </option>
+                          </select>
+                          <Image
+                            src="/arrow-black.svg"
+                            alt="arrow"
+                            width={20}
+                            height={12}
+                            className="pointer-events-none absolute right-2 top-1/2 h-auto w-3 -translate-y-1/2 sm:w-4 md:w-5 lg:w-6"
+                          />
+                        </div>
                       </div>
                     </motion.div>
 

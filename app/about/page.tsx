@@ -11,11 +11,10 @@ export default function AboutPage() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="fixed left-1/2 -translate-x-1/2 top-[15%] lg:top-[50%] 2xl:top-[50%] w-[85%] lg:w-auto lg:-translate-y-[41%] z-50 flex flex-col gap-5"
+        className="relative w-full max-w-4xl mx-auto flex flex-col items-center gap-5 px-4 md:px-8 pt-6 md:pt-16 lg:pt-20 pb-16"
       >
         <About />
       </motion.div>
     </PageLayout>
   );
 }
-
