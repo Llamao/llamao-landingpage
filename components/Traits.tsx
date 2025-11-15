@@ -19,13 +19,21 @@ const Traits = () => {
   const { width: viewportWidth } = useWindowSize();
   const desiredCardWidth = viewportWidth
     ? viewportWidth < 500
-      ? Math.floor(viewportWidth * 0.85)
+      ? Math.floor(viewportWidth * 0.7)
       : viewportWidth < 630
       ? 400
       : 430
     : 430;
 
   const deleteImgRef = useRef<HTMLImageElement | null>(null);
+  const loadHtmlImage = (src: string) =>
+    new Promise<HTMLImageElement>((resolve, reject) => {
+      const element = document.createElement("img");
+      element.crossOrigin = "anonymous";
+      element.onload = () => resolve(element);
+      element.onerror = () => reject(new Error("Failed to load image"));
+      element.src = src;
+    });
 
   function deleteObject(
     _eventData: fabric.TPointerEvent,
@@ -86,6 +94,84 @@ const Traits = () => {
     canvas.requestRenderAll();
   };
 
+  const clearExistingImages = () => {
+    const canvas = canvasRef.current;
+    const rect = rectRef.current;
+    if (!canvas) return;
+
+    const objects = canvas.getObjects();
+    objects.forEach((obj) => {
+      if (obj !== rect && obj instanceof FabricImage) {
+        canvas.remove(obj);
+      }
+    });
+
+    imageRef.current = undefined;
+    setHasImage(false);
+
+    if (rect) {
+      rect.clipPath = undefined;
+    }
+
+    canvas.requestRenderAll();
+  };
+
+  const insertImageFromUrl = async (imgSrc: string) => {
+    const canvas = canvasRef.current;
+    const rect = rectRef.current;
+    if (!canvas) return;
+
+    try {
+      const imgElement = await loadHtmlImage(imgSrc);
+
+      clearExistingImages();
+
+      const fabricImg = new FabricImage(imgElement, {
+        left: 0,
+        top: 0,
+        selectable: false,
+        evented: false,
+        lockMovementX: true,
+        lockMovementY: true,
+        lockScalingX: true,
+        lockScalingY: true,
+        lockRotation: true,
+      });
+
+      const targetWidth = canvas.getWidth() ?? 400;
+      const originalWidth = fabricImg.width ?? targetWidth;
+      const scale = targetWidth / originalWidth;
+
+      fabricImg.scale(scale);
+
+      const scaledHeight =
+        fabricImg.getScaledHeight() ?? fabricImg.height ?? targetWidth;
+      canvas.setHeight(scaledHeight);
+
+      canvas.add(fabricImg);
+      imageRef.current = fabricImg;
+      setHasImage(true);
+
+      if (rect) {
+        const rectClipRect = new Rect({
+          left: 0,
+          top: 0,
+          width: 100,
+          height: 100,
+          absolutePositioned: true,
+        });
+        rect.clipPath = rectClipRect;
+        clipRectRef.current = rectClipRect;
+        canvas.bringObjectToFront(rect);
+      }
+
+      synchronizeCanvasLayout();
+      canvas.requestRenderAll();
+    } catch (error) {
+      console.error("Error inserting image:", error);
+    }
+  };
+
   const createRectangle = () => {
     const canvas = canvasRef.current;
     if (!canvas || !deleteImgRef.current) return;
@@ -132,33 +218,11 @@ const Traits = () => {
 
     canvasRef.current = c;
 
-    // Load delete icon and create initial rectangle
+    // Load delete icon for future controls
     const deleteImg = document.createElement("img");
     deleteImg.src = deleteIcon;
     deleteImg.onload = () => {
       deleteImgRef.current = deleteImg;
-
-      // Render rectangle immediately on page load
-      const rect = new Rect({
-        height: 100,
-        width: 100,
-        stroke: "red",
-        left: 0,
-        top: 0,
-      });
-
-      rect.controls.deleteControl = new fabric.Control({
-        x: 0.5,
-        y: -0.5,
-        offsetY: 16,
-        cursorStyle: "pointer",
-        mouseUpHandler: deleteObject,
-        render: renderIcon,
-      });
-
-      rectRef.current = rect;
-      c.add(rect);
-      synchronizeCanvasLayout();
     };
 
     return () => {
@@ -184,88 +248,14 @@ const Traits = () => {
   };
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const canvas = canvasRef.current;
-    const rect = rectRef.current;
-    if (!canvas) return;
-
     const file = e.target.files?.[0];
     if (!file) return;
-
-    // Remove old images (keep only the rectangle)
-    const objects = canvas.getObjects();
-    objects.forEach((obj) => {
-      if (obj !== rect && obj instanceof FabricImage) {
-        canvas.remove(obj);
-      }
-    });
-    imageRef.current = undefined;
-    setHasImage(false);
-
-    // Remove clipPath from rectangle before uploading new image
-    if (rect) {
-      rect.clipPath = undefined;
-    }
 
     const reader = new FileReader();
     reader.onload = async (event) => {
       const imgUrl = event.target?.result as string;
       if (!imgUrl) return;
-
-      try {
-        // Create HTMLImageElement first
-        const imgElement = document.createElement("img");
-
-        await new Promise<void>((resolve, reject) => {
-          imgElement.onload = () => resolve();
-          imgElement.onerror = () => reject(new Error("Failed to load image"));
-          imgElement.src = imgUrl;
-        });
-
-        // Create FabricImage from the loaded image
-        const fabricImg = new FabricImage(imgElement, {
-          left: 0,
-          top: 0,
-          selectable: false,
-          evented: false,
-          lockMovementX: true,
-          lockMovementY: true,
-          lockScalingX: true,
-          lockScalingY: true,
-          lockRotation: true,
-        });
-
-        // Scale image to width = 100% (400px), height auto (maintain aspect ratio)
-        const targetWidth = canvas.getWidth() ?? 400;
-        const originalWidth = fabricImg.width!;
-        const scale = targetWidth / originalWidth;
-
-        fabricImg.scale(scale);
-
-        // Add image first (so it's below the rectangle)
-        canvas.add(fabricImg);
-        imageRef.current = fabricImg;
-        setHasImage(true);
-
-        // Set clipPath for rectangle to hide parts outside the image
-        // Rectangle can move and resize freely, but parts outside image will be hidden
-        if (rect) {
-          const rectClipRect = new Rect({
-            left: 0,
-            top: 0,
-            width: 100,
-            height: 100,
-            absolutePositioned: true,
-          });
-          rect.clipPath = rectClipRect;
-          clipRectRef.current = rectClipRect;
-
-          // Move rectangle to top (bring to front)
-          canvas.bringObjectToFront(rect);
-        }
-        synchronizeCanvasLayout();
-      } catch (error) {
-        console.error("Error loading image:", error);
-      }
+      await insertImageFromUrl(imgUrl);
     };
     reader.readAsDataURL(file);
 
@@ -273,14 +263,42 @@ const Traits = () => {
     e.target.value = "";
   };
 
-  const handleFlip = () => {
-    const rect = rectRef.current;
+  const addEditableAvatarImage = async (src: string) => {
     const canvas = canvasRef.current;
-    if (!rect || !canvas) return;
+    if (!canvas || !deleteImgRef.current) return;
 
-    // Flip rectangle horizontally
-    rect.flipX = !rect.flipX;
-    canvas.requestRenderAll();
+    try {
+      const imgElement = await loadHtmlImage(src);
+      const avatarImage = new FabricImage(imgElement, {
+        left: (canvas.getWidth() ?? 400) * 0.15,
+        top: (canvas.getHeight() ?? 400) * 0.15,
+      });
+
+      avatarImage.scaleToWidth((canvas.getWidth() ?? 400) * 0.6);
+
+      avatarImage.controls.deleteControl = new fabric.Control({
+        x: 0.5,
+        y: -0.5,
+        offsetY: 16,
+        cursorStyle: "pointer",
+        mouseUpHandler: deleteObject,
+        render: renderIcon,
+      });
+
+      canvas.add(avatarImage);
+      canvas.setActiveObject(avatarImage);
+      canvas.requestRenderAll();
+    } catch (error) {
+      console.error("Error adding avatar image:", error);
+    }
+  };
+
+  const handleAddAvatarImage1 = () => {
+    void addEditableAvatarImage("/llamao_avatar1.png");
+  };
+
+  const handleAddAvatarImage2 = () => {
+    void addEditableAvatarImage("/llamao_avatar2.png");
   };
 
   const handleDeleteImage = () => {
@@ -297,7 +315,7 @@ const Traits = () => {
     if (rect) {
       rect.clipPath = undefined;
     }
-
+    canvas.setHeight(canvas.getWidth() ?? desiredCardWidth);
     canvas.requestRenderAll();
   };
 
@@ -330,7 +348,7 @@ const Traits = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center md:items-stretch gap-0 md:gap-8 md:justify-center lg:justify-start">
+    <div className="flex flex-col md:flex-row items-center md:items-stretch gap-0 md:gap-8 md:justify-center lg:justify-start xl:scale-90 xl:origin-top 2xl:scale-100">
       <div className="w-full flex justify-center md:w-full md:flex md:justify-center lg:w-auto lg:block">
         <div
           className="relative mx-auto m-1.5 flex flex-col justify-between"
@@ -340,14 +358,7 @@ const Traits = () => {
             <div className="relative" ref={canvasWrapperRef}>
               <canvas id="canvas" className="w-full h-auto block" />
               {hasImage && (
-                <div className="absolute top-4 left-0 right-0 flex justify-between gap-4 px-4">
-                  <Button
-                    onClick={handleFlip}
-                    size={"sm"}
-                    className="bg-[#2BEBC8] hover:bg-[#25D4B3] text-black px-4 py-2 text-sm font-semibold"
-                  >
-                    Flip
-                  </Button>
+                <div className="absolute top-4 right-0 flex justify-end px-4">
                   <Button
                     onClick={handleDeleteImage}
                     size={"sm"}
@@ -366,16 +377,16 @@ const Traits = () => {
               className="hidden"
             />
             <div className="bg-[#E8DEFF] w-full px-4 py-4">
-              <p className="silkscreen-regular text-center tracking-tight text-3xl text-[#2245C5]">
+              <p className="silkscreen-regular text-center tracking-tight text-xl md:text-3xl text-[#2245C5]">
                 Llamao generator
               </p>
               <div className="mt-2 w-full flex items-center justify-center">
                 <Button
                   onClick={handleButtonClick}
                   size={"sm"}
-                  className="w-full bg-[#DD1A21] hover:bg-[#FF2A31] py-5 hover:scale-105 hover:brightness-110 transition-all duration-200"
+                  className="w-full bg-[#DD1A21] hover:bg-[#FF2A31] py-2 md:py-5 hover:scale-105 hover:brightness-110 transition-all duration-200"
                 >
-                  <p className="pixelify-sans-500 text-2xl">
+                  <p className="pixelify-sans-500 text-lg md:text-2xl">
                     {hasImage ? "SAVE IMAGE" : "ADD IMAGE"}
                   </p>
                 </Button>
@@ -438,8 +449,21 @@ const Traits = () => {
       <div className="flex flex-row flex-wrap justify-center gap-1.5 w-full md:flex-col md:justify-around lg:ml-8 md:w-auto -mt-2 md:mt-0">
         <button
           type="button"
-          onClick={handleAddRectangle}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex justify-center w-[90px] h-[220px] md:w-auto md:h-auto"
+          onClick={handleAddAvatarImage1}
+          className="cursor-pointer hover:opacity-80 transition-opacity flex justify-center w-[60px] h-[150px] md:w-auto md:h-auto"
+        >
+          <Image
+            src="/traits-btn.png"
+            alt="traits button"
+            width={100}
+            height={300}
+            className="object-contain w-full h-full"
+          />
+        </button>
+        <button
+          type="button"
+          onClick={handleAddAvatarImage2}
+          className="cursor-pointer hover:opacity-80 transition-opacity flex justify-center w-[60px] h-[150px] md:w-auto md:h-auto"
         >
           <Image
             src="/traits-btn.png"
@@ -452,20 +476,7 @@ const Traits = () => {
         <button
           type="button"
           onClick={handleAddRectangle}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex justify-center w-[90px] h-[220px] md:w-auto md:h-auto"
-        >
-          <Image
-            src="/traits-btn.png"
-            alt="traits button"
-            width={100}
-            height={300}
-            className="object-contain w-full h-full"
-          />
-        </button>
-        <button
-          type="button"
-          onClick={handleAddRectangle}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex justify-center w-[90px] h-[220px] md:w-auto md:h-auto"
+          className="cursor-pointer hover:opacity-80 transition-opacity flex justify-center w-[60px] h-[150px] md:w-auto md:h-auto"
         >
           <Image
             src="/traits-btn.png"

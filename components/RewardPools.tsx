@@ -73,25 +73,17 @@ type ParticipantRow = {
   id: string;
   address: string;
   totalOwned: string;
-  totalPurchase: string;
   dateAdded: string;
 };
 
 const participantFields = [
   { key: "address", label: "Participant" },
   { key: "totalOwned", label: "Total NFT Owned" },
-  { key: "totalPurchase", label: "Total NFT Purchase" },
-  { key: "dateAdded", label: "Date Added" },
-] as const;
-
-const participantStatFields = [
-  { key: "totalOwned", label: "Total NFT Owned" },
-  { key: "totalPurchase", label: "Total NFT Purchase" },
   { key: "dateAdded", label: "Date Added" },
 ] as const;
 
 const participantRows: ParticipantRow[] = Array.from(
-  { length: 6 },
+  { length: 4 },
   (_, index) => ({
     id: `participant-${index}`,
     address: "0x...aaaa",
@@ -107,7 +99,6 @@ const highlightedParticipant: ParticipantRow = {
   id: "highlighted",
   address: "0x...aaaa",
   totalOwned: "5000 NFTs",
-  totalPurchase: "5000 NFTs",
   dateAdded: "01/01/2026",
 };
 
@@ -134,7 +125,7 @@ function BlurredBackgroundButton({ text, id }: { text: string; id: string }) {
 
   return (
     <div className="relative w-full overflow-visible flex items-center justify-center my-2 sm:my-3 px-2 sm:px-3">
-      <div className="relative w-full h-[70px] sm:h-20 md:h-[90px] lg:h-[100px] flex items-center justify-center">
+      <div className="relative w-full h-[70px] sm:h-20 md:h-[90px] lg:h-[100px] xl:h-20 2xl:h-[75px] flex items-center justify-center">
         <div className="absolute inset-0 flex w-full gap-0.5 blur-[2px] sm:gap-1 sm:blur-sm md:gap-1.5 md:blur-sm z-0 opacity-60">
           {Array.from({ length: imageCount }).map((_, index) => (
             <div className="w-full h-full" key={`blurred-${id}-${index}`}>
@@ -149,7 +140,7 @@ function BlurredBackgroundButton({ text, id }: { text: string; id: string }) {
           ))}
         </div>
         <div
-          className="press-start-2p-regular relative z-10 w-full max-w-[280px] h-10 text-center text-white transition-transform hover:scale-[1.03] active:scale-95 sm:h-[45px] md:h-[50px] lg:h-[55px] bg-[#B091FF] flex items-center justify-center"
+          className="press-start-2p-regular relative z-10 w-full max-w-[280px] xl:max-w-[360px] 2xl:max-w-[400px] h-10 text-center text-white transition-transform hover:scale-[1.03] active:scale-95 sm:h-[45px] md:h-[50px] lg:h-[55px] bg-[#B091FF] flex items-center justify-center"
           style={{
             boxShadow: "6px 6px 0 0 #4A2C1A",
           }}
@@ -206,17 +197,27 @@ export default function RewardPools() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }, []);
+
   // Update current index when carousel changes
   useEffect(() => {
     if (!api) {
-      return;
+      return undefined;
     }
 
-    setCurrent(api.selectedScrollSnap());
-
-    api.on("select", () => {
+    const handleSelect = () => {
       setCurrent(api.selectedScrollSnap());
-    });
+    };
+
+    const rafId = window.requestAnimationFrame(handleSelect);
+    api.on("select", handleSelect);
+
+    return () => {
+      window.cancelAnimationFrame(rafId);
+      api.off("select", handleSelect);
+    };
   }, [api]);
 
   // Auto-scroll prizes
@@ -312,14 +313,14 @@ export default function RewardPools() {
                                   className="pl-2 sm:pl-2 md:pl-3 lg:pl-3 basis-1/5"
                                 >
                                   <motion.div
-                                    className={`press-start-2p-regular flex h-full flex-col items-center justify-start gap-0.5 bg-[#090B12] px-1.5 py-1 text-center text-[8px] leading-tight text-white transition-transform duration-150 ease-out hover:scale-[1.03] sm:gap-1 sm:px-2 sm:py-1 sm:text-[10px] sm:leading-5 md:gap-1 md:px-3 md:py-1.5 md:text-xs md:leading-6 ${
+                                    className={`press-start-2p-regular flex h-full flex-col items-center justify-start gap-0.5 bg-[#090B12] px-1.5 py-0.5 text-center text-[8px] leading-tight text-white transition-transform duration-150 ease-out hover:scale-[1.03] sm:gap-1 sm:px-2 sm:py-0.5 sm:text-[10px] sm:leading-5 md:gap-1 md:px-3 md:py-1 md:text-xs md:leading-6 ${
                                       isSelected
                                         ? "border border-[#F4B63D] shadow-[0_0_0_1px_#1A1D26] sm:border-2 sm:shadow-[0_0_0_2px_#1A1D26] md:border-[3px] md:shadow-[0_0_0_3px_#1A1D26]"
-                                        : ""
+                                        : "border border-[#F4B63D]/10 shadow-[0_0_0_1px_#1A1D26/30] sm:border-2 sm:shadow-[0_0_0_2px_#1A1D26/30] md:border-[3px] md:shadow-[0_0_0_3px_#1A1D26/30]"
                                     }`}
                                     variants={fadeInUp}
                                   >
-                                    <div className="relative w-full flex items-center justify-center h-20 sm:h-[100px] md:h-[120px] lg:h-[140px]">
+                                    <div className="relative w-full flex items-center justify-center h-auto py-2">
                                       <Image
                                         src="/prizelogo.jpg"
                                         alt={`${prize.title} logo`}
@@ -328,7 +329,7 @@ export default function RewardPools() {
                                         className="h-full w-auto object-contain"
                                       />
                                     </div>
-                                    <div className="flex flex-col gap-0.5 shrink-0 w-full text-center px-1 max-w-[60px] sm:max-w-[70px] md:max-w-[80px] mx-auto">
+                                    <div className="flex flex-col gap-0.5 shrink-0 w-full text-center px-1 max-w-[60px] sm:max-w-[70px] md:max-w-20 mx-auto">
                                       <span className="wrap-break-word whitespace-normal min-h-[1.2em] flex items-center justify-center leading-tight">
                                         {prize.title}
                                       </span>
@@ -351,7 +352,10 @@ export default function RewardPools() {
                     >
                       {rewardSummaries.map((summary) => (
                         <motion.div key={summary.id} variants={fadeInUp}>
-                          <Alert borderColor="black">
+                          <Alert
+                            borderColor="black"
+                            className="py-1 sm:py-1 md:py-1 lg:py-1"
+                          >
                             <AlertDescription className="pixelify-sans-500 flex flex-row items-center justify-between gap-2 px-0 py-0 text-black sm:px-0.5 sm:py-0 sm:flex-col sm:items-start sm:gap-0">
                               <p className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
                                 {summary.label}
@@ -384,12 +388,6 @@ export default function RewardPools() {
                             <option value="recently-added">
                               Sort by: Recently Added
                             </option>
-                            <option value="value-asc">
-                              Sort by: Value (Ascending)
-                            </option>
-                            <option value="value-desc">
-                              Sort by: Value (Descending)
-                            </option>
                             <option value="quantity-asc">
                               Sort by: Quantity (Ascending)
                             </option>
@@ -412,7 +410,7 @@ export default function RewardPools() {
                       className="space-y-2 sm:space-y-3 md:space-y-4"
                       variants={staggerList}
                     >
-                      <div className="max-h-[190px] sm:max-h-[210px] md:max-h-[230px] overflow-y-auto pr-1 flex flex-col gap-2 sm:gap-3 md:gap-4">
+                      <div className="max-h-[170px] sm:max-h-[190px] md:max-h-[210px] overflow-y-auto pr-1 flex flex-col gap-2 sm:gap-3 md:gap-4">
                         {(() => {
                           const sortedCards = [...rewardCardsData].sort(
                             (a, b) => {
@@ -442,7 +440,7 @@ export default function RewardPools() {
                               borderColor="black"
                               className="transition-colors duration-200 hover:bg-[#C9B9F7]/60"
                             >
-                              <AlertDescription className="pixelify-sans-500 flex w-full flex-wrap items-center justify-between gap-2 px-1 py-1 text-black md:flex-nowrap">
+                              <AlertDescription className="pixelify-sans-500 flex w-full flex-wrap items-center justify-between gap-2 px-1 py-0.5 text-black md:flex-nowrap">
                                 <div className="flex items-center gap-2 min-w-[140px] flex-1">
                                   <div className="h-auto w-10 shrink-0 sm:w-12 md:w-14">
                                     <Image
@@ -538,12 +536,11 @@ export default function RewardPools() {
                           variants={staggerContainer}
                         >
                           <motion.div
-                            className="hidden grid-cols-2 gap-2 px-1 text-[8px] text-[#1E3445] sm:grid sm:grid-cols-4 sm:gap-3 sm:text-[10px] md:text-xs"
+                            className="hidden w-full grid-cols-3 gap-2 px-1 text-[8px] text-[#1E3445] sm:grid sm:gap-3 sm:text-[10px] md:text-xs"
                             variants={fadeInUp}
                           >
                             <p className="sm:pl-3">Participant</p>
                             <p className="sm:pl-2">Total NFT Owned</p>
-                            <p className="sm:pl-2">Total NFT Purchase</p>
                             <p className="sm:pl-3 md:pl-4">Date Added</p>
                           </motion.div>
 
@@ -555,7 +552,7 @@ export default function RewardPools() {
                               <motion.div key={row.id} variants={fadeInUp}>
                                 <Alert borderColor="black">
                                   <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-2 px-0.5 py-0 text-black sm:gap-3 sm:px-1 sm:py-0">
-                                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4 md:gap-5">
+                                    <div className="grid w-full items-center grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4 md:gap-5">
                                       {participantFields.map(
                                         ({ key, label }) => (
                                           <div
@@ -583,7 +580,7 @@ export default function RewardPools() {
                                 className="bg-[#C9B9F7]"
                               >
                                 <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-3 px-0 py-0 text-black sm:gap-4 sm:px-0.5 sm:py-0">
-                                  <div className="flex w-full flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-5 md:gap-7">
+                                  <div className="grid w-full items-center grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-4 md:gap-5">
                                     <div className="flex items-start gap-3 sm:items-center sm:gap-4">
                                       <div className="h-auto w-8 shrink-0 sm:w-10 md:w-12">
                                         <Image
@@ -607,22 +604,22 @@ export default function RewardPools() {
                                       </div>
                                     </div>
 
-                                    <div className="grid w-full gap-3 sm:grid-cols-3 sm:gap-4 md:gap-5">
-                                      {participantStatFields.map(
-                                        ({ key, label }) => (
-                                          <div
-                                            key={`highlight-${key}`}
-                                            className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden"
-                                          >
-                                            <span className="text-[8px] uppercase text-[#475160] sm:hidden">
-                                              {label}
-                                            </span>
-                                            <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
-                                              {highlightedParticipant[key]}
-                                            </p>
-                                          </div>
-                                        )
-                                      )}
+                                    <div className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden">
+                                      <span className="text-[8px] uppercase text-[#475160] sm:hidden">
+                                        Total NFT Owned
+                                      </span>
+                                      <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
+                                        {highlightedParticipant.totalOwned}
+                                      </p>
+                                    </div>
+
+                                    <div className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden">
+                                      <span className="text-[8px] uppercase text-[#475160] sm:hidden">
+                                        Date Added
+                                      </span>
+                                      <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
+                                        {highlightedParticipant.dateAdded}
+                                      </p>
                                     </div>
                                   </div>
                                 </AlertDescription>

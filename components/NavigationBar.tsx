@@ -52,11 +52,11 @@ const NavigationBar = () => {
   const getMobileLinkClasses = (variant: NavVariant) => {
     switch (variant) {
       case "primary":
-        return "bg-[#B091FF] px-4 py-3 text-white text-xl";
+        return "bg-[#B091FF] px-3 py-2 text-white text-lg";
       case "cta":
-        return "inline-flex w-full items-center justify-center px-6 py-5 text-xl text-white uppercase bg-[url('/reward-pool-bg.svg')] bg-contain bg-center bg-no-repeat";
+        return "inline-flex w-full items-center justify-center px-4 py-4 text-lg text-white uppercase bg-[url('/reward-pool-bg.svg')] bg-contain bg-center bg-no-repeat";
       default:
-        return "text-xl text-[#21201E]";
+        return "text-base text-[#21201E]";
     }
   };
   return (
@@ -195,7 +195,7 @@ const NavigationBar = () => {
                       },
                     },
                   }}
-                  className="relative press-start-2p-regular z-20 mx-auto flex w-full flex-col gap-16 px-5 py-12 text-center max-w-full sm:max-w-[380px]"
+                  className="relative press-start-2p-regular z-20 mx-auto flex w-full flex-col gap-10 px-4 py-8 text-center max-w-[320px] sm:max-w-[360px]"
                 >
                   {navLinks.map((link) => {
                     const variant = getActiveVariant(link);

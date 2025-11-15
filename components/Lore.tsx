@@ -105,7 +105,7 @@ const Lore = () => {
   };
 
   return (
-    <div className="flex items-center gap-20 justify-center">
+    <div className="flex items-center gap-6 sm:gap-12 justify-center -mt-2 sm:-mt-6 scale-90 sm:scale-95 xl:scale-90 xl:origin-top 2xl:scale-100">
       <motion.div
         className="hover:scale-110 transition-transform duration-300 cursor-pointer hidden md:block"
         onClick={handlePrevious}
@@ -114,7 +114,7 @@ const Lore = () => {
       >
         <Image src={"/arrow.svg"} alt="leftarrow" width={90} height={135} />
       </motion.div>
-      <div className="relative max-w-[430px] max-h-[80%]">
+      <div className="relative max-h-[90%] w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[400px] 2xl:max-w-[430px]">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={currentIndex}
@@ -127,21 +127,22 @@ const Lore = () => {
           >
             <Alert
               borderColor="#1E3445"
-              className="max-w-[430px] max-h-[80%] flex flex-col justify-between p-0 gap-0 relative"
+              className="w-full flex flex-col justify-between p-0 gap-0 relative"
             >
               <Image
                 src={currentItem.image}
                 alt={currentItem.name}
-                width={432.46}
-                height={432.46}
+                width={420}
+                height={420}
+                className="w-full h-auto"
               />
-              <div className="bg-[#E8DEFF] w-full px-3 py-4">
+              <div className="bg-[#E8DEFF] w-full px-3 py-3 sm:py-4">
                 <motion.p
                   key={`name-${currentIndex}`}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="silkscreen-regular text-2xl text-[#2245C5]"
+                  className="silkscreen-regular text-xl sm:text-2xl text-[#2245C5]"
                 >
                   {currentItem.name}
                 </motion.p>
@@ -150,7 +151,7 @@ const Lore = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15 }}
-                  className="pixelify-sans-400 text-[#1E3445] text-lg"
+                  className="pixelify-sans-400 text-[#1E3445] text-sm md:text-base"
                 >
                   {currentItem.content}
                 </motion.p>
@@ -158,14 +159,14 @@ const Lore = () => {
             </Alert>
           </motion.div>
         </AnimatePresence>
-        <div className="flex md:hidden items-center justify-center gap-16 mt-6">
+        <div className="flex md:hidden items-center justify-center gap-6 mt-3">
           <motion.div
             className="hover:scale-110 transition-transform duration-300 cursor-pointer"
             onClick={handlePrevious}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Image src={"/arrow.svg"} alt="leftarrow" width={60} height={90} />
+            <Image src={"/arrow.svg"} alt="leftarrow" width={45} height={68} />
           </motion.div>
           <motion.div
             className="hover:scale-110 transition-transform duration-300 cursor-pointer"
@@ -176,8 +177,8 @@ const Lore = () => {
             <Image
               src={"/arrow.svg"}
               alt="rightarrow"
-              width={60}
-              height={90}
+              width={45}
+              height={68}
               className="scale-x-[-1]"
             />
           </motion.div>
