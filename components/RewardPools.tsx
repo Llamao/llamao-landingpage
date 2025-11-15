@@ -125,7 +125,7 @@ function BlurredBackgroundButton({ text, id }: { text: string; id: string }) {
 
   return (
     <div className="relative w-full overflow-visible flex items-center justify-center my-2 sm:my-3 px-2 sm:px-3">
-      <div className="relative w-full h-[70px] sm:h-20 md:h-[90px] lg:h-[100px] xl:h-20 2xl:h-[75px] flex items-center justify-center">
+      <div className="relative w-full h-[70px] sm:h-20 md:h-[90px] lg:h-[100px] xl:h-[72px] 2xl:h-[75px] flex items-center justify-center">
         <div className="absolute inset-0 flex w-full gap-0.5 blur-[2px] sm:gap-1 sm:blur-sm md:gap-1.5 md:blur-sm z-0 opacity-60">
           {Array.from({ length: imageCount }).map((_, index) => (
             <div className="w-full h-full" key={`blurred-${id}-${index}`}>
@@ -140,7 +140,7 @@ function BlurredBackgroundButton({ text, id }: { text: string; id: string }) {
           ))}
         </div>
         <div
-          className="press-start-2p-regular relative z-10 w-full max-w-[280px] xl:max-w-[360px] 2xl:max-w-[400px] h-10 text-center text-white transition-transform hover:scale-[1.03] active:scale-95 sm:h-[45px] md:h-[50px] lg:h-[55px] bg-[#B091FF] flex items-center justify-center"
+          className="press-start-2p-regular relative z-10 w-full max-w-[280px] xl:max-w-[360px] 2xl:max-w-[400px] h-10 text-center text-white transition-transform hover:scale-[1.03] active:scale-95 sm:h-[45px] md:h-[50px] lg:h-[55px] xl:h-12 bg-[#B091FF] flex items-center justify-center"
           style={{
             boxShadow: "6px 6px 0 0 #4A2C1A",
           }}
@@ -410,7 +410,7 @@ export default function RewardPools() {
                       className="space-y-2 sm:space-y-3 md:space-y-4"
                       variants={staggerList}
                     >
-                      <div className="max-h-[170px] sm:max-h-[190px] md:max-h-[210px] overflow-y-auto pr-1 flex flex-col gap-2 sm:gap-3 md:gap-4">
+                      <div className="max-h-32 sm:max-h-36 md:max-h-40 overflow-y-auto pr-1 flex flex-col gap-1.5 sm:gap-2 md:gap-2.5">
                         {(() => {
                           const sortedCards = [...rewardCardsData].sort(
                             (a, b) => {
@@ -438,24 +438,24 @@ export default function RewardPools() {
                           >
                             <Alert
                               borderColor="black"
-                              className="transition-colors duration-200 hover:bg-[#C9B9F7]/60"
+                              className="transition-colors duration-200 hover:bg-[#C9B9F7]/60 py-1"
                             >
-                              <AlertDescription className="pixelify-sans-500 flex w-full flex-wrap items-center justify-between gap-2 px-1 py-0.5 text-black md:flex-nowrap">
-                                <div className="flex items-center gap-2 min-w-[140px] flex-1">
-                                  <div className="h-auto w-10 shrink-0 sm:w-12 md:w-14">
+                              <AlertDescription className="pixelify-sans-500 flex w-full flex-wrap items-center justify-between gap-1.5 px-1 py-0 text-black md:flex-nowrap">
+                                <div className="flex items-center gap-1.5 min-w-[120px] flex-1">
+                                  <div className="h-auto w-8 shrink-0 sm:w-10 md:w-12">
                                     <Image
                                       src={card.thumbnail}
                                       alt={card.title}
                                       width={424}
                                       height={424}
-                                      className="h-auto w-full"
+                                      className="h-full w-full object-contain"
                                     />
                                   </div>
                                   <div className="min-w-0 flex-1">
-                                    <p className="text-[8px] sm:text-[10px] md:text-xs">
+                                    <p className="text-[7px] sm:text-[9px] md:text-xs">
                                       NFT
                                     </p>
-                                    <p className="press-start-2p-regular wrap-break-word text-[8px] sm:text-[10px] md:text-xs">
+                                    <p className="press-start-2p-regular wrap-break-word text-[7px] sm:text-[9px] md:text-xs">
                                       {card.title}
                                     </p>
                                   </div>
@@ -472,7 +472,7 @@ export default function RewardPools() {
                                     {card.value.toLocaleString()} MON
                                   </p>
                                 </div> */}
-                                <div className="text-[8px] sm:text-[10px] md:text-xs">
+                                <div className="text-[7px] sm:text-[9px] md:text-xs">
                                   <p>Day Added</p>
                                   <p className="press-start-2p-regular wrap-break-word">
                                     {card.daysAgo} DAYS AGO
@@ -657,7 +657,7 @@ export default function RewardPools() {
                   <Alert borderColor="#6043AF">
                     <AlertDescription className="pixelify-sans-500 w-full space-y-1 px-1 py-0.5 text-black sm:space-y-1.5 sm:px-1.5 sm:py-1 md:space-y-2 md:px-2 md:py-1 lg:space-y-3">
                       <div className="flex w-full flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                        <p className="silkscreen-regular text-sm text-[#2245C5] sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-xl">
+                        <p className="silkscreen-regular text-sm text-[#2245C5] sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-xl">
                           YOUR NFT
                         </p>
                       </div>
@@ -675,9 +675,9 @@ export default function RewardPools() {
 
                 <motion.div variants={fadeInUp} className="md:col-span-1">
                   <Alert borderColor="#6043AF">
-                    <AlertDescription className="pixelify-sans-500 w-full space-y-1 px-1 py-0.5 text-black sm:space-y-1.5 sm:px-1.5 sm:py-1 md:space-y-2 md:px-2 md:py-1 lg:space-y-3">
+                    <AlertDescription className="pixelify-sans-500 w-full space-y-1 px-1 py-0.5 text-black sm:space-y-1.5 sm:px-1.5 sm:py-1 md:space-y-2 md:px-1 md:py-1 lg:space-y-3">
                       <div className="flex w-full items-center justify-between">
-                        <p className="silkscreen-regular text-sm text-[#2245C5] sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-xl">
+                        <p className="silkscreen-regular text-sm text-[#2245C5] sm:text-base md:text-lg lg:text-xl xl:tracking-tight xl:text-xl 2xl:text-xl">
                           COUNTDOWN TIMER
                         </p>
                       </div>
