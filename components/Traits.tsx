@@ -172,34 +172,6 @@ const Traits = () => {
     }
   };
 
-  const createRectangle = () => {
-    const canvas = canvasRef.current;
-    if (!canvas || !deleteImgRef.current) return;
-
-    const rect = new Rect({
-      height: 100,
-      width: 100,
-      stroke: "red",
-      left: 0,
-      top: 0,
-    });
-
-    rect.controls.deleteControl = new fabric.Control({
-      x: 0.5,
-      y: -0.5,
-      offsetY: 16,
-      cursorStyle: "pointer",
-      mouseUpHandler: deleteObject,
-      render: renderIcon,
-    });
-
-    canvas.add(rect);
-    canvas.requestRenderAll();
-    rectRef.current = rect;
-    synchronizeCanvasLayout();
-    return rect;
-  };
-
   useEffect(() => {
     const initialSize = desiredCardWidth;
 
@@ -238,10 +210,6 @@ const Traits = () => {
     canvas.setHeight(desiredCardWidth);
     synchronizeCanvasLayout();
   }, [desiredCardWidth]);
-
-  const handleAddRectangle = () => {
-    createRectangle();
-  };
 
   const handleAddImage = () => {
     fileInputRef.current?.click();
@@ -299,6 +267,10 @@ const Traits = () => {
 
   const handleAddAvatarImage2 = () => {
     void addEditableAvatarImage("/llamao_avatar2.png");
+  };
+
+  const handleAddAvatarImage3 = () => {
+    void addEditableAvatarImage("/llamao_avatar3.png");
   };
 
   const handleDeleteImage = () => {
@@ -361,7 +333,7 @@ const Traits = () => {
                 <div className="absolute top-4 right-0 flex justify-end px-4">
                   <Button
                     onClick={handleDeleteImage}
-                    size={"sm"}
+                    size="sm"
                     className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 text-sm font-semibold"
                   >
                     ✕
@@ -383,7 +355,7 @@ const Traits = () => {
               <div className="mt-2 w-full flex items-center justify-center">
                 <Button
                   onClick={handleButtonClick}
-                  size={"sm"}
+                  size="sm"
                   className="w-full bg-[#DD1A21] hover:bg-[#FF2A31] py-2 md:py-5 hover:scale-105 hover:brightness-110 transition-all duration-200"
                 >
                   <p className="pixelify-sans-500 text-lg md:text-2xl">
@@ -475,7 +447,7 @@ const Traits = () => {
         </button>
         <button
           type="button"
-          onClick={handleAddRectangle}
+          onClick={handleAddAvatarImage3}
           className="cursor-pointer hover:opacity-80 transition-opacity flex justify-center w-[60px] h-[150px] md:w-auto md:h-auto"
         >
           <Image

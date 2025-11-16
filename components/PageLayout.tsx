@@ -30,14 +30,21 @@ export default function PageLayout({
 }) {
   const pathname = usePathname();
   const isHomePage = useMemo(() => pathname === "/", [pathname]);
-  const isRewardPoolsPage = useMemo(() => pathname === "/reward-pools", [pathname]);
+  const isRewardPoolsPage = useMemo(
+    () => pathname === "/reward-pools",
+    [pathname]
+  );
 
   return (
     <motion.main
       initial="hidden"
       animate="visible"
       variants={mainVariants}
-      className={`relative w-full ${isRewardPoolsPage ? 'h-auto min-h-screen overflow-y-auto overflow-x-clip reward-pools-scroll' : 'h-screen overflow-x-clip min-h-screen'}`}
+      className={`relative w-full ${
+        isRewardPoolsPage
+          ? "h-auto min-h-screen overflow-y-auto overflow-x-clip reward-pools-scroll"
+          : "h-screen overflow-x-clip min-h-screen"
+      }`}
     >
       <Background />
 
@@ -52,7 +59,9 @@ export default function PageLayout({
 
       <motion.div
         variants={stackVariants}
-        className="h-full flex flex-col justify-between w-[95%] mx-auto relative"
+        className={`h-full flex flex-col justify-between w-[95%] mx-auto relative xl:origin-top 2xl:scale-100 ${
+          isRewardPoolsPage ? "xl:scale-[0.85]" : "xl:scale-[0.9]"
+        }`}
         style={{ zIndex: 40 }}
       >
         <motion.div
@@ -64,7 +73,11 @@ export default function PageLayout({
         </motion.div>
         <motion.div
           variants={stackVariants}
-          className={`flex-1 flex flex-col ${isRewardPoolsPage ? 'items-center justify-start' : 'items-center justify-between'} w-full mx-auto relative`}
+          className={`flex-1 flex flex-col ${
+            isRewardPoolsPage
+              ? "items-center justify-start"
+              : "items-center justify-between"
+          } w-full mx-auto relative`}
           initial="hidden"
           animate="visible"
           style={{ zIndex: 50 }}
@@ -75,4 +88,3 @@ export default function PageLayout({
     </motion.main>
   );
 }
-
