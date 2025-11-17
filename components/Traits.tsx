@@ -126,6 +126,9 @@ const Traits = () => {
 
       clearExistingImages();
 
+      const baseSize = canvas.getWidth() ?? desiredCardWidth;
+      canvas.setHeight(baseSize);
+
       const fabricImg = new FabricImage(imgElement, {
         left: 0,
         top: 0,
@@ -138,15 +141,23 @@ const Traits = () => {
         lockRotation: true,
       });
 
-      const targetWidth = canvas.getWidth() ?? 400;
+      const targetWidth = baseSize;
+      const targetHeight = baseSize;
       const originalWidth = fabricImg.width ?? targetWidth;
-      const scale = targetWidth / originalWidth;
+      const originalHeight = fabricImg.height ?? targetHeight;
+      const scale = Math.min(
+        targetWidth / originalWidth,
+        targetHeight / originalHeight
+      );
 
       fabricImg.scale(scale);
 
-      const scaledHeight =
-        fabricImg.getScaledHeight() ?? fabricImg.height ?? targetWidth;
-      canvas.setHeight(scaledHeight);
+      const scaledWidth = fabricImg.getScaledWidth() ?? targetWidth;
+      const scaledHeight = fabricImg.getScaledHeight() ?? targetHeight;
+      fabricImg.set({
+        left: (targetWidth - scaledWidth) / 2,
+        top: (targetHeight - scaledHeight) / 2,
+      });
 
       canvas.add(fabricImg);
       imageRef.current = fabricImg;

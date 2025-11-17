@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Alert } from "./ui/8bit/alert";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const loreItems = [
@@ -88,11 +88,12 @@ He smiles quietly, because peace can’t be rugged.`,
   },
 ];
 
+const cardHeightClasses =
+  "min-h-[450px] sm:min-h-[475px] md:min-h-[530px] lg:min-h-[570px] xl:min-h-[600px]";
+
 const Lore = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [maxCardHeight, setMaxCardHeight] = useState(0);
-  const cardRef = useRef<HTMLDivElement | null>(null);
 
   const handlePrevious = () => {
     setDirection(-1);
@@ -107,16 +108,16 @@ const Lore = () => {
   const currentItem = loreItems[currentIndex];
 
   const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 200 : -200,
+    enter: (dir: number) => ({
+      x: dir > 0 ? 200 : -200,
       opacity: 0,
     }),
     center: {
       x: 0,
       opacity: 1,
     },
-    exit: (direction: number) => ({
-      x: direction > 0 ? -200 : 200,
+    exit: (dir: number) => ({
+      x: dir > 0 ? -200 : 200,
       opacity: 0,
     }),
   };
@@ -126,25 +127,6 @@ const Lore = () => {
     opacity: { duration: 0.1 },
   };
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const node = cardRef.current;
-    if (!node) return;
-
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        setMaxCardHeight((prev) => Math.max(prev, entry.contentRect.height));
-      }
-    });
-
-    resizeObserver.observe(node);
-
-    return () => {
-      resizeObserver.disconnect();
-    };
-  }, [currentIndex]);
-
   return (
     <div className="flex items-center gap-6 sm:gap-12 justify-center -mt-2 sm:-mt-6 scale-90 sm:scale-95 xl:scale-90 xl:origin-top 2xl:scale-100">
       <motion.div
@@ -153,13 +135,11 @@ const Lore = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
       >
-        <Image src={"/arrow.svg"} alt="leftarrow" width={90} height={135} />
+        <Image src="/arrow.svg" alt="leftarrow" width={90} height={135} />
       </motion.div>
+
       <div
-        className="relative max-h-[90%] w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[400px] 2xl:max-w-[430px]"
-        style={{
-          minHeight: maxCardHeight > 0 ? `${maxCardHeight}px` : undefined,
-        }}
+        className={`relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[400px] 2xl:max-w-[430px] ${cardHeightClasses}`}
       >
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
@@ -170,11 +150,11 @@ const Lore = () => {
             animate="center"
             exit="exit"
             transition={slideTransition}
-            ref={cardRef}
+            className="h-full"
           >
             <Alert
               borderColor="#1E3445"
-              className="w-full flex flex-col justify-between p-0 gap-0 relative"
+              className={`w-full flex h-full flex-col justify-between p-0 gap-0 relative ${cardHeightClasses}`}
             >
               <Image
                 src={currentItem.image}
@@ -183,16 +163,7 @@ const Lore = () => {
                 height={420}
                 className="w-full h-auto"
               />
-              <div className="bg-[#E8DEFF] w-full px-3 py-3 sm:py-4">
-                <motion.p
-                  key={`name-${currentIndex}`}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.05 }}
-                  className="silkscreen-regular text-xl sm:text-2xl text-[#2245C5]"
-                >
-                  {currentItem.name}
-                </motion.p>
+              <div className="bg-[#E8DEFF] w-full px-3 py-3 sm:py-4 flex-1 flex items-center">
                 <motion.p
                   key={`content-${currentIndex}`}
                   initial={{ opacity: 0, y: 10 }}
@@ -206,6 +177,7 @@ const Lore = () => {
             </Alert>
           </motion.div>
         </AnimatePresence>
+
         <div className="flex md:hidden items-center justify-center gap-6 mt-3">
           <motion.div
             className="hover:scale-110 transition-transform duration-300 cursor-pointer"
@@ -213,7 +185,7 @@ const Lore = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Image src={"/arrow.svg"} alt="leftarrow" width={45} height={68} />
+            <Image src="/arrow.svg" alt="leftarrow" width={45} height={68} />
           </motion.div>
           <motion.div
             className="hover:scale-110 transition-transform duration-300 cursor-pointer"
@@ -222,7 +194,7 @@ const Lore = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Image
-              src={"/arrow.svg"}
+              src="/arrow.svg"
               alt="rightarrow"
               width={45}
               height={68}
@@ -231,6 +203,7 @@ const Lore = () => {
           </motion.div>
         </div>
       </div>
+
       <motion.div
         className="hover:scale-110 transition-transform duration-300 cursor-pointer hidden md:block"
         onClick={handleNext}
@@ -238,11 +211,11 @@ const Lore = () => {
         whileTap={{ scale: 0.95 }}
       >
         <Image
-          src={"/arrow.svg"}
+          src="/arrow.svg"
           alt="rightarrow"
           width={90}
           height={135}
-          className="scale-x-[-1] "
+          className="scale-x-[-1]"
         />
       </motion.div>
     </div>
