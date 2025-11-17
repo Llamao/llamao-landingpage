@@ -127,7 +127,7 @@ function BlurredBackgroundButton({ text, id }: { text: string; id: string }) {
 
   return (
     <div className="relative w-full overflow-visible flex items-center justify-center my-2 sm:my-3 px-2 sm:px-3">
-      <div className="relative w-full h-[70px] sm:h-20 md:h-[90px] lg:h-[100px] xl:h-[72px] 2xl:h-[75px] flex items-center justify-center">
+      <div className="relative w-full h-[70px] sm:h-20 md:h-[90px] lg:h-[100px] xl:h-12 2xl:h-[75px] flex items-center justify-center">
         <div className="absolute inset-0 flex w-full gap-0.5 blur-[2px] sm:gap-1 sm:blur-sm md:gap-1.5 md:blur-sm z-0 opacity-60">
           {Array.from({ length: imageCount }).map((_, index) => (
             <div className="w-full h-full" key={`blurred-${id}-${index}`}>
@@ -142,7 +142,7 @@ function BlurredBackgroundButton({ text, id }: { text: string; id: string }) {
           ))}
         </div>
         <div
-          className="press-start-2p-regular relative z-10 w-full max-w-[280px] xl:max-w-[360px] 2xl:max-w-[400px] h-10 text-center text-white transition-transform hover:scale-[1.03] active:scale-95 sm:h-[45px] md:h-[50px] lg:h-[55px] xl:h-12 bg-[#B091FF] flex items-center justify-center"
+          className="press-start-2p-regular relative z-10 w-full max-w-[280px] xl:max-w-[360px] 2xl:max-w-[400px] h-10 text-center text-white transition-transform hover:scale-[1.03] active:scale-95 sm:h-[45px] md:h-[50px] lg:h-[55px] xl:h-9 bg-[#B091FF] flex items-center justify-center"
           style={{
             boxShadow: "6px 6px 0 0 #4A2C1A",
           }}
@@ -612,7 +612,7 @@ export default function RewardPools() {
                   className="md:col-span-1 h-full"
                 >
                   <Alert borderColor="#6043AF" className="h-full">
-                    <AlertDescription className="pixelify-sans-500 flex h-full flex-col gap-2 px-1 py-0.5 text-black sm:gap-3 sm:px-1.5 sm:py-1 md:gap-3 md:px-2 md:py-1 lg:gap-4">
+                    <AlertDescription className="pixelify-sans-500 flex h-full flex-col gap-2 px-0.5 py-0.5 text-black sm:gap-3 sm:px-1 sm:py-0.5 md:gap-3 md:px-1.5 md:py-0.5 lg:gap-4">
                       <div className="flex w-full flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                         <p className="silkscreen-regular text-sm text-[#2245C5] sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-xl">
                           YOUR NFT
@@ -635,7 +635,7 @@ export default function RewardPools() {
                   className="md:col-span-1 h-full"
                 >
                   <Alert borderColor="#6043AF" className="h-full">
-                    <AlertDescription className="pixelify-sans-500 flex h-full flex-col gap-2 px-1 py-0.5 text-black sm:gap-3 sm:px-1.5 sm:py-1 md:gap-3 md:px-1 md:py-1 lg:gap-4">
+                    <AlertDescription className="pixelify-sans-500 flex h-full flex-col gap-2 px-0.5 py-0.5 text-black sm:gap-3 sm:px-1 sm:py-0.5 md:gap-3 md:px-1 md:py-0.5 lg:gap-4">
                       <div className="flex w-full items-center justify-between">
                         <p className="silkscreen-regular text-sm text-[#2245C5] sm:text-base md:text-lg lg:text-xl xl:tracking-tight xl:text-xl 2xl:text-xl">
                           COUNTDOWN TIMER

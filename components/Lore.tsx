@@ -7,63 +7,83 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const loreItems = [
   {
-    name: "Llamaoism PT1",
-    content:
-      "Blue steak pi crown queen sandwich taxi flash diamond red darkest grey purple lint hoodie strings sunset shirt wool weave",
+    name: "🧘‍♂️ Sail steady, let true value flow",
+    content: `The lake doesn’t rush, and neither does Llamao.
+He drifts with the current, unbothered by the noise of waves.
+The market will rise and fall — peace stays level.
+True value flows when you stop chasing it`,
     image: "/lore/LWC_Bean_title.gif",
   },
   {
-    name: "Llamaoism PT2",
-    content:
-      "Blue steak pi crown queen sandwich taxi flash diamond red darkest grey purple lint hoodie strings sunset shirt wool weave",
+    name: "🌱  Plant trees and no FOMO",
+    content: `Every great thing starts as something tiny and unseen.
+While others sprint after the next shiny thing,
+Llamao kneels to the soil and plants one more seed.
+Growth comes quietly, block by block.`,
     image: "/lore/LWC_Chewy_title.gif",
   },
   {
-    name: "Llamaoism PT3",
-    content:
-      "Blue steak pi crown queen sandwich taxi flash diamond red darkest grey purple lint hoodie strings sunset shirt wool weave",
+    name: "♨️ Let the warmth of the hot springs embrace you",
+    content: `When the world freezes, the wise find warmth inside.
+Llamao soaks under golden leaves, steam rising, eyes half-closed.
+No charts, no alerts, just still water and quiet mind.
+Sometimes, peace is the highest yield.`,
     image: "/lore/LWC_Chog_title.gif",
   },
   {
-    name: "Llamaoism PT4",
-    content:
-      "Blue steak pi crown queen sandwich taxi flash diamond red darkest grey purple lint hoodie strings sunset shirt wool weave",
+    name: "🍄 Stay weird, dream big",
+    content: `Shall us rest among giant mushrooms,
+laughing at how strange it all is to markets, memes, and meaning.
+In a world of copy-paste traders, the dreamers shape the new chains.
+Weirdness is the seed of wonder.`,
     image: "/lore/LWC_HahaWallet_title.gif",
   },
   {
-    name: "Llamaoism PT5",
-    content:
-      "Blue steak pi crown queen sandwich taxi flash diamond red darkest grey purple lint hoodie strings sunset shirt wool weave",
+    name: "💧Take some time, and water little seeds",
+    content: `Llamao stands in the meadow, watering what others forgot.
+Each drop a reminder that patience is power.
+Not every idea moons overnight...some bloom in silence.
+He smiles, knowing time is the real fertilizer.`,
     image: "/lore/LWC_LaMouch_title.gif",
   },
   {
-    name: "Llamaoism PT6",
-    content:
-      "Blue steak pi crown queen sandwich taxi flash diamond red darkest grey purple lint hoodie strings sunset shirt wool weave",
+    name: "🎢 Sometimes doing nothing is doing something",
+    content: `The Monad train rushes through the night, lights flashing fast.
+Llamao just watches, sipping from his mug, unbothered.
+Movement doesn’t always mean progress.
+Even stillness can carry you somewhere new.`,
     image: "/lore/LWC_Monadverse_title.gif",
   },
   {
-    name: "Llamaoism PT7",
-    content:
-      "Blue steak pi crown queen sandwich taxi flash diamond red darkest grey purple lint hoodie strings sunset shirt wool weave",
+    name: "🔥  Stay calm and conquer",
+    content: `The volcano burns, red as a candle chart gone mad.
+But Llamao stands strong, twin swords glowing green.
+Calm doesn’t mean weak. It means control.
+Every eruption ends where patience begins.`,
     image: "/lore/LWC_NadDomains_title.gif",
   },
   {
-    name: "Llamaoism PT8",
-    content:
-      "Blue steak pi crown queen sandwich taxi flash diamond red darkest grey purple lint hoodie strings sunset shirt wool weave",
+    name: "🌌 Space isn’t just blackness, it’s full of llamao and chill",
+    content: `Drifting above the earth, the two explorers float weightless.
+No charts, no pressure, only infinite silence.
+Even in the vast unknown, Llamao hums softly:
+“Peace exists wherever you choose to breathe.”`,
     image: "/lore/LWC_Nadsa_title.gif",
   },
   {
-    name: "Llamaoism PT9",
-    content:
-      "Blue steak pi crown queen sandwich taxi flash diamond red darkest grey purple lint hoodie strings sunset shirt wool weave",
+    name: "🍂  Touch grass and llamao",
+    content: `In a world built from code, Llamao returns to the ground.
+He lies under autumn leaves, the scent of soil reminding him...
+nothing real moves too fast.
+Sometimes touching grass is the purest alpha.`,
     image: "/lore/LWC_Overnads_title.gif",
   },
   {
-    name: "Llamaoism PT10",
-    content:
-      "Blue steak pi crown queen sandwich taxi flash diamond red darkest grey purple lint hoodie strings sunset shirt wool weave",
+    name: "🔮 Don’t let them fool you",
+    content: `Fires burn in the distance, voices sell fear and hype.
+Llamao sits by the flame, sharing tea with an old friend.
+Truth is never the loudest sound in the forest.
+He smiles quietly, because peace can’t be rugged.`,
     image: "/lore/LWC_SLMND_title.gif",
   },
 ];
