@@ -12,7 +12,7 @@ const Logo = () => {
       className="w-[93%] mt-3 lg:max-w-[550px] xl:max-w-[600px]"
     >
       <Image
-        src="/logo.svg"
+        src="/logo.png"
         alt="LLAMA Logo"
         width={882}
         height={369}
