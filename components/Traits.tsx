@@ -15,7 +15,7 @@ const CONTROL_SETTINGS = {
   cornerStrokeColor: "lightblue",
   cornerSize: 10,
   borderColor: "lightblue",
-};
+} as const;
 
 const Traits = () => {
   const canvasRef = useRef<Canvas | undefined>(undefined);
