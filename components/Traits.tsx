@@ -331,8 +331,11 @@ const Traits = () => {
     }
   };
 
+  const traitButtonClass =
+    "cursor-pointer hover:opacity-80 transition-opacity flex justify-center items-center flex-none shrink-0 w-[70px] h-[70px] sm:w-[90px] sm:h-[90px] md:w-[110px] md:h-[110px] lg:w-[120px] lg:h-[120px]";
+
   return (
-    <div className="flex flex-col md:flex-row items-center md:items-stretch gap-0 md:gap-8 md:justify-center lg:justify-start xl:scale-90 xl:origin-top 2xl:scale-100">
+    <div className="flex flex-col md:flex-row items-center md:items-stretch gap-5 md:gap-8 md:justify-center lg:justify-start xl:scale-90 xl:origin-top 2xl:scale-100">
       <div className="w-full flex justify-center md:w-full md:flex md:justify-center lg:w-auto lg:block">
         <div
           className="relative mx-auto m-1.5 flex flex-col justify-between"
@@ -437,11 +440,11 @@ const Traits = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-row flex-wrap justify-center gap-1.5 w-full md:flex-col md:justify-around lg:ml-8 md:w-auto -mt-2 md:mt-0">
+      <div className="flex flex-row flex-wrap gap-3 w-full justify-center md:flex-col md:justify-around lg:ml-8 md:w-auto -mt-2 md:mt-0">
         <button
           type="button"
           onClick={handleAddAvatarImage1}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex justify-center lg:h-[25%] lg:w-auto w-[60px] h-[150px] md:w-auto md:h-auto"
+          className={traitButtonClass}
         >
           <Image
             src="/traits-btn1.png"
@@ -454,7 +457,7 @@ const Traits = () => {
         <button
           type="button"
           onClick={handleAddAvatarImage2}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex justify-center lg:h-[25%] lg:w-auto w-[60px] h-[150px] md:w-auto md:h-auto"
+          className={traitButtonClass}
         >
           <Image
             src="/traits-btn2.png"
@@ -467,7 +470,7 @@ const Traits = () => {
         <button
           type="button"
           onClick={handleAddAvatarImage3}
-          className="cursor-pointer hover:opacity-80 transition-opacity flex justify-center w-[60px] h-[150px] lg:h-[25%] lg:w-auto md:w-auto md:h-auto"
+          className={traitButtonClass}
         >
           <Image
             src="/traits-btn3.png"

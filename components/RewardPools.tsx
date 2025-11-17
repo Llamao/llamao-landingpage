@@ -43,20 +43,194 @@ const staggerList: Variants = {
   },
 };
 
-const featuredPrizes = [
-  { title: "Prize 1", description: "NFT of Llamao" },
-  { title: "Prize 2", description: "NFT of Llamao" },
-  { title: "Prize 3", description: "NFT of Llamao" },
-  { title: "Prize 4", description: "NFT of Llamao" },
-  { title: "Prize 5", description: "NFT of Llamao" },
-  { title: "Prize 6", description: "NFT of Llamao" },
-  { title: "Prize 7", description: "NFT of Llamao" },
-  { title: "Prize 8", description: "NFT of Llamao" },
-  { title: "Prize 9", description: "NFT of Llamao" },
-  { title: "Prize 10", description: "NFT of Llamao" },
+type RewardCategory = "NFT" | "Token";
+
+type RewardItem = {
+  id: string;
+  category: RewardCategory;
+  name: string;
+  featuredName?: string;
+  displayQuantity: string;
+  quantityValue: number | null;
+  order: number;
+};
+
+const numberFormatter = new Intl.NumberFormat("en-US");
+
+const rewardItems: RewardItem[] = [
+  {
+    id: "nft-llamao-rare",
+    category: "NFT",
+    name: "Llamao (Rare NFT)",
+    featuredName: "Llamao",
+    displayQuantity: numberFormatter.format(10),
+    quantityValue: 10,
+    order: 1,
+  },
+  {
+    id: "token-mon",
+    category: "Token",
+    name: "$MON",
+    displayQuantity: numberFormatter.format(10000),
+    quantityValue: 10000,
+    order: 2,
+  },
+  {
+    id: "token-pengu",
+    category: "Token",
+    name: "$PENGU",
+    displayQuantity: numberFormatter.format(12500),
+    quantityValue: 12500,
+    order: 3,
+  },
+  {
+    id: "nft-steady-teddy",
+    category: "NFT",
+    name: "Steady teddy",
+    displayQuantity: numberFormatter.format(1),
+    quantityValue: 1,
+    order: 4,
+  },
+  {
+    id: "nft-nakamigos",
+    category: "NFT",
+    name: "Nakamigos",
+    displayQuantity: numberFormatter.format(1),
+    quantityValue: 1,
+    order: 5,
+  },
+  {
+    id: "token-dood",
+    category: "Token",
+    name: "$DOOD",
+    displayQuantity: numberFormatter.format(30000),
+    quantityValue: 30000,
+    order: 6,
+  },
+  {
+    id: "token-ape",
+    category: "Token",
+    name: "$APE",
+    displayQuantity: numberFormatter.format(500),
+    quantityValue: 500,
+    order: 7,
+  },
+  {
+    id: "nft-beanz",
+    category: "NFT",
+    name: "Beanz",
+    displayQuantity: numberFormatter.format(1),
+    quantityValue: 1,
+    order: 8,
+  },
+  {
+    id: "nft-gobs-on-ape",
+    category: "NFT",
+    name: "Gobs On Ape",
+    displayQuantity: numberFormatter.format(1),
+    quantityValue: 1,
+    order: 9,
+  },
+  {
+    id: "nft-giga-rom",
+    category: "NFT",
+    name: "Giga Rom",
+    displayQuantity: numberFormatter.format(1),
+    quantityValue: 1,
+    order: 10,
+  },
+  {
+    id: "nft-fugz",
+    category: "NFT",
+    name: "Fugz",
+    displayQuantity: numberFormatter.format(1),
+    quantityValue: 1,
+    order: 11,
+  },
+  {
+    id: "nft-memeland-potatoz",
+    category: "NFT",
+    name: "Memeland Potatoz",
+    displayQuantity: numberFormatter.format(1),
+    quantityValue: 1,
+    order: 12,
+  },
+  {
+    id: "nft-moonbirds-mythics",
+    category: "NFT",
+    name: "Moonbirds Mythics",
+    displayQuantity: numberFormatter.format(1),
+    quantityValue: 1,
+    order: 13,
+  },
+  {
+    id: "token-bera",
+    category: "Token",
+    name: "$BERA",
+    displayQuantity: numberFormatter.format(120),
+    quantityValue: 120,
+    order: 14,
+  },
+  {
+    id: "token-bonk",
+    category: "Token",
+    name: "$BONK",
+    displayQuantity: numberFormatter.format(150000000),
+    quantityValue: 150000000,
+    order: 15,
+  },
+  {
+    id: "token-aster",
+    category: "Token",
+    name: "$ASTER",
+    displayQuantity: numberFormatter.format(170),
+    quantityValue: 170,
+    order: 16,
+  },
+  {
+    id: "token-pepe",
+    category: "Token",
+    name: "$PEPE",
+    displayQuantity: numberFormatter.format(32000000),
+    quantityValue: 32000000,
+    order: 17,
+  },
+  {
+    id: "token-daks",
+    category: "Token",
+    name: "$DAKS",
+    displayQuantity: "xxx",
+    quantityValue: null,
+    order: 18,
+  },
+  {
+    id: "token-chog",
+    category: "Token",
+    name: "$CHOG",
+    displayQuantity: "xxx",
+    quantityValue: null,
+    order: 19,
+  },
 ];
+
+const rewardCounts = rewardItems.reduce(
+  (acc, item) => {
+    if (item.category === "NFT") {
+      acc.nfts += 1;
+    } else {
+      acc.tokens += 1;
+    }
+    return acc;
+  },
+  { nfts: 0, tokens: 0 }
+);
+
 const rewardSummaries = [
-  { id: "estimated-value", label: "Total Rewards", value: "0 MON" },
+  {
+    id: "estimated-value",
+    label: "Total Prizes",
+    value: `${rewardCounts.nfts} NFTs + ${rewardCounts.tokens} Tokens`,
+  },
   { id: "last-updated", label: "Last Updated", value: "24 hrs ago" },
 ];
 
@@ -186,12 +360,7 @@ function TabButton({
   );
 }
 
-type SortOption =
-  | "recently-added"
-  | "value-asc"
-  | "value-desc"
-  | "quantity-asc"
-  | "quantity-desc";
+type SortOption = "recently-added" | "quantity-asc" | "quantity-desc";
 
 export default function RewardPools() {
   const [activeTab, setActiveTab] = useState<TabKey>("rewards");
@@ -233,6 +402,24 @@ export default function RewardPools() {
 
     return () => clearInterval(interval);
   }, [api]);
+
+  const sortedRewards = [...rewardItems].sort((a, b) => {
+    switch (sortOption) {
+      case "quantity-asc": {
+        const aValue = a.quantityValue ?? Number.MAX_SAFE_INTEGER;
+        const bValue = b.quantityValue ?? Number.MAX_SAFE_INTEGER;
+        return aValue - bValue;
+      }
+      case "quantity-desc": {
+        const aValue = a.quantityValue ?? Number.MIN_SAFE_INTEGER;
+        const bValue = b.quantityValue ?? Number.MIN_SAFE_INTEGER;
+        return bValue - aValue;
+      }
+      case "recently-added":
+      default:
+        return a.order - b.order;
+    }
+  });
 
   return (
     <motion.div
@@ -290,74 +477,66 @@ export default function RewardPools() {
                     variants={staggerContainer}
                   >
                     <motion.div
-                      className="relative flex min-h-[200px] w-full flex-col border-2 border-[#D7B594] bg-[#11151F] px-2 py-1 sm:border-4 sm:px-3 sm:py-1.5 md:border-[6px] md:px-4 md:py-2 2xl:min-h-[180px] 2xl:px-3 2xl:py-1.5"
+                      className="flex min-h-[220px] w-full flex-col border-2 border-[#D7B594] bg-[#11151F] px-2 py-2 sm:border-4 sm:px-3 sm:py-3 md:border-[6px] md:px-4 md:py-4 2xl:min-h-[200px] 2xl:px-3 2xl:py-3"
                       variants={fadeInUp}
                     >
-                      <div className="absolute inset-0 z-10 flex items-center justify-center px-4 text-center pointer-events-none">
-                        <motion.div
-                          className="press-start-2p-regular w-full max-w-[360px] rounded bg-[#A68BFF]/95 px-4 py-2.5 text-[9px] text-white shadow-[4px_4px_0_0_#4F2A8A] sm:text-[10px] md:text-xs"
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.3 }}
-                        >
-                          Rewards loading… check back soon!
-                        </motion.div>
-                      </div>
-                      <div className="blur-sm pointer-events-none opacity-90">
-                        <p className="press-start-2p-regular text-[10px] text-white sm:text-xs md:text-sm lg:text-base">
-                          Featured Prizes
-                        </p>
-                        <div className="mt-2 sm:mt-3 md:mt-3 lg:mt-4">
-                          <Carousel
-                            setApi={setApi}
-                            opts={{
-                              align: "start",
-                              loop: true,
-                              slidesToScroll: 1,
-                            }}
-                            className="w-full"
-                          >
-                            <CarouselContent className="-ml-2 sm:-ml-2 md:-ml-3 lg:-ml-3">
-                              {featuredPrizes.map((prize, index) => {
-                                const isSelected = index === current;
-                                return (
-                                  <CarouselItem
-                                    key={prize.title}
-                                    className="pl-2 sm:pl-2 md:pl-3 lg:pl-3 basis-1/5"
-                                  >
-                                    <motion.div
-                                      className={`press-start-2p-regular flex h-full flex-col items-center justify-start gap-0.5 bg-[#090B12] px-1.5 py-0.5 text-center text-[8px] leading-tight text-white transition-transform duration-150 ease-out hover:scale-[1.03] sm:gap-1 sm:px-2 sm:py-0.5 sm:text-[10px] sm:leading-5 md:gap-1 md:px-3 md:py-1 md:text-xs md:leading-6 ${
-                                        isSelected
-                                          ? "border border-[#F4B63D] shadow-[0_0_0_1px_#1A1D26] sm:border-2 sm:shadow-[0_0_0_2px_#1A1D26] md:border-[3px] md:shadow-[0_0_0_3px_#1A1D26]"
-                                          : "border border-[#F4B63D]/10 shadow-[0_0_0_1px_#1A1D26/30] sm:border-2 sm:shadow-[0_0_0_2px_#1A1D26/30] md:border-[3px] md:shadow-[0_0_0_3px_#1A1D26/30]"
-                                      }`}
-                                      variants={fadeInUp}
+                      <Carousel
+                        setApi={setApi}
+                        opts={{
+                          align: "start",
+                          loop: true,
+                          slidesToScroll: 1,
+                        }}
+                        className="w-full"
+                      >
+                        <CarouselContent className="-ml-3 sm:-ml-4">
+                          {rewardItems.map((item, index) => {
+                            const isSelected = index === current;
+                            const badgeClasses =
+                              item.category === "NFT"
+                                ? "bg-[#FFE1BD] text-[#6A3200]"
+                                : "bg-[#D8EEFF] text-[#0B3F66]";
+                            const featuredLabel =
+                              item.featuredName ?? item.name;
+
+                            return (
+                              <CarouselItem
+                                key={item.id}
+                                className="pl-3 sm:pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4"
+                              >
+                                <motion.div
+                                  className={`press-start-2p-regular flex h-full flex-col items-center justify-start gap-3 rounded bg-[#090B12] px-3 py-3 text-center text-[10px] leading-tight text-white transition-transform duration-150 ease-out hover:scale-[1.03] sm:text-xs md:text-sm ${
+                                    isSelected
+                                      ? "border border-[#F4B63D] shadow-[0_0_0_2px_#1A1D26]"
+                                      : "border border-[#F4B63D]/30 shadow-[0_0_0_2px_#1A1D26/30]"
+                                  }`}
+                                  variants={fadeInUp}
+                                >
+                                  <div className="relative w-full flex items-center justify-center h-32 sm:h-36 md:h-40 lg:h-44">
+                                    <Image
+                                      src="/prizelogo.jpg"
+                                      alt={item.name}
+                                      width={200}
+                                      height={200}
+                                      className="h-full w-auto max-h-full object-contain"
+                                    />
+                                  </div>
+                                  <div className="flex flex-col gap-1 shrink-0 w-full text-center px-1">
+                                    <span
+                                      className={`text-[9px] uppercase tracking-wide px-2 py-1 rounded ${badgeClasses}`}
                                     >
-                                      <div className="relative w-full flex items-center justify-center h-auto py-2">
-                                        <Image
-                                          src="/prizelogo.jpg"
-                                          alt={`${prize.title} logo`}
-                                          width={110}
-                                          height={110}
-                                          className="h-full w-auto object-contain"
-                                        />
-                                      </div>
-                                      <div className="flex flex-col gap-0.5 shrink-0 w-full text-center px-1 max-w-[60px] sm:max-w-[70px] md:max-w-20 mx-auto">
-                                        <span className="wrap-break-word whitespace-normal min-h-[1.2em] flex items-center justify-center leading-tight">
-                                          {prize.title}
-                                        </span>
-                                        <span className="text-[7px] sm:text-[8px] md:text-[10px] whitespace-normal wrap-break-word min-h-[1.2em] flex items-center justify-center leading-tight">
-                                          {prize.description}
-                                        </span>
-                                      </div>
-                                    </motion.div>
-                                  </CarouselItem>
-                                );
-                              })}
-                            </CarouselContent>
-                          </Carousel>
-                        </div>
-                      </div>
+                                      {item.category}
+                                    </span>
+                                    <span className="wrap-break-word whitespace-normal min-h-[1.4em] flex items-center justify-center leading-tight text-sm sm:text-base">
+                                      {featuredLabel}
+                                    </span>
+                                  </div>
+                                </motion.div>
+                              </CarouselItem>
+                            );
+                          })}
+                        </CarouselContent>
+                      </Carousel>
                     </motion.div>
 
                     <motion.div
@@ -421,22 +600,47 @@ export default function RewardPools() {
                     </motion.div>
 
                     <motion.div
-                      className="space-y-2 sm:space-y-3 md:space-y-4"
+                      className="space-y-4 sm:space-y-5 md:space-y-6 w-full max-w-full mx-auto max-h-24 sm:max-h-28 lg:max-h-32 overflow-y-auto pr-1"
                       variants={staggerList}
                     >
-                      <motion.div
-                        className="press-start-2p-regular w-full rounded border border-dashed border-[#A68BFF] bg-[#F5EDFF] px-4 py-3 text-center text-[9px] text-[#3C2782] sm:text-[10px] md:text-xs"
-                        variants={fadeInUp}
-                      >
-                        Rewards will be available soon. Please check back later.
-                      </motion.div>
-                      {/**
-                       * Previous All Items detail list temporarily disabled per product request.
-                       *
-                       * <div className="relative space-y-2 sm:space-y-3 md:space-y-4">
-                       *   ...existing scrollable list...
-                       * </div>
-                       */}
+                      {sortedRewards.map((item) => {
+                        const badgeClasses =
+                          item.category === "NFT"
+                            ? "bg-[#FFE1BD] text-[#6A3200]"
+                            : "bg-[#D8EEFF] text-[#0B3F66]";
+                        const cardBackground =
+                          item.category === "NFT"
+                            ? "bg-[#FFF8ED]"
+                            : "bg-[#EAF4FF]";
+
+                        return (
+                          <motion.div key={item.id} variants={fadeInUp}>
+                            <Alert
+                              borderColor="black"
+                              className={`${cardBackground} px-1 py-0.5 sm:px-1.5 sm:py-1`}
+                            >
+                              <AlertDescription className="pixelify-sans-500 flex w-full flex-row items-center gap-2 px-0 py-0 text-black sm:gap-3">
+                                <span
+                                  className={`press-start-2p-regular text-[7px] uppercase tracking-wide px-2 py-1 rounded ${badgeClasses} shrink-0 w-[75px] text-center`}
+                                >
+                                  {item.category}
+                                </span>
+                                <p className="flex-1 min-w-0 text-[10px] sm:text-xs md:text-sm lg:text-base truncate">
+                                  {item.name}
+                                </p>
+                                <div className="flex items-center gap-1 text-[8px] sm:text-[10px] md:text-xs lg:text-sm shrink-0">
+                                  <span className="uppercase text-[#475160] tracking-wide">
+                                    Qty
+                                  </span>
+                                  <span className="press-start-2p-regular text-[10px] sm:text-xs md:text-sm">
+                                    {item.displayQuantity}
+                                  </span>
+                                </div>
+                              </AlertDescription>
+                            </Alert>
+                          </motion.div>
+                        );
+                      })}
                     </motion.div>
                   </motion.div>
                 ) : (
