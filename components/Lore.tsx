@@ -106,6 +106,12 @@ const Lore = () => {
   };
 
   const currentItem = loreItems[currentIndex];
+  const prevIndex = (currentIndex - 1 + loreItems.length) % loreItems.length;
+  const nextIndex = (currentIndex + 1) % loreItems.length;
+  const preloadTargets = [
+    { item: loreItems[prevIndex], role: "prev" as const },
+    { item: loreItems[nextIndex], role: "next" as const },
+  ];
 
   const slideVariants = {
     enter: (dir: number) => ({
@@ -161,6 +167,10 @@ const Lore = () => {
                 alt={currentItem.name}
                 width={420}
                 height={420}
+                sizes="(min-width: 1280px) 430px, (min-width: 1024px) 400px, (min-width: 768px) 360px, 80vw"
+                priority={currentIndex === 0}
+                loading={currentIndex === 0 ? "eager" : "lazy"}
+                decoding="async"
                 className="w-full h-auto"
               />
               <div className="bg-[#E8DEFF] w-full px-3 py-3 sm:py-4 flex-1 flex items-center">
@@ -175,6 +185,26 @@ const Lore = () => {
                 </motion.p>
               </div>
             </Alert>
+            {/* Preload neighboring slides to reduce perceived latency */}
+            <div
+              className="absolute inset-0 pointer-events-none opacity-0"
+              aria-hidden="true"
+            >
+              {preloadTargets.map(({ item, role }) => (
+                <Image
+                  key={`${item.image}-${role}`}
+                  src={item.image}
+                  alt=""
+                  width={10}
+                  height={10}
+                  sizes="10px"
+                  priority={role === "next"}
+                  loading="eager"
+                  decoding="async"
+                  className="absolute h-0 w-0"
+                />
+              ))}
+            </div>
           </motion.div>
         </AnimatePresence>
 

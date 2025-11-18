@@ -52,11 +52,11 @@ const NavigationBar = () => {
   const getMobileLinkClasses = (variant: NavVariant) => {
     switch (variant) {
       case "primary":
-        return "bg-[#B091FF] px-3 py-2 text-white text-lg";
+        return "bg-[#B091FF] px-6 py-4 text-white text-xl";
       case "cta":
-        return "inline-flex w-full items-center justify-center px-4 py-4 text-lg text-white uppercase bg-[url('/reward-pool-bg.svg')] bg-contain bg-center bg-no-repeat";
+        return "inline-flex w-full items-center justify-center px-6 py-6 text-lg text-white uppercase bg-[url('/reward-pool-bg.svg')] bg-contain bg-center bg-no-repeat";
       default:
-        return "text-base text-[#21201E]";
+        return "text-lg text-[#21201E]";
     }
   };
   return (
@@ -166,7 +166,7 @@ const NavigationBar = () => {
                 exit={{ opacity: 0, y: -12, height: 0 }}
                 transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] overflow-hidden bg-white border-2 border-[#2BEBC8] shadow-lg">
+                <div className="relative mx-auto w-full max-w-[480px] sm:max-w-[560px] overflow-hidden bg-white border-2 border-[#2BEBC8] shadow-lg">
                   <motion.div
                     initial="hidden"
                     animate="visible"
@@ -183,7 +183,7 @@ const NavigationBar = () => {
                         },
                       },
                     }}
-                    className="press-start-2p-regular flex w-full flex-col gap-8 px-4 py-8 text-center"
+                    className="press-start-2p-regular flex w-full flex-col gap-12 px-8 py-12 text-center"
                   >
                     {navLinks.map((link) => {
                       const variant = getActiveVariant(link);

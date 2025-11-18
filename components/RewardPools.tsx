@@ -388,6 +388,7 @@ export default function RewardPools() {
   const [current, setCurrent] = useState(0);
   const [isCarouselPaused, setCarouselPaused] = useState(false);
   const autoScrollRef = useRef<number | null>(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -435,45 +436,6 @@ export default function RewardPools() {
       }
     };
   }, [api, isCarouselPaused]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const style = document.createElement("style");
-    style.dataset.rewardScrollStyle = "true";
-    style.textContent = `
-      .reward-pools-scroll {
-        scrollbar-width: thin;
-        scrollbar-color: #b091ff rgba(176, 145, 255, 0.25);
-      }
-
-      .reward-pools-scroll::-webkit-scrollbar {
-        width: 12px;
-      }
-
-      .reward-pools-scroll::-webkit-scrollbar-track {
-        background: rgba(176, 145, 255, 0.22);
-        border-left: 2px solid #4a2c1a;
-        border-radius: 999px;
-      }
-
-      .reward-pools-scroll::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg, #b091ff 0%, #8d6de8 100%);
-        border-radius: 999px;
-        box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.35);
-      }
-
-      .reward-pools-scroll::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(180deg, #c3aaff 0%, #9a7ff0 100%);
-      }
-    `;
-
-    document.head.appendChild(style);
-
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
 
   const sortedRewards = [...rewardItems].sort((a, b) => {
     switch (sortOption) {
@@ -675,49 +637,53 @@ export default function RewardPools() {
                       </div>
                     </motion.div>
 
-                    <motion.div
-                      className="space-y-4 sm:space-y-5 md:space-y-6 w-full max-w-full mx-auto max-h-24 sm:max-h-28 lg:max-h-32 overflow-y-auto pr-1 reward-pools-scroll"
-                      variants={staggerList}
-                    >
-                      {sortedRewards.map((item) => {
-                        const badgeClasses =
-                          item.category === "NFT"
-                            ? "bg-[#FFE1BD] text-[#6A3200]"
-                            : "bg-[#D8EEFF] text-[#0B3F66]";
-                        const cardBackground =
-                          item.category === "NFT"
-                            ? "bg-[#FFF8ED]"
-                            : "bg-[#EAF4FF]";
+                    <div className="relative w-full">
+                      <motion.div
+                        ref={scrollContainerRef}
+                        className="space-y-4 sm:space-y-5 md:space-y-6 w-full max-w-full mx-auto max-h-24 sm:max-h-28 lg:max-h-32 overflow-y-auto pr-4 sm:pr-6"
+                        variants={staggerList}
+                      >
+                        {sortedRewards.map((item) => {
+                          const badgeClasses =
+                            item.category === "NFT"
+                              ? "bg-[#FFE1BD] text-[#6A3200]"
+                              : "bg-[#D8EEFF] text-[#0B3F66]";
+                          const cardBackground =
+                            item.category === "NFT"
+                              ? "bg-[#FFF8ED]"
+                              : "bg-[#EAF4FF]";
 
-                        return (
-                          <motion.div key={item.id} variants={fadeInUp}>
-                            <Alert
-                              borderColor="black"
-                              className={`${cardBackground} px-1 py-0.5 sm:px-1.5 sm:py-1`}
-                            >
-                              <AlertDescription className="pixelify-sans-500 flex w-full flex-row items-center gap-2 px-0 py-0 text-black sm:gap-3">
-                                <span
-                                  className={`press-start-2p-regular text-[7px] uppercase tracking-wide px-2 py-1 rounded ${badgeClasses} shrink-0 w-[75px] text-center`}
-                                >
-                                  {item.category}
-                                </span>
-                                <p className="flex-1 min-w-0 text-[10px] sm:text-xs md:text-sm lg:text-base truncate">
-                                  {item.name}
-                                </p>
-                                <div className="flex items-center gap-1 text-[8px] sm:text-[10px] md:text-xs lg:text-sm shrink-0">
-                                  <span className="uppercase text-[#475160] tracking-wide">
-                                    Qty
+                          return (
+                            <motion.div key={item.id} variants={fadeInUp}>
+                              <Alert
+                                borderColor="black"
+                                className={`${cardBackground} px-1 py-0.5 sm:px-1.5 sm:py-1`}
+                              >
+                                <AlertDescription className="pixelify-sans-500 flex w-full flex-row items-center gap-2 px-0 py-0 text-black sm:gap-3">
+                                  <span
+                                    className={`press-start-2p-regular text-[7px] uppercase tracking-wide px-2 py-1 rounded ${badgeClasses} shrink-0 w-[75px] text-center`}
+                                  >
+                                    {item.category}
                                   </span>
-                                  <span className="press-start-2p-regular text-[10px] sm:text-xs md:text-sm">
-                                    {item.displayQuantity}
-                                  </span>
-                                </div>
-                              </AlertDescription>
-                            </Alert>
-                          </motion.div>
-                        );
-                      })}
-                    </motion.div>
+                                  <p className="flex-1 min-w-0 text-[10px] sm:text-xs md:text-sm lg:text-base truncate">
+                                    {item.name}
+                                  </p>
+                                  <div className="flex items-center gap-1 text-[8px] sm:text-[10px] md:text-xs lg:text-sm shrink-0">
+                                    <span className="uppercase text-[#475160] tracking-wide">
+                                      Qty
+                                    </span>
+                                    <span className="press-start-2p-regular text-[10px] sm:text-xs md:text-sm">
+                                      {item.displayQuantity}
+                                    </span>
+                                  </div>
+                                </AlertDescription>
+                              </Alert>
+                            </motion.div>
+                          );
+                        })}
+                      </motion.div>
+                      {/* Native scrollbar handles visibility now; overlay removed intentionally */}
+                    </div>
                   </motion.div>
                 ) : (
                   <motion.div
