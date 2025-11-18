@@ -147,13 +147,7 @@ const NavigationBar = () => {
 
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div
-              key="mobile-menu"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
+            <>
               <motion.div
                 className="fixed inset-0 bg-black/50 z-30 lg:hidden"
                 onClick={handleCloseMenu}
@@ -165,68 +159,63 @@ const NavigationBar = () => {
               />
 
               <motion.div
-                className="fixed bottom-0 left-0 right-0 z-40 w-full h-auto lg:hidden sm:left-1/2 sm:right-auto sm:-translate-x-1/2 sm:w-screen"
-                initial={{ y: "100%" }}
-                animate={{ y: 0 }}
-                exit={{ y: "100%" }}
+                key="mobile-menu"
+                className="absolute left-0 right-0 top-full z-40 w-full px-4 lg:hidden"
+                initial={{ opacity: 0, y: -12, height: 0 }}
+                animate={{ opacity: 1, y: 0, height: "auto" }}
+                exit={{ opacity: 0, y: -12, height: 0 }}
                 transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                <Image
-                  src="/nav-expand-mobile.svg"
-                  alt=""
-                  fill
-                  priority
-                  aria-hidden
-                  className="pointer-events-none w-full h-auto select-none object-cover"
-                />
-
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  exit="hidden"
-                  variants={{
-                    hidden: { opacity: 0, scale: 0.98 },
-                    visible: {
-                      opacity: 1,
-                      scale: 1,
-                      transition: {
-                        delayChildren: 0.1,
-                        staggerChildren: 0.08,
+                <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[380px] overflow-hidden bg-white border-2 border-[#2BEBC8] shadow-lg">
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    exit="hidden"
+                    variants={{
+                      hidden: { opacity: 0, y: 20 },
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: {
+                          duration: 0.25,
+                          delayChildren: 0.08,
+                          staggerChildren: 0.06,
+                        },
                       },
-                    },
-                  }}
-                  className="relative press-start-2p-regular z-20 mx-auto flex w-full flex-col gap-10 px-4 py-8 text-center max-w-[320px] sm:max-w-[360px]"
-                >
-                  {navLinks.map((link) => {
-                    const variant = getActiveVariant(link);
-                    return (
-                      <motion.div
-                        key={link.href}
-                        variants={{
-                          hidden: { opacity: 0, y: 20 },
-                          visible: {
-                            opacity: 1,
-                            y: 0,
-                            transition: { duration: 0.3 },
-                          },
-                        }}
-                        whileTap={{ scale: 0.96 }}
-                      >
-                        <Link
-                          href={link.href}
-                          onClick={handleCloseMenu}
-                          className={getMobileLinkClasses(variant)}
+                    }}
+                    className="press-start-2p-regular flex w-full flex-col gap-8 px-4 py-8 text-center"
+                  >
+                    {navLinks.map((link) => {
+                      const variant = getActiveVariant(link);
+                      return (
+                        <motion.div
+                          key={link.href}
+                          variants={{
+                            hidden: { opacity: 0, y: 12 },
+                            visible: {
+                              opacity: 1,
+                              y: 0,
+                              transition: { duration: 0.2 },
+                            },
+                          }}
+                          whileTap={{ scale: 0.96 }}
                         >
-                          {link.variant === "cta"
-                            ? link.label.toUpperCase()
-                            : link.label}
-                        </Link>
-                      </motion.div>
-                    );
-                  })}
-                </motion.div>
+                          <Link
+                            href={link.href}
+                            onClick={handleCloseMenu}
+                            className={getMobileLinkClasses(variant)}
+                          >
+                            {link.variant === "cta"
+                              ? link.label.toUpperCase()
+                              : link.label}
+                          </Link>
+                        </motion.div>
+                      );
+                    })}
+                  </motion.div>
+                </div>
               </motion.div>
-            </motion.div>
+            </>
           )}
         </AnimatePresence>
       </div>

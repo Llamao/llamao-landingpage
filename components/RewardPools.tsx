@@ -284,85 +284,6 @@ const tabs: { key: TabKey; label: string }[] = [
   { key: "participants", label: "Participants" },
 ];
 
-function AutoFitText({
-  text,
-  maxFontPx = 16,
-  minFontPx = 10,
-  className = "",
-}: {
-  text: string;
-  maxFontPx?: number;
-  minFontPx?: number;
-  className?: string;
-}) {
-  const textRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const element = textRef.current;
-    if (!element) return;
-
-    let frameId: number | null = null;
-
-    const applyFit = () => {
-      if (!element) return;
-      const parentWidth =
-        element.parentElement?.clientWidth ?? element.clientWidth;
-      if (!parentWidth) return;
-      let currentSize = maxFontPx;
-      element.style.fontSize = `${currentSize}px`;
-
-      while (currentSize > minFontPx && element.scrollWidth > parentWidth) {
-        currentSize -= 0.5;
-        element.style.fontSize = `${currentSize}px`;
-      }
-    };
-
-    const scheduleFit = () => {
-      if (frameId) {
-        cancelAnimationFrame(frameId);
-      }
-      frameId = requestAnimationFrame(applyFit);
-    };
-
-    scheduleFit();
-
-    const resizeObserver =
-      typeof ResizeObserver !== "undefined"
-        ? new ResizeObserver(scheduleFit)
-        : null;
-
-    if (resizeObserver) {
-      resizeObserver.observe(element);
-      if (element.parentElement) {
-        resizeObserver.observe(element.parentElement);
-      }
-    }
-
-    window.addEventListener("resize", scheduleFit);
-
-    return () => {
-      if (frameId) {
-        cancelAnimationFrame(frameId);
-      }
-      if (resizeObserver) {
-        resizeObserver.disconnect();
-      }
-      window.removeEventListener("resize", scheduleFit);
-    };
-  }, [text, maxFontPx, minFontPx]);
-
-  return (
-    <span
-      ref={textRef}
-      className={`block truncate ${className}`}
-      style={{ lineHeight: 1.2 }}
-    >
-      {text}
-    </span>
-  );
-}
-
 type ButtonVariant = "default" | "xl-compact";
 
 function BlurredBackgroundButton({
@@ -680,13 +601,10 @@ export default function RewardPools() {
                                     >
                                       {item.category}
                                     </span>
-                                    <div className="wrap-break-word whitespace-normal min-h-[1.4em] flex items-center justify-center leading-tight w-full">
-                                      <AutoFitText
-                                        text={featuredLabel}
-                                        maxFontPx={16}
-                                        minFontPx={10}
-                                        className="text-center"
-                                      />
+                                    <div className="w-full min-h-[2.2em] flex items-center justify-center px-1">
+                                      <p className="text-white text-[11px] sm:text-xs md:text-sm leading-tight text-center wrap-break-word whitespace-normal">
+                                        {featuredLabel}
+                                      </p>
                                     </div>
                                   </div>
                                 </motion.div>
