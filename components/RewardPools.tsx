@@ -918,7 +918,7 @@ export default function RewardPools() {
                           variants={staggerContainer}
                         >
                           <motion.div
-                            className="hidden w-full grid-cols-3 gap-2 px-1 text-[8px] text-[#1E3445] sm:grid sm:gap-3 sm:text-[10px] md:text-xs"
+                            className="hidden w-full gap-2 px-1 text-[8px] text-[#1E3445] sm:grid sm:grid-cols-[minmax(0,2fr)_auto_auto] sm:gap-3 sm:text-[10px] md:text-xs"
                             variants={fadeInUp}
                           >
                             <p className="sm:pl-3">Participant</p>
@@ -934,7 +934,7 @@ export default function RewardPools() {
                               <motion.div key={row.id} variants={fadeInUp}>
                                 <Alert borderColor="black">
                                   <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-2 px-0.5 py-0 text-black sm:gap-3 sm:px-1 sm:py-0">
-                                    <div className="grid w-full items-center grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4 md:gap-5">
+                                    <div className="grid w-full items-center grid-cols-1 gap-3 sm:grid-cols-[minmax(0,2fr)_auto_auto] sm:gap-4 md:gap-5">
                                       {participantFields.map(
                                         ({ key, label }) => (
                                           <div
@@ -962,7 +962,7 @@ export default function RewardPools() {
                                 className="bg-[#C9B9F7]"
                               >
                                 <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-3 px-0 py-0 text-black sm:gap-4 sm:px-0.5 sm:py-0">
-                                  <div className="grid w-full items-center grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-4 md:gap-5">
+                                  <div className="grid w-full items-center grid-cols-1 gap-4 sm:grid-cols-[minmax(0,2fr)_auto_auto] sm:gap-4 md:gap-5">
                                     <div className="flex items-start gap-3 sm:items-center sm:gap-4">
                                       <div className="h-auto w-8 shrink-0 sm:w-10 md:w-12">
                                         <Image
