@@ -213,26 +213,6 @@ const rewardItems: RewardItem[] = [
   },
 ];
 
-const rewardCounts = rewardItems.reduce(
-  (acc, item) => {
-    if (item.category === "NFT") {
-      acc.nfts += 1;
-    } else {
-      acc.tokens += 1;
-    }
-    return acc;
-  },
-  { nfts: 0, tokens: 0 }
-);
-
-const rewardSummaries = [
-  {
-    id: "estimated-value",
-    label: "Total Prizes",
-    value: `${rewardCounts.nfts} NFTs + ${rewardCounts.tokens} Tokens`,
-  },
-];
-
 /*
 const rewardCardsData = Array.from({ length: 10 }, (_, index) => ({
   id: `reward-${index}`,
@@ -619,29 +599,6 @@ export default function RewardPools() {
                     </motion.div>
 
                     <motion.div
-                      className="grid w-full grid-cols-1 gap-2"
-                      variants={staggerList}
-                    >
-                      {rewardSummaries.map((summary) => (
-                        <motion.div key={summary.id} variants={fadeInUp}>
-                          <Alert
-                            borderColor="black"
-                            className="py-1 sm:py-1 md:py-1 lg:py-1"
-                          >
-                            <AlertDescription className="pixelify-sans-500 flex flex-row items-center justify-between gap-2 px-0 py-0 text-black sm:px-0.5 sm:py-0">
-                              <p className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
-                                {summary.label}
-                              </p>
-                              <p className="press-start-2p-regular text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
-                                {summary.value}
-                              </p>
-                            </AlertDescription>
-                          </Alert>
-                        </motion.div>
-                      ))}
-                    </motion.div>
-
-                    <motion.div
                       className="flex w-full flex-col gap-3 text-black pixelify-sans-500 sm:flex-row sm:items-center sm:justify-between sm:gap-2 md:gap-3"
                       variants={fadeInUp}
                     >
@@ -680,7 +637,7 @@ export default function RewardPools() {
                     </motion.div>
 
                     <motion.div
-                      className="space-y-4 sm:space-y-5 md:space-y-6 w-full max-w-full mx-auto max-h-24 sm:max-h-28 lg:max-h-32 overflow-y-auto pr-1 reward-pools-scroll"
+                      className="space-y-4 sm:space-y-5 md:space-y-6 w-full max-w-full mx-auto max-h-56 sm:max-h-60 lg:max-h-64 overflow-y-auto pr-1 reward-pools-scroll"
                       variants={staggerList}
                     >
                       {sortedRewards.map((item) => {

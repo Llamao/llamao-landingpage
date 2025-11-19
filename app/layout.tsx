@@ -7,6 +7,7 @@ import {
   Press_Start_2P,
   Silkscreen,
 } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -49,7 +50,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pressStart.variable} ${silkscreen.variable} ${pixelifySans.variable} antialiased`}
       >
-        <GA4Analytics />
+        <Suspense fallback={null}>
+          <GA4Analytics />
+        </Suspense>
         {children}
       </body>
     </html>

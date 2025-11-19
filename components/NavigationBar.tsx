@@ -52,11 +52,11 @@ const NavigationBar = () => {
   const getMobileLinkClasses = (variant: NavVariant) => {
     switch (variant) {
       case "primary":
-        return "bg-[#B091FF] px-6 py-4 text-white text-xl";
+        return "bg-[#B091FF] px-6 py-4 text-white text-sm sm:text-base";
       case "cta":
-        return "inline-flex w-full items-center justify-center px-6 py-6 text-lg text-white uppercase bg-[url('/reward-pool-bg.svg')] bg-contain bg-center bg-no-repeat";
+        return "inline-flex w-full items-center justify-center px-6 py-6 text-sm sm:text-base text-white uppercase bg-[url('/reward-pool-bg.svg')] bg-contain bg-center bg-no-repeat";
       default:
-        return "text-lg text-[#21201E]";
+        return "text-sm sm:text-base text-[#21201E]";
     }
   };
   return (
