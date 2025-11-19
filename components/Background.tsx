@@ -1,17 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 export default function Background() {
   return (
     <>
-      <motion.div
-        initial={{ scale: 1.1, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-        className="fixed inset-0 flex items-end justify-center -z-10 w-full h-full"
-      >
+      <div className="fixed inset-0 flex items-end justify-center -z-10 w-full h-full">
         <Image
           src="/BGmockup.gif"
           alt="Background"
@@ -22,15 +16,10 @@ export default function Background() {
           className="blur-xs w-full h-auto scale-[100%] -translate-y-25 md:scale-120 md:-translate-y-20 lg:-translate-y-10 xl:translate-y-8 xl:scale-[100%] 2xl:translate-y-50"
           priority
         />
-      </motion.div>
+      </div>
 
       {/* Bottom Grass Border - Behind trees */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="fixed h-[300px] md:h-[400px] 2xl:h-[500px] bottom-0 left-0 right-0 -z-10 pointer-events-none"
-      >
+      <div className="fixed h-[300px] md:h-[400px] 2xl:h-[500px] bottom-0 left-0 right-0 -z-10 pointer-events-none">
         <Image
           src="/Ground1.gif"
           alt="Bottom grass"
@@ -39,7 +28,7 @@ export default function Background() {
           sizes="100vw"
           className="w-full h-full object-cover translate-y-1"
         />
-      </motion.div>
+      </div>
 
       <div className="scale-x-[-1] fixed z-0 pointer-events-none w-[150%] -bottom-10 -left-[95%] md:w-full md:-bottom-12 md:-left-[52%] lg:w-[80%] lg:-bottom-20 lg:-left-[40%] 2xl:w-[50%] 2xl:-bottom-16 2xl:-left-[22%]">
         <Image
