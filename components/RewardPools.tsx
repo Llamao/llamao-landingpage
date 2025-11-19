@@ -4,7 +4,7 @@ import { Alert, AlertDescription } from "@/components/ui/8bit/alert";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import useWindowSize from "@/hooks/useWindowSize";
 import {
   Carousel,
@@ -156,6 +156,16 @@ const rewardItems: RewardItem[] = [
     quantityValue: 1,
     order: 10,
     imageSrc: "/rewards/10.jpg",
+  },
+  {
+    id: "nft-llamao-16",
+    category: "NFT",
+    name: "Llamao",
+    featuredName: "Llamao",
+    displayQuantity: numberFormatter.format(1),
+    quantityValue: 1,
+    order: 10,
+    imageSrc: "/rewards/16.jpg",
   },
   {
     id: "token-pepe",
@@ -323,6 +333,46 @@ const rewardItems: RewardItem[] = [
   },
 ];
 
+const aggregateRewardItems = (items: RewardItem[]): RewardItem[] => {
+  const map = new Map<string, RewardItem & { aggregatedCount: number }>();
+
+  items.forEach((item) => {
+    const key = item.name.toLowerCase();
+    const existing = map.get(key);
+
+    if (!existing) {
+      map.set(key, { ...item, aggregatedCount: 1 });
+      return;
+    }
+
+    const aggregatedCount = existing.aggregatedCount + 1;
+    const canSumQuantity =
+      existing.quantityValue !== null && item.quantityValue !== null;
+    const totalQuantity = canSumQuantity
+      ? (existing.quantityValue ?? 0) + (item.quantityValue ?? 0)
+      : existing.quantityValue;
+
+    map.set(key, {
+      ...existing,
+      aggregatedCount,
+      quantityValue: totalQuantity,
+      displayQuantity:
+        canSumQuantity && totalQuantity !== null
+          ? numberFormatter.format(totalQuantity)
+          : numberFormatter.format(aggregatedCount),
+      order: Math.min(existing.order, item.order),
+    });
+  });
+
+  return Array.from(map.values()).map((entry) => {
+    const { aggregatedCount, ...rest } = entry;
+    void aggregatedCount;
+    return rest;
+  });
+};
+
+const aggregatedRewardItems = aggregateRewardItems(rewardItems);
+
 /*
 const rewardCardsData = Array.from({ length: 10 }, (_, index) => ({
   id: `reward-${index}`,
@@ -374,6 +424,12 @@ const participantRows: ParticipantRow[] = [
   },
   {
     id: "participant-5",
+    address: "0xE18B...CC01",
+    totalOwned: "3 NFTs",
+    dateAdded: "10/28/2025",
+  },
+  {
+    id: "participant-6",
     address: "0xE18B...CC01",
     totalOwned: "3 NFTs",
     dateAdded: "10/28/2025",
@@ -588,23 +644,27 @@ export default function RewardPools() {
     };
   }, []);
 
-  const sortedRewards = [...rewardItems].sort((a, b) => {
-    switch (sortOption) {
-      case "quantity-asc": {
-        const aValue = a.quantityValue ?? Number.MAX_SAFE_INTEGER;
-        const bValue = b.quantityValue ?? Number.MAX_SAFE_INTEGER;
-        return aValue - bValue;
+  const sortedRewards = useMemo(() => {
+    const items = [...aggregatedRewardItems];
+
+    return items.sort((a, b) => {
+      switch (sortOption) {
+        case "quantity-asc": {
+          const aValue = a.quantityValue ?? Number.MAX_SAFE_INTEGER;
+          const bValue = b.quantityValue ?? Number.MAX_SAFE_INTEGER;
+          return aValue - bValue;
+        }
+        case "quantity-desc": {
+          const aValue = a.quantityValue ?? Number.MIN_SAFE_INTEGER;
+          const bValue = b.quantityValue ?? Number.MIN_SAFE_INTEGER;
+          return bValue - aValue;
+        }
+        case "recently-added":
+        default:
+          return a.order - b.order;
       }
-      case "quantity-desc": {
-        const aValue = a.quantityValue ?? Number.MIN_SAFE_INTEGER;
-        const bValue = b.quantityValue ?? Number.MIN_SAFE_INTEGER;
-        return bValue - aValue;
-      }
-      case "recently-added":
-      default:
-        return a.order - b.order;
-    }
-  });
+    });
+  }, [sortOption]);
 
   return (
     <motion.div
@@ -980,7 +1040,7 @@ export default function RewardPools() {
               </motion.div>
 
               <motion.div
-                className="flex flex-col gap-4 sm:gap-5 md:grid md:grid-cols-2 md:gap-6 md:auto-rows-[1fr] lg:gap-8 xl:flex xl:flex-col xl:col-span-1 xl:gap-6 2xl:gap-4"
+                className="flex flex-col gap-4 sm:gap-5 md:grid md:grid-cols-2 md:gap-6 md:auto-rows-[1fr] lg:gap-8 xl:flex xl:flex-col xl:col-span-1 xl:gap-10 2xl:gap-4"
                 variants={staggerContainer}
               >
                 <motion.div
@@ -988,7 +1048,7 @@ export default function RewardPools() {
                   className="md:col-span-1 h-full"
                 >
                   <Alert borderColor="#6043AF" className="md:h-full xl:h-auto">
-                    <AlertDescription className="pixelify-sans-500 flex md:h-full xl:h-auto flex-col gap-2 px-0.5 py-0.5 text-black sm:gap-3 sm:px-1 sm:py-0.5 md:gap-3 md:px-1.5 md:py-0.5 lg:gap-4">
+                    <AlertDescription className="pixelify-sans-500 flex md:h-full xl:h-auto flex-col gap-2 px-0.5 py-0.5 text-black sm:gap-3 sm:px-1 sm:py-0.5 md:gap-3 md:px-1.5 md:py-0.5 lg:gap-4 xl:py-4">
                       <div className="flex w-full flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                         <p className="silkscreen-regular text-sm text-[#2245C5] sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-xl">
                           YOUR NFT
@@ -997,7 +1057,7 @@ export default function RewardPools() {
 
                       <BlurredBackgroundButton text="COMING SOON" id="nft" />
 
-                      <div className="w-full text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
+                      <div className="w-full text-[8px] sm:text-[10px] md:text-xs lg:text-sm xl:text-base">
                         The Llamao Blessing Pool is a reward campaign designed
                         to appreciate and celebrate our community members who
                         support Llamao by minting and holding NFTs on mainnet
@@ -1011,7 +1071,7 @@ export default function RewardPools() {
                   className="md:col-span-1 h-full"
                 >
                   <Alert borderColor="#6043AF" className="md:h-full xl:h-auto">
-                    <AlertDescription className="pixelify-sans-500 flex md:h-full xl:h-auto flex-col gap-2 px-0.5 py-0.5 text-black sm:gap-3 sm:px-1 sm:py-0.5 md:gap-3 md:px-1 md:py-0.5 lg:gap-4">
+                    <AlertDescription className="pixelify-sans-500 flex md:h-full xl:h-auto flex-col gap-2 px-0.5 py-0.5 text-black sm:gap-3 sm:px-1 sm:py-0.5 md:gap-3 md:px-1 md:py-0.5 lg:gap-4 xl:py-4">
                       <div className="flex w-full items-center justify-between">
                         <p className="silkscreen-regular text-sm text-[#2245C5] sm:text-base md:text-lg lg:text-xl xl:tracking-tight xl:text-xl 2xl:text-xl">
                           COUNTDOWN TIMER
@@ -1024,7 +1084,7 @@ export default function RewardPools() {
                         variant="xl-compact"
                       />
 
-                      <div className="w-full text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
+                      <div className="w-full text-[8px] sm:text-[10px] md:text-xs lg:text-sm xl:text-base">
                         {`Once the raffle date is set, the countdown is on. Don’t miss it`}
                       </div>
                     </AlertDescription>
