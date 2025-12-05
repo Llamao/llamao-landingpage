@@ -6,6 +6,8 @@ import type { Variants } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect, useRef, useMemo } from "react";
 import useWindowSize from "@/hooks/useWindowSize";
+import useSWR from "swr";
+import { Loader2 } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -508,13 +510,30 @@ export default function RewardPools() {
   const [isCarouselPaused, setCarouselPaused] = useState(false);
   const autoScrollRef = useRef<number | null>(null);
 
-  const [data, setData] = useState<ParticipantRow[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeSearch, setActiveSearch] = useState("");
+  const [displayLimit, setDisplayLimit] = useState(50);
+  const ITEMS_PER_PAGE = 50;
+
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
+  const { data: rawData, isLoading } = useSWR<
+    { accountAddress: string; totalPoints: number }[]
+  >("/participants.json", fetcher);
+
+  const data = useMemo<ParticipantRow[]>(() => {
+    if (!rawData) return [];
+    return rawData.map((item) => ({
+      id: item.accountAddress,
+      address: item.accountAddress,
+      totalPoints: numberFormatter.format(item.totalPoints),
+    }));
+  }, [rawData]);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setActiveSearch(searchQuery);
+      setDisplayLimit(ITEMS_PER_PAGE); // Reset pagination on search
     }, 2000);
 
     return () => clearTimeout(timer);
@@ -523,21 +542,9 @@ export default function RewardPools() {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       setActiveSearch(searchQuery);
+      setDisplayLimit(ITEMS_PER_PAGE); // Reset pagination on search
     }
   };
-
-  useEffect(() => {
-    fetch("/api/ranking")
-      .then((res) => res.json())
-      .then((res: { accountAddress: string; totalPoints: number }[]) => {
-        const formattedData = res.map((item) => ({
-          id: item.accountAddress,
-          address: item.accountAddress,
-          totalPoints: numberFormatter.format(item.totalPoints),
-        }));
-        setData(formattedData);
-      });
-  }, []);
 
   const highlightedParticipant = useMemo(() => {
     if (!activeSearch) return null;
@@ -546,13 +553,26 @@ export default function RewardPools() {
     );
   }, [data, activeSearch]);
 
-  const displayedData = useMemo(() => {
+  const allDisplayedData = useMemo(() => {
     if (!highlightedParticipant) return data;
     return [
       highlightedParticipant,
       ...data.filter((p) => p.id !== highlightedParticipant.id),
     ];
   }, [data, highlightedParticipant]);
+
+  const displayedData = useMemo(() => {
+    return allDisplayedData.slice(0, displayLimit);
+  }, [allDisplayedData, displayLimit]);
+
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const { scrollTop, clientHeight, scrollHeight } = e.currentTarget;
+    if (scrollHeight - scrollTop <= clientHeight + 50) {
+      if (displayLimit < allDisplayedData.length) {
+        setDisplayLimit((prev) => prev + ITEMS_PER_PAGE);
+      }
+    }
+  };
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -917,7 +937,11 @@ export default function RewardPools() {
                         </Alert>
                       </motion.div>
 
-                      {data.length > 0 ? (
+                      {isLoading ? (
+                        <div className="flex w-full items-center justify-center py-10">
+                          <Loader2 className="h-8 w-8 animate-spin text-[#B091FF]" />
+                        </div>
+                      ) : data.length > 0 ? (
                         <motion.div
                           className="w-full space-y-2 pixelify-sans-500 sm:space-y-3"
                           initial="hidden"
@@ -935,9 +959,15 @@ export default function RewardPools() {
                           <motion.div
                             className="space-y-4 sm:space-y-4 max-h-[420px] overflow-y-auto reward-pools-scroll pr-2"
                             variants={staggerList}
+                            onScroll={handleScroll}
                           >
                             {displayedData.map((row) => (
-                              <motion.div key={row.id} variants={fadeInUp}>
+                              <motion.div
+                                key={row.id}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.3 }}
+                              >
                                 <Alert borderColor="black">
                                   <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-2 px-0.5 py-0 text-black sm:gap-3 sm:px-1 sm:py-0">
                                     <div className="grid w-full items-center grid-cols-1 gap-3 sm:grid-cols-[minmax(0,2fr)_auto_auto] sm:gap-4 md:gap-5">
