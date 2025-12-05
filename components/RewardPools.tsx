@@ -387,57 +387,13 @@ const rewardCardsData = Array.from({ length: 10 }, (_, index) => ({
 type ParticipantRow = {
   id: string;
   address: string;
-  totalOwned: string;
-  dateAdded: string;
+  totalPoints: string;
 };
 
 const participantFields = [
   { key: "address", label: "Participant" },
-  { key: "totalOwned", label: "Total NFT Owned" },
-  { key: "dateAdded", label: "Date Added" },
+  { key: "totalPoints", label: "Total Points" },
 ] as const;
-
-const participantRows: ParticipantRow[] = [
-  {
-    id: "participant-1",
-    address: "0xA19F...7D21",
-    totalOwned: "12 NFTs",
-    dateAdded: "10/05/2025",
-  },
-  {
-    id: "participant-2",
-    address: "0x4B33...C0DE",
-    totalOwned: "8 NFTs",
-    dateAdded: "10/11/2025",
-  },
-  {
-    id: "participant-3",
-    address: "0x9C01...FFAA",
-    totalOwned: "5 NFTs",
-    dateAdded: "10/18/2025",
-  },
-  {
-    id: "participant-4",
-    address: "0x752E...BEEF",
-    totalOwned: "21 NFTs",
-    dateAdded: "10/23/2025",
-  },
-  {
-    id: "participant-5",
-    address: "0xE18B...CC01",
-    totalOwned: "3 NFTs",
-    dateAdded: "10/28/2025",
-  },
-];
-
-const hasParticipants = participantRows.length > 0;
-
-const highlightedParticipant: ParticipantRow = {
-  id: "highlighted",
-  address: "0x...aaaa",
-  totalOwned: "5000 NFTs",
-  dateAdded: "01/01/2026",
-};
 
 type TabKey = "rewards" | "participants";
 
@@ -551,6 +507,52 @@ export default function RewardPools() {
   const [current, setCurrent] = useState(0);
   const [isCarouselPaused, setCarouselPaused] = useState(false);
   const autoScrollRef = useRef<number | null>(null);
+
+  const [data, setData] = useState<ParticipantRow[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeSearch, setActiveSearch] = useState("");
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setActiveSearch(searchQuery);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      setActiveSearch(searchQuery);
+    }
+  };
+
+  useEffect(() => {
+    fetch("/api/ranking")
+      .then((res) => res.json())
+      .then((res: { accountAddress: string; totalPoints: number }[]) => {
+        const formattedData = res.map((item) => ({
+          id: item.accountAddress,
+          address: item.accountAddress,
+          totalPoints: numberFormatter.format(item.totalPoints),
+        }));
+        setData(formattedData);
+      });
+  }, []);
+
+  const highlightedParticipant = useMemo(() => {
+    if (!activeSearch) return null;
+    return data.find((p) =>
+      p.address.toLowerCase().includes(activeSearch.toLowerCase())
+    );
+  }, [data, activeSearch]);
+
+  const displayedData = useMemo(() => {
+    if (!highlightedParticipant) return data;
+    return [
+      highlightedParticipant,
+      ...data.filter((p) => p.id !== highlightedParticipant.id),
+    ];
+  }, [data, highlightedParticipant]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -874,7 +876,7 @@ export default function RewardPools() {
                     animate="visible"
                     variants={staggerContainer}
                   >
-                    <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                    {/* <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
                       <motion.div
                         className="press-start-2p-regular bg-[#9977DD] text-white px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded shadow-[4px_4px_0_0_#663300]"
                         initial={{ opacity: 0, scale: 0.9 }}
@@ -883,15 +885,15 @@ export default function RewardPools() {
                       >
                         COMING SOON
                       </motion.div>
-                    </div>
-                    <div className="blur-sm">
+                    </div> */}
+                    <div>
                       <motion.div
                         className="w-full my-3 mb-4 sm:my-4 sm:mb-5"
                         variants={fadeInUp}
                       >
                         <Alert borderColor="black">
                           <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-0.5 px-0.5 py-0 text-black sm:flex-row sm:items-center sm:justify-between sm:gap-1 sm:px-0.5 sm:py-0">
-                            <div className="flex items-center gap-1 sm:gap-1.5">
+                            <div className="flex items-center gap-1 sm:gap-1.5 w-full">
                               <div className="h-auto w-4 shrink-0 sm:w-4 md:w-5 lg:w-6">
                                 <Image
                                   src="/search.svg"
@@ -902,15 +904,20 @@ export default function RewardPools() {
                                   className="h-auto w-full"
                                 />
                               </div>
-                              <p className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
-                                Search participant address
-                              </p>
+                              <input
+                                type="text"
+                                placeholder="Search participant address"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                onKeyDown={handleKeyDown}
+                                className="w-full bg-transparent border-none outline-none text-[8px] sm:text-[10px] md:text-xs lg:text-sm placeholder:text-black/50"
+                              />
                             </div>
                           </AlertDescription>
                         </Alert>
                       </motion.div>
 
-                      {hasParticipants ? (
+                      {data.length > 0 ? (
                         <motion.div
                           className="w-full space-y-2 pixelify-sans-500 sm:space-y-3"
                           initial="hidden"
@@ -922,15 +929,14 @@ export default function RewardPools() {
                             variants={fadeInUp}
                           >
                             <p className="sm:pl-3">Participant</p>
-                            <p className="sm:pl-2">Total NFT Owned</p>
-                            <p className="sm:pl-3 md:pl-4">Date Added</p>
+                            <p className="sm:pl-2">Total Points</p>
                           </motion.div>
 
                           <motion.div
-                            className="space-y-4 sm:space-y-4"
+                            className="space-y-4 sm:space-y-4 max-h-[420px] overflow-y-auto reward-pools-scroll pr-2"
                             variants={staggerList}
                           >
-                            {participantRows.map((row) => (
+                            {displayedData.map((row) => (
                               <motion.div key={row.id} variants={fadeInUp}>
                                 <Alert borderColor="black">
                                   <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-2 px-0.5 py-0 text-black sm:gap-3 sm:px-1 sm:py-0">
@@ -956,58 +962,51 @@ export default function RewardPools() {
                               </motion.div>
                             ))}
 
-                            <motion.div variants={fadeInUp}>
-                              <Alert
-                                borderColor="black"
-                                className="bg-[#C9B9F7]"
-                              >
-                                <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-3 px-0 py-0 text-black sm:gap-4 sm:px-0.5 sm:py-0">
-                                  <div className="grid w-full items-center grid-cols-1 gap-4 sm:grid-cols-[minmax(0,2fr)_auto_auto] sm:gap-4 md:gap-5">
-                                    <div className="flex items-start gap-3 sm:items-center sm:gap-4">
-                                      <div className="h-auto w-8 shrink-0 sm:w-10 md:w-12">
-                                        <Image
-                                          src="/llamao-gen.png"
-                                          alt="llamao"
-                                          width={100}
-                                          height={100}
-                                          sizes="64px"
-                                          className="h-auto w-full"
-                                        />
+                            {highlightedParticipant && (
+                              <motion.div variants={fadeInUp}>
+                                <Alert
+                                  borderColor="black"
+                                  className="bg-[#C9B9F7]"
+                                >
+                                  <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-3 px-0 py-0 text-black sm:gap-4 sm:px-0.5 sm:py-0">
+                                    <div className="grid w-full items-center grid-cols-1 gap-4 sm:grid-cols-[minmax(0,2fr)_auto_auto] sm:gap-4 md:gap-5">
+                                      <div className="flex items-start gap-3 sm:items-center sm:gap-4">
+                                        <div className="h-auto w-8 shrink-0 sm:w-10 md:w-12">
+                                          <Image
+                                            src="/llamao-gen.png"
+                                            alt="llamao"
+                                            width={100}
+                                            height={100}
+                                            sizes="64px"
+                                            className="h-auto w-full"
+                                          />
+                                        </div>
+                                        <div className="flex flex-col gap-1.5 min-w-0 flex-1 overflow-hidden">
+                                          <span className="text-[9px] uppercase text-[#475160] sm:hidden">
+                                            Participant
+                                          </span>
+                                          <p className="pixelify-sans-500 text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
+                                            YOU
+                                          </p>
+                                          <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
+                                            {highlightedParticipant.address}
+                                          </p>
+                                        </div>
                                       </div>
-                                      <div className="flex flex-col gap-1.5 min-w-0 flex-1 overflow-hidden">
-                                        <span className="text-[9px] uppercase text-[#475160] sm:hidden">
-                                          Participant
+
+                                      <div className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden">
+                                        <span className="text-[8px] uppercase text-[#475160] sm:hidden">
+                                          Total Points
                                         </span>
-                                        <p className="pixelify-sans-500 text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
-                                          YOU
-                                        </p>
                                         <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
-                                          {highlightedParticipant.address}
+                                          {highlightedParticipant.totalPoints}
                                         </p>
                                       </div>
                                     </div>
-
-                                    <div className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden">
-                                      <span className="text-[8px] uppercase text-[#475160] sm:hidden">
-                                        Total NFT Owned
-                                      </span>
-                                      <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
-                                        {highlightedParticipant.totalOwned}
-                                      </p>
-                                    </div>
-
-                                    <div className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden">
-                                      <span className="text-[8px] uppercase text-[#475160] sm:hidden">
-                                        Date Added
-                                      </span>
-                                      <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
-                                        {highlightedParticipant.dateAdded}
-                                      </p>
-                                    </div>
-                                  </div>
-                                </AlertDescription>
-                              </Alert>
-                            </motion.div>
+                                  </AlertDescription>
+                                </Alert>
+                              </motion.div>
+                            )}
                           </motion.div>
                         </motion.div>
                       ) : (
