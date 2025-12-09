@@ -911,7 +911,7 @@ export default function RewardPools() {
                         COMING SOON
                       </motion.div>
                     </div> */}
-                    <div>
+                    <>
                       <motion.div
                         className="w-full flex justify-end text-[10px] sm:text-xs md:text-sm pixelify-sans-500 mb-1"
                         variants={fadeInUp}
@@ -947,7 +947,7 @@ export default function RewardPools() {
                           </AlertDescription>
                         </Alert>
                       </motion.div>
-
+{/* redploy */}
                       {isLoading ? (
                         <div className="flex w-full items-center justify-center py-10">
                           <Loader2 className="h-8 w-8 animate-spin text-[#B091FF]" />
