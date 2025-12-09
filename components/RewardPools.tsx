@@ -523,11 +523,15 @@ export default function RewardPools() {
 
   const data = useMemo<ParticipantRow[]>(() => {
     if (!rawData) return [];
-    return rawData.map((item) => ({
-      id: item.accountAddress,
-      address: item.accountAddress,
-      points: numberFormatter.format(item.points),
-    }));
+    return rawData
+      .sort((a, b) => b.points - a.points)
+      .map((item) => ({
+        id: item.accountAddress,
+        address: `${item.accountAddress.slice(0, 10)}...${item.accountAddress.slice(
+          -4
+        )}`,
+        points: numberFormatter.format(item.points),
+      }));
   }, [rawData]);
 
   useEffect(() => {
@@ -549,7 +553,7 @@ export default function RewardPools() {
   const highlightedParticipant = useMemo(() => {
     if (!activeSearch) return null;
     return data.find((p) =>
-      p.address.toLowerCase().includes(activeSearch.toLowerCase())
+      p.id.toLowerCase().includes(activeSearch.toLowerCase())
     );
   }, [data, activeSearch]);
 
@@ -907,6 +911,12 @@ export default function RewardPools() {
                       </motion.div>
                     </div> */}
                     <div>
+                      <motion.div
+                        className="w-full flex justify-end text-[10px] sm:text-xs md:text-sm pixelify-sans-500 mb-1"
+                        variants={fadeInUp}
+                      >
+                        Snapshot Date: 09/12/2025 16:00
+                      </motion.div>
                       <motion.div
                         className="w-full my-3 mb-4 sm:my-4 sm:mb-5"
                         variants={fadeInUp}
