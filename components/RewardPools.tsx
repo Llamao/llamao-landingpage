@@ -527,9 +527,10 @@ export default function RewardPools() {
       .sort((a, b) => b.points - a.points)
       .map((item) => ({
         id: item.accountAddress,
-        address: `${item.accountAddress.slice(0, 10)}...${item.accountAddress.slice(
-          -4
-        )}`,
+        address: `${item.accountAddress.slice(
+          0,
+          10
+        )}...${item.accountAddress.slice(-4)}`,
         points: numberFormatter.format(item.points),
       }));
   }, [rawData]);
@@ -962,8 +963,8 @@ export default function RewardPools() {
                             className="hidden w-full gap-2 px-1 text-[8px] text-[#1E3445] sm:grid sm:grid-cols-[minmax(0,2fr)_auto_auto] sm:gap-3 sm:text-[10px] md:text-xs"
                             variants={fadeInUp}
                           >
-                            <p className="sm:pl-3">Participant</p>
-                            <p className="sm:pl-2">Total Points</p>
+                            <p className="sm:pl-3">Participants</p>
+                            <p className="sm:pl-2">Entries</p>
                           </motion.div>
 
                           <motion.div
