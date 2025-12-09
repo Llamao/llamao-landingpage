@@ -560,10 +560,7 @@ export default function RewardPools() {
 
   const allDisplayedData = useMemo(() => {
     if (!highlightedParticipant) return data;
-    return [
-      highlightedParticipant,
-      ...data.filter((p) => p.id !== highlightedParticipant.id),
-    ];
+    return data.filter((p) => p.id !== highlightedParticipant.id);
   }, [data, highlightedParticipant]);
 
   const displayedData = useMemo(() => {
@@ -971,6 +968,72 @@ export default function RewardPools() {
                             variants={staggerList}
                             onScroll={handleScroll}
                           >
+                            {highlightedParticipant && (
+                              <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.3 }}
+                              >
+                                <motion.div
+                                  animate={{
+                                    scale: [1, 1.015, 1],
+                                    filter: [
+                                      "drop-shadow(0 0 0px rgba(176, 145, 255, 0))",
+                                      "drop-shadow(0 0 4px rgba(176, 145, 255, 0.5))",
+                                      "drop-shadow(0 0 0px rgba(176, 145, 255, 0))",
+                                    ],
+                                  }}
+                                  // transition={{
+                                  //   duration: 2,
+                                  //   repeat: Infinity,
+                                  //   ease: "easeInOut",
+                                  // }}
+                                >
+                                  <Alert
+                                    borderColor="black"
+                                    className="bg-[#C9B9F7]"
+                                  >
+                                    <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-3 px-0 py-0 text-black sm:gap-4 sm:px-0.5 sm:py-0">
+                                      <div className="grid w-full items-center grid-cols-1 gap-4 sm:grid-cols-[minmax(0,2fr)_auto_auto] sm:gap-4 md:gap-5">
+                                        <div className="flex items-start gap-3 sm:items-center sm:gap-4">
+                                          <div className="h-auto w-8 shrink-0 sm:w-10 md:w-12">
+                                            <Image
+                                              src="/llamao-gen.png"
+                                              alt="llamao"
+                                              width={100}
+                                              height={100}
+                                              sizes="64px"
+                                              className="h-auto w-full"
+                                            />
+                                          </div>
+                                          <div className="flex flex-col gap-1.5 min-w-0 flex-1 overflow-hidden">
+                                            <span className="text-[9px] uppercase text-[#475160] sm:hidden">
+                                              Participant
+                                            </span>
+                                            <p className="pixelify-sans-500 text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
+                                              YOU
+                                            </p>
+                                            <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
+                                              {highlightedParticipant.address}
+                                            </p>
+                                          </div>
+                                        </div>
+
+                                        <div className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden">
+                                          <span className="text-[8px] uppercase text-[#475160] sm:hidden">
+                                            Total Points
+                                          </span>
+                                          <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
+                                            {highlightedParticipant.points}
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </AlertDescription>
+                                  </Alert>
+                                </motion.div>
+                              </motion.div>
+                            )}
+
                             {displayedData.map((row) => (
                               <motion.div
                                 key={row.id}
@@ -1001,52 +1064,6 @@ export default function RewardPools() {
                                 </Alert>
                               </motion.div>
                             ))}
-
-                            {highlightedParticipant && (
-                              <motion.div variants={fadeInUp}>
-                                <Alert
-                                  borderColor="black"
-                                  className="bg-[#C9B9F7]"
-                                >
-                                  <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-3 px-0 py-0 text-black sm:gap-4 sm:px-0.5 sm:py-0">
-                                    <div className="grid w-full items-center grid-cols-1 gap-4 sm:grid-cols-[minmax(0,2fr)_auto_auto] sm:gap-4 md:gap-5">
-                                      <div className="flex items-start gap-3 sm:items-center sm:gap-4">
-                                        <div className="h-auto w-8 shrink-0 sm:w-10 md:w-12">
-                                          <Image
-                                            src="/llamao-gen.png"
-                                            alt="llamao"
-                                            width={100}
-                                            height={100}
-                                            sizes="64px"
-                                            className="h-auto w-full"
-                                          />
-                                        </div>
-                                        <div className="flex flex-col gap-1.5 min-w-0 flex-1 overflow-hidden">
-                                          <span className="text-[9px] uppercase text-[#475160] sm:hidden">
-                                            Participant
-                                          </span>
-                                          <p className="pixelify-sans-500 text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
-                                            YOU
-                                          </p>
-                                          <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
-                                            {highlightedParticipant.address}
-                                          </p>
-                                        </div>
-                                      </div>
-
-                                      <div className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden">
-                                        <span className="text-[8px] uppercase text-[#475160] sm:hidden">
-                                          Total Points
-                                        </span>
-                                        <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
-                                          {highlightedParticipant.points}
-                                        </p>
-                                      </div>
-                                    </div>
-                                  </AlertDescription>
-                                </Alert>
-                              </motion.div>
-                            )}
                           </motion.div>
                         </motion.div>
                       ) : (
