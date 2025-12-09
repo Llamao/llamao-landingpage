@@ -389,12 +389,12 @@ const rewardCardsData = Array.from({ length: 10 }, (_, index) => ({
 type ParticipantRow = {
   id: string;
   address: string;
-  totalPoints: string;
+  points: string;
 };
 
 const participantFields = [
   { key: "address", label: "Participant" },
-  { key: "totalPoints", label: "Total Points" },
+  { key: "points", label: "Total Points" },
 ] as const;
 
 type TabKey = "rewards" | "participants";
@@ -518,7 +518,7 @@ export default function RewardPools() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
   const { data: rawData, isLoading } = useSWR<
-    { accountAddress: string; totalPoints: number }[]
+    { accountAddress: string; points: number }[]
   >("/participants.json", fetcher);
 
   const data = useMemo<ParticipantRow[]>(() => {
@@ -526,7 +526,7 @@ export default function RewardPools() {
     return rawData.map((item) => ({
       id: item.accountAddress,
       address: item.accountAddress,
-      totalPoints: numberFormatter.format(item.totalPoints),
+      points: numberFormatter.format(item.points),
     }));
   }, [rawData]);
 
@@ -1029,7 +1029,7 @@ export default function RewardPools() {
                                           Total Points
                                         </span>
                                         <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
-                                          {highlightedParticipant.totalPoints}
+                                          {highlightedParticipant.points}
                                         </p>
                                       </div>
                                     </div>
