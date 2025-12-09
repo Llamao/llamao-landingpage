@@ -947,7 +947,6 @@ export default function RewardPools() {
                           </AlertDescription>
                         </Alert>
                       </motion.div>
-{/* redploy */}
                       {isLoading ? (
                         <div className="flex w-full items-center justify-center py-10">
                           <Loader2 className="h-8 w-8 animate-spin text-[#B091FF]" />
@@ -1068,7 +1067,7 @@ export default function RewardPools() {
                           </p>
                         </motion.div>
                       )}
-                    </div>
+                    </>
                   </motion.div>
                 )}
               </motion.div>
