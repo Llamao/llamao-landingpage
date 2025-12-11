@@ -1,111 +1,111 @@
 [
   {
     "accountAddress": "0xceE10CC0C025d962B31679E58F36AA1De2B6C752",
-    "points": 220
+    "points": 250
   },
   {
     "accountAddress": "0x4289D5e34eFCBd4Ca49Ff91BbCfEc81753a50871",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x84123d32f75647d149d62fA043b1Bdb86F8e62cc",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xc4e7E70a3A41c655B1b634Da13Dd2689AF821616",
-    "points": 120
-  },
-  {
-    "accountAddress": "0xb53E64cBB65bb5D0F6b21f3fA5d33eA6e1a369A4",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x7Fe19c444093EA945d3Be64CB37fD8E70DD19b8a",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x31269a5547AC3A74d9E6b5470ecb4E62054fC42f",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x723B6A0e6758D9A37F6261AAb7E1D1D9875c719E",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x7345ee2a3B6b859Dd78990E46BD5Cd21726b1f5F",
-    "points": 120
-  },
-  {
-    "accountAddress": "0x6af58cED7d0E5162aAe77aA05B7Eb6CB026EF60b",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x0B061f7C83557032dBc4279435da369d7bceb4fA",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xE37265f4d5a68aE596EcE9252aff790b43aF76F8",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x450f9660bfdBC8F759A70Dd36416Ba324FA8d9cb",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x5EE5b26911278aF4f46C3A2506c6FBd432727D12",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x3d0de3A76cd9f856664DC5a3adfd4056E45da9ED",
-    "points": 80
-  },
-  {
-    "accountAddress": "0xCee2a207C7fB1e524acc2B369692e0d402222212",
-    "points": 240
-  },
-  {
-    "accountAddress": "0x5e4BE30AEccb0c4F9811Eb3876D0271ea826eB67",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xfb44496ef7CE7Dc94dA1Ec9F45115C80BBA1778D",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xa863e427139aA23f7f443BA54395e370bDFa4dC4",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x18Ca14cDFA4Bf887eEB2dD5fC98a947EA43b8d29",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x73Dd160dbFFb9E62be4cBEBA01bF03cAd5b5444e",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x2d2EA7237a71240bCce25c43f6C6A67cAF8A1D22",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xF408D17dF0187B90d33FDFF1E604F08fC74a0c00",
     "points": 140
   },
   {
+    "accountAddress": "0xb53E64cBB65bb5D0F6b21f3fA5d33eA6e1a369A4",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x7Fe19c444093EA945d3Be64CB37fD8E70DD19b8a",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x31269a5547AC3A74d9E6b5470ecb4E62054fC42f",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x723B6A0e6758D9A37F6261AAb7E1D1D9875c719E",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x7345ee2a3B6b859Dd78990E46BD5Cd21726b1f5F",
+    "points": 140
+  },
+  {
+    "accountAddress": "0x6af58cED7d0E5162aAe77aA05B7Eb6CB026EF60b",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x0B061f7C83557032dBc4279435da369d7bceb4fA",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xE37265f4d5a68aE596EcE9252aff790b43aF76F8",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x450f9660bfdBC8F759A70Dd36416Ba324FA8d9cb",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x5EE5b26911278aF4f46C3A2506c6FBd432727D12",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x3d0de3A76cd9f856664DC5a3adfd4056E45da9ED",
+    "points": 100
+  },
+  {
+    "accountAddress": "0xCee2a207C7fB1e524acc2B369692e0d402222212",
+    "points": 280
+  },
+  {
+    "accountAddress": "0x5e4BE30AEccb0c4F9811Eb3876D0271ea826eB67",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xfb44496ef7CE7Dc94dA1Ec9F45115C80BBA1778D",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xa863e427139aA23f7f443BA54395e370bDFa4dC4",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x18Ca14cDFA4Bf887eEB2dD5fC98a947EA43b8d29",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x73Dd160dbFFb9E62be4cBEBA01bF03cAd5b5444e",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x2d2EA7237a71240bCce25c43f6C6A67cAF8A1D22",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xF408D17dF0187B90d33FDFF1E604F08fC74a0c00",
+    "points": 150
+  },
+  {
     "accountAddress": "0x02C637AD991bDE42800e63B53A8d97388Bc86562",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xB3d10F7f156ED62ce102EaC77f80915Ef3f437B3",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x462aF030a04be0e613008F94450Cb6386CB27C85",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xa73EF92E106EFF6f5Ff6eEA544e87A92B3B35ae6",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xCbf1Aa7d699954c1bd15cA0caabeE93CAa996Bef",
@@ -113,7 +113,7 @@
   },
   {
     "accountAddress": "0xb3e39079e304c198Ba81111528744F99E3CA593D",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xBC397E0Ad59f5EbF7AF1Cad9be7d7600642D608B",
@@ -121,7 +121,7 @@
   },
   {
     "accountAddress": "0x84ee56Bc943b14868D82dE5d478685BDB88757d3",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0x3E3a901dfC227c2964bD9C4F6892cbAf96C49cb4",
@@ -145,11 +145,11 @@
   },
   {
     "accountAddress": "0x49a88f83c21E2E6cAAd39EB303c67379FF94897A",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0x71E9689892263FB36a75052bc9e571636C45B28C",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0xAA9013170a5f859f1237F99Bef7108e6243d6982",
@@ -173,11 +173,11 @@
   },
   {
     "accountAddress": "0xF14680B6fB81885d05A30D3c545b2bA4263a1BE0",
-    "points": 200
+    "points": 220
   },
   {
     "accountAddress": "0x0bA7C46D72dcD51bcD45Cb7801A63C7Ad5372441",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xD8877bf1A5Ead663550768f0A252B43FC6eD7bcf",
@@ -189,187 +189,183 @@
   },
   {
     "accountAddress": "0xc29af44880f936a4218bb1C53d7BFb4126D063F9",
-    "points": 120
-  },
-  {
-    "accountAddress": "0x44a587Be763ed428a54C89D7f897711E54207222",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x337edDE64c9b7800F081614F3CB5DE9599c9D661",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x521dc01D9d26806092c45225200a09aa6D8f4b2f",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x39d95B4B2450beEA8bef5c70fCf9B57A1A02EDae",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x28fe1713972a2e19213B4f2B8336336F73f88bc9",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xA8ab8A08a25022965160403E02f03C89E2AcB688",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xC177EFAEB3552C7cA175E591ec98B2c3EC200F43",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xA92C5B9c9619aA82854f7287e8b70B57eeE0DC0c",
-    "points": 80
-  },
-  {
-    "accountAddress": "0x79eeBa75e703d44c62D4cc22f59343592B0DE499",
-    "points": 120
-  },
-  {
-    "accountAddress": "0x609D03a719A5fa85eA62Ecdb90A4940Be4781B7B",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x6dE5eA8b4387c9613cEB53ba41C1deD6aD2B6Cd7",
-    "points": 120
-  },
-  {
-    "accountAddress": "0x3E4F3059DC5D573cde3a2A1DD92c08A747506078",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x4d5D815C87dC7E81161B6910fcC746b4781B2FcB",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x23929AB6e97a753B38A1C06D1733A25624a9d5DF",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xEE7a7D85336Aa5F6da385de1547c7381719D9d08",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x1a1073518A076d75096EAb010b4a299f7a72b1AA",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x84c20921d0fccDF0593E350dc37c1c80c61E0bdf",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x47D1c8482FaDD716835B43566a94286f277643Bc",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x416183a08a34d08F6939DbEcEf8abC4a65F5F1C4",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x69Ca57961fc7E2f1417A8aB3BA196Bc4a2752529",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x508703228FEd40169C55b965F77e269Fc7391f32",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xFFd1a241100eb38ADc9e4133334f59687FFFC1f3",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x39c06B54686b0540D6D57A254b976B1DF4310df1",
     "points": 140
   },
   {
+    "accountAddress": "0x44a587Be763ed428a54C89D7f897711E54207222",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x337edDE64c9b7800F081614F3CB5DE9599c9D661",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x521dc01D9d26806092c45225200a09aa6D8f4b2f",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x39d95B4B2450beEA8bef5c70fCf9B57A1A02EDae",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x28fe1713972a2e19213B4f2B8336336F73f88bc9",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xA8ab8A08a25022965160403E02f03C89E2AcB688",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xC177EFAEB3552C7cA175E591ec98B2c3EC200F43",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xA92C5B9c9619aA82854f7287e8b70B57eeE0DC0c",
+    "points": 100
+  },
+  {
+    "accountAddress": "0x79eeBa75e703d44c62D4cc22f59343592B0DE499",
+    "points": 140
+  },
+  {
+    "accountAddress": "0x609D03a719A5fa85eA62Ecdb90A4940Be4781B7B",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x6dE5eA8b4387c9613cEB53ba41C1deD6aD2B6Cd7",
+    "points": 140
+  },
+  {
+    "accountAddress": "0x3E4F3059DC5D573cde3a2A1DD92c08A747506078",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x4d5D815C87dC7E81161B6910fcC746b4781B2FcB",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x23929AB6e97a753B38A1C06D1733A25624a9d5DF",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xEE7a7D85336Aa5F6da385de1547c7381719D9d08",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x1a1073518A076d75096EAb010b4a299f7a72b1AA",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x84c20921d0fccDF0593E350dc37c1c80c61E0bdf",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x47D1c8482FaDD716835B43566a94286f277643Bc",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x416183a08a34d08F6939DbEcEf8abC4a65F5F1C4",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x69Ca57961fc7E2f1417A8aB3BA196Bc4a2752529",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x508703228FEd40169C55b965F77e269Fc7391f32",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xFFd1a241100eb38ADc9e4133334f59687FFFC1f3",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x39c06B54686b0540D6D57A254b976B1DF4310df1",
+    "points": 150
+  },
+  {
     "accountAddress": "0x55230eFA8e6f892b58D2723Fb20b840C364A4D9b",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x4b7a44b8AbFDCB7c1F5769107F3592F70DdAA432",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x6DbCa5A833c0B594F0fB5330DA6Adc74253ac02b",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x2850E4322359Ea498027973bFeC6d8F92674583F",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x5ca615b6E5B7eF5f2D627298BD66C578B777FA36",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x00526c47D9C57531497f90571093fF84bB0307E4",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x67728f70B816E2ACc14cF9b7dB5d0B0f229C0e0a",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x1D54eE6c2e15B168F35a578Ca2BCf49F6A46c473",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x2435340CC2B4Be9Fa4016fAdAA9e8486C8C2678c",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x3e2f18E12fa3DE657CE80e603eBD120443D77523",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x0ec1f47A4874A717D12d02B4966e6a4b2d94683c",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xED264189A3a3E6737EC337a14a6B2913D18b001C",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x9F59847E5102c0d8Cf9e2EC2Cb1c5d84076a37cf",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0x223E64d8F425B5656e1A3600aC378c79794795B5",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x0eDF2aB6295C02D405667196c4403E9B9b2aaFC4",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x7B71fB31d1ac68Cb909A2bF25eff6F2F21b798F6",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x58332C7E9EC6DA74dC3c6989D3c97a2A4CA2CCdd",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x0d6DE3dBD0Bead4B1c2473371b52bB3A039647C4",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x3A505722A21c66c3143BBA976Bb83Ac82AEBfB48",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x721D98d896C411Ed7dc511CbB26019123d1E9F62",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0xd91679A0e0345df7F730DaFFCdC04B4272488C12",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xfC8977acAfD9A6158c30A4dfDdF36CaBcD2FF63D",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x9d95B2991277dC9A0a25a15eedD368F8085114A6",
@@ -377,7 +373,7 @@
   },
   {
     "accountAddress": "0xcC42E4977Da46FC4FA1808F9764307081AB9e6F2",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xF081ce449A486CbD5870b42C03DD2Ca73a2A30b1",
@@ -397,7 +393,7 @@
   },
   {
     "accountAddress": "0xb30e2fBcfc78eD6dd67B8b15AD7d150809087805",
-    "points": 160
+    "points": 180
   },
   {
     "accountAddress": "0x6AcC07EE65ba97CD738BA9e3E2F6BA95e73d1Bcd",
@@ -405,7 +401,7 @@
   },
   {
     "accountAddress": "0x7222e1425c4544d23405BA8e4BBd33Fbf846F6bB",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0x75092167298c208D684C230C38E9D57e90e8C4B3",
@@ -456,8 +452,12 @@
     "points": 40
   },
   {
+    "accountAddress": "0x67728f70B816E2ACc14cF9b7dB5d0B0f229C0e0a",
+    "points": 60
+  },
+  {
     "accountAddress": "0xee619a80A689f2532815aFfA05d8Ed0e717aa96A",
-    "points": 180
+    "points": 190
   },
   {
     "accountAddress": "0xa62664e8a61194dd826280021AdD216A6654f604",
@@ -473,7 +473,7 @@
   },
   {
     "accountAddress": "0x24256b6635042D5f01535484A6Aaa5Fe4f417f2c",
-    "points": 80
+    "points": 100
   },
   {
     "accountAddress": "0x414700dd0e276d437a00e6AcE1F85cABDF8F9ed1",
@@ -513,7 +513,7 @@
   },
   {
     "accountAddress": "0x94286DddAbCc9Ee668283B5587236A5918eB312e",
-    "points": 120
+    "points": 140
   },
   {
     "accountAddress": "0xF8c10ca8276eAAE6077e35260E2bAD839eD58710",
@@ -557,195 +557,195 @@
   },
   {
     "accountAddress": "0xd78FdA87c583f13474ae652F0f4871267bD2EE64",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xa47aD31EdF246aB0Dd0d1f7F6D0d4BCfb361f0e2",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x6127a966B6E157E433B82433AEb7F195f221EDD0",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xbbF505A4719Cef08395C32B4BC2eB853443b217D",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x584BC2918B8c1a208a7e9F15a985453D26A8CA10",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x5C77Dc8Cf5C589D0E8FBC789eaa221cA7f4D154e",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x64CE84A7b0720966BEE203C8cE2713287721C04D",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x6Df5195e2990BB29fB6e220DF98Dc26EbDe9eD9A",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xbCF94E9a205992b7699412e94a4DbA1aF8D94BED",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0xf5643E04A32CEBB712dA2FE1F3Ab5d281f35F265",
-    "points": 80
+    "points": 100
   },
   {
     "accountAddress": "0xaD4B33395aE4FA9d100F47907A9E770044693C13",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xcaB50a2B987FE307553C9ef2f4D4AC574a1BA13E",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x09748D883D8feAD17Bf6baCd7078a9659E66aa0B",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x6409FecEA41dFAc822Ca467A54d4fdcc9dde78e7",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x2EB5FB4902A35bb5F99E31Ae23FeCcaF85044FC9",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x791CbB56fA8b0B4A8fA221fdB7C6586fe5967693",
-    "points": 300
+    "points": 350
   },
   {
     "accountAddress": "0x2EbdFb0eea0364372B4A1a1D2A8142C60Ea54867",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xc09181eFB836B49381B4a537F20AbB5143c71d69",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x608417a587e6eece725E8180475451C64E0B5825",
-    "points": 100
+    "points": 130
   },
   {
     "accountAddress": "0x93b1cd2a4063D889f9219C4BCb50c4c920670ab2",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xD7DE0e33b056705A283cf4883dAAB4fc0D077111",
-    "points": 120
-  },
-  {
-    "accountAddress": "0x443c7E81d35C2EdC5f9B3E4f069e14a55824E2C6",
-    "points": 100
-  },
-  {
-    "accountAddress": "0x2fa949393E4aA49D77c9aFa3D8D9E9f88af5aAcf",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xBFe7f53B375ffb0A8Faa45d8Aa3eF7d3ade71529",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x0202eaf80Fb6313976491B4357205F684bff4842",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xD75ebd15df9495736513C844aC0F3e2394652715",
-    "points": 240
-  },
-  {
-    "accountAddress": "0x68227B00bcF55eaA0E3b11627ae5E19821A6538a",
-    "points": 100
-  },
-  {
-    "accountAddress": "0xB23326ddF67F6CdA92AB78132eE50F04311Dc78b",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x0548c27893A6765F9EE6DC530F55C232E7CE7438",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xce95401e6e35Dc4a4370090247eA888dee6D973c",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x918F2C8Ec895Bc2e60Da7c5f9785E95Efd82A981",
-    "points": 180
-  },
-  {
-    "accountAddress": "0x46cF3cD030B0030Dd67cbfCb0D09ea31126240DE",
-    "points": 80
-  },
-  {
-    "accountAddress": "0xa6942690dc510e083cc0208289890663F11d7c13",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x3fd08c282bf6e95E9252b89FBBd522ed9a952E80",
     "points": 140
   },
   {
+    "accountAddress": "0x443c7E81d35C2EdC5f9B3E4f069e14a55824E2C6",
+    "points": 110
+  },
+  {
+    "accountAddress": "0x2fa949393E4aA49D77c9aFa3D8D9E9f88af5aAcf",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xBFe7f53B375ffb0A8Faa45d8Aa3eF7d3ade71529",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x0202eaf80Fb6313976491B4357205F684bff4842",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xD75ebd15df9495736513C844aC0F3e2394652715",
+    "points": 280
+  },
+  {
+    "accountAddress": "0x68227B00bcF55eaA0E3b11627ae5E19821A6538a",
+    "points": 110
+  },
+  {
+    "accountAddress": "0xB23326ddF67F6CdA92AB78132eE50F04311Dc78b",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x0548c27893A6765F9EE6DC530F55C232E7CE7438",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xce95401e6e35Dc4a4370090247eA888dee6D973c",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x918F2C8Ec895Bc2e60Da7c5f9785E95Efd82A981",
+    "points": 230
+  },
+  {
+    "accountAddress": "0x46cF3cD030B0030Dd67cbfCb0D09ea31126240DE",
+    "points": 100
+  },
+  {
+    "accountAddress": "0xa6942690dc510e083cc0208289890663F11d7c13",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x3fd08c282bf6e95E9252b89FBBd522ed9a952E80",
+    "points": 170
+  },
+  {
     "accountAddress": "0xaE9E0106D06b02179CC805fBFe672D067DED2578",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x0da745F2Bd7655E4c70D6b02695ca772c8D2f69E",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x06209554Bc06B2Bb2a12446c0F0c741Da532789C",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x52A4ad657c25Eae2214F42c58401BbB39393CaF1",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x6633fB5864D8A1Dc0855B20de79b701D856304Fa",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x087fdE23B5A1a8881e7042850722F55402915771",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x8E39057EB1589bF9467767A0c13CE33cdD20B556",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xdC197822e435596584dA6BA7F6328bc62D93fb0B",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x9D2Aa2571DA4Fb680EcCED0F18192A90D9757952",
-    "points": 80
+    "points": 100
   },
   {
     "accountAddress": "0x44604878C553aFd783A47df9C1631D13C4D43B3F",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x58b8501D951D11Bd7875eC830A9935384B215ACD",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x14A4E6848A2e758558DaC44D3306B5a636C18B58",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x50164a2b8F7d112cddecd275E68eF13617B9e1a4",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x8151A8cB34bF414D9A0F0a27E5CDfa2e68FD60ba",
-    "points": 120
+    "points": 140
   },
   {
     "accountAddress": "0x679ff8b061A0f544FA6d66b022ebFB5dFa115FBd",
@@ -761,7 +761,7 @@
   },
   {
     "accountAddress": "0xc1b52d1968E4E8A25e6966C295010373d3F81712",
-    "points": 480
+    "points": 500
   },
   {
     "accountAddress": "0x64d1d1d9085B99C3880b88d3E7aEa8E543b0d5Bc",
@@ -785,7 +785,7 @@
   },
   {
     "accountAddress": "0xbEf3c43C7D593A387c54E1A120b14d2462D5F3b1",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0x9A261d0D6CA78E887aB50a917C1148b8F3a381B3",
@@ -801,19 +801,19 @@
   },
   {
     "accountAddress": "0x1C57Ae6150bB689809A7e408b19DAD3baa5A65B2",
-    "points": 260
+    "points": 270
   },
   {
     "accountAddress": "0xc9613E3dA409f2daD04587ae65E45d9207a05EaF",
-    "points": 90
+    "points": 110
   },
   {
     "accountAddress": "0x337ED1521f65FAb470024d6Dd545e4A57B74703c",
-    "points": 140
+    "points": 150
   },
   {
     "accountAddress": "0x4AF6689ceC8f13126a2d9b58C323dCb74e9cd568",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x9ca6352373A439D5810D0E614a0377F69E9389Ca",
@@ -825,7 +825,7 @@
   },
   {
     "accountAddress": "0xe143e015446cbB3094593d408a101BEf92Fc27aF",
-    "points": 160
+    "points": 170
   },
   {
     "accountAddress": "0x6899F5CBC4345e3d78a63e3adC60649EB2DcA22e",
@@ -937,187 +937,187 @@
   },
   {
     "accountAddress": "0x35476f3d5745FC3DD49119CF5D653312346b26F9",
-    "points": 120
+    "points": 140
   },
   {
     "accountAddress": "0xAD885E7254cc6d94bE5574D4473f8225167201A2",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xAb060Ae3C30Ca11f3F45634F090F745DDc5EC9A8",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x5315C9fB04340327A4851dE419fF6762998D535B",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x22e65b0a3995A6E476faA9C36Fc1d1e710450D2E",
-    "points": 260
+    "points": 290
   },
   {
     "accountAddress": "0x6A86E2Eb0FFd0e0dF35EEba2e55B85f019aE70B1",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xb312665792d45A3884e605e8B7626aD5b09D66a1",
-    "points": 120
+    "points": 160
   },
   {
     "accountAddress": "0xf4f195984d24726C60eC7Fc72c137B31012ff593",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0x57ED80B64086CE7073dFe2000770f646A9521bEA",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x2749aa1E53a00fF3Cf4b2735d529c13558dD6b33",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x520c2348aBF733b434D6D86Bb01ABae73B31eA90",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xDE81Fe5606947d811854bD1A586dc89EE6102dc1",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x7c548c1d3B006686283Ba8425238c3114523A471",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x5853972adbED6C973d7c64C653D0692354346D47",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x13e4DC21aA611e6bAF63a805D4C120dC7aFF29D2",
-    "points": 240
+    "points": 280
   },
   {
     "accountAddress": "0x1e50672B97339D86742b3561e355FaDEbe01C7dD",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xD66fE62F4Fb898456b12f158C4835459c431875A",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xd47cD3F72D59f9fa9ECD3AF005E7F59397dc8aa8",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x2Ec81a189F7C9Bf97DBB6105Ee4195eF01510766",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xe6F7801Fe249D11F0e93f095506CE786921C25Ad",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x26C89ea5dDF4F33e3d79d783895909A1f820AD1a",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x54b03e5D5E01fd10969c912Dd62a1061E96BD3d2",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x21F73F625A4D829F0bbd0B982Da564b60Db980dd",
-    "points": 80
+    "points": 100
   },
   {
     "accountAddress": "0xA6074091280F61aD860b9263a7238BA7885a36b4",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xD1D0F46A744356e8C0526b32F4088b411d4723B6",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x65fd6764B6D5657189eD609471bD0A799B26aD48",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x9a4E9b45c16f111521A820A1d7A35e7F99fC89ed",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x7F83e575dA53177b8dAb75D1eF4dB25e868f1E4C",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xA453a2E94c87E10fD9a68cae661B2E95F23BC158",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x6421d6c965C9AD0670d30E07F36E43A2eb14b8d0",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0x95c2E9FA2A2834CB624361010fA91B038270F4BD",
-    "points": 120
+    "points": 140
   },
   {
     "accountAddress": "0x3b9cb792571EA601d73bC3622844aF849DED9462",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0x31938CBeFAf6bB526F98BC6d04695819C0155ddd",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0x1A33c7C90d0AfC59e508F9A37fAd9940DD0d2007",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x4897C491E666Ed3e21e867aBFE8Dbd79f527EAb2",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x49437F9e3B59a1c7d3B6D66b7caF01d7Af52D02C",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xd9f9c373c72668e58a2413ebB3cA78FA185c9486",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x7c0E4a423C2052463D2E9858D1d3E327B16c4EAd",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0x360cEBaC3453204D44032d4E4d2c9896DE48a85c",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x088B76419cD0855341919cF7d7E5B23aa455b805",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x29698C14d912DeF2611a8a25C7CE22D2183FFdA9",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x01A9288b902D90AE9007119681423Ca725E2b724",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0xD381dD1FCb52AE85Faa6A92B279188D378dFfBb1",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xD3e2251B0553F490038308d221B2A58f2424E536",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x6f04aA5c4F30142251d0E8Cf347298D09C489c3f",
-    "points": 120
+    "points": 160
   },
   {
     "accountAddress": "0x0fD17F29D3Ec00C19f6c3495CD39d887065949B3",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x987D3cf0628f53Bf9a4fF5D13d4A32BdB2bA4377",
@@ -1193,7 +1193,7 @@
   },
   {
     "accountAddress": "0x3Aa446B0Dfbc5e06127c7135d5BAf213fE119596",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x4b345c99fa4eC52227d41A4825eA671968D01CB2",
@@ -1261,7 +1261,7 @@
   },
   {
     "accountAddress": "0xF871584DEE6eF58Ed46d3CAb4E764212eEA79f74",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xf9cd704dA81eA9fc5c17BA6bc1Fd40e16c24c9c2",
@@ -1305,163 +1305,159 @@
   },
   {
     "accountAddress": "0x121880c0DcE978cB61D6e33e5bf2549331A862D2",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xa1896559456432572F86F480f2149Bc60BdDF99f",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x3D4ceE525DbC25c4DD71C03e5cA3797E2b1516dA",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x5c4B13329FA16E519feD5aBb85f378Fb634eC41e",
-    "points": 200
+    "points": 240
   },
   {
     "accountAddress": "0x6D1456CECbA28d2Dd7BECCCA22553569F11575c9",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xD9fdFeA5960b4210db3EcBa4A0fB300Ee69C5172",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x63ffE0927da577cc99809a005964E01475f64700",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x3606855B7Fd17AE4Bf2b5dBD8fb57C54650B692E",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x945E1b1F12609224A244b9ce94560817F1912f8a",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x9fe0785B9cA6e31eb94AB81E8Bb1dd2A7E28Ef38",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x8Faf30cfFfd369F9e2aFf5Fa535dEe797c2004a4",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xfca846c60d22eB3A0987c75E5cE218647E962212",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xc9d9E80E52b1179E4cEC69477fB979D181ff2201",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x0E7c3700B3ad9e741D787eC1dF337A6c71D45b57",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x63FCAC9Ea570c93C43F4DdD93625958564a187F5",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xc5C520EC3287C5F4CA5375402e801A9c1De22025",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xC5CF70818024406541e50202C535Cc7b234092eB",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x763A192af111C8BE7918281275E8db9fD99a1b33",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x2Ef288EC868e2C88B1007b04F1DDC472BE530b7c",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xbD36DcF15Db0A9449ec5CCc997dF1C756fC16ac5",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xE25442F9b4F75b3EfFBCF788E67596F265F400aE",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xDb6FfD703EB4c187Afa628757C266a0B28511C82",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x63c0c9328d1d9aa15B37Fe300102D5c59256173E",
-    "points": 180
+    "points": 210
   },
   {
     "accountAddress": "0x9EeC7313d0e1D0c88E3323DFb8124fC11Fc5684D",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xcBB05789BF46BE18Ff1c2918611A9d3628eb7470",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xA2673C178641a95525a3A1eB98C98a9BeCC36112",
-    "points": 140
+    "points": 170
   },
   {
     "accountAddress": "0x51aD0b2EF2540d9336EC77E6E5a53F62539B4923",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x4070C365BCbe4D505835b174bd20A9c945de39D8",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xe3dCe6eD9f62ac579b9C442Faf8F64027B613C5D",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x579e7263F0e0620AD800bA3a4D0e34B6cB48807B",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xaC63218d545e2bb52b4C65Dd953EA826AcFde8f2",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xEF19aB91E5308a98C7917728D37e20Ef1Efb2922",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x61d5B88551F12521AaA72b4E300F3534B1dE9f34",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x903256Fc69cc0b8EcB56595d64068fa57a441983",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xDC55567462dE667A87Ee024331188f6e27317c82",
-    "points": 80
+    "points": 100
   },
   {
     "accountAddress": "0x209Fe72f4E0a72f4634c9aB92DD6412416F92C9f",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x6a0146d012ea3F82470b5E2F4d92fC99e04A1D9C",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0x5267995Cd69Fe3FdDb90b6323e5112780c4318C2",
-    "points": 180
+    "points": 230
   },
   {
     "accountAddress": "0x96aA640a663365530BbB2b8669582122CC0f08a3",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x786B64a6F32Fdcc2E03b66F812D7330a39Ee27A6",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0x0f452dc393b99255fdf18A70DbB01C2cB7ED777e",
@@ -1481,19 +1477,19 @@
   },
   {
     "accountAddress": "0x60A083a320c4c227e8f49548C801148694e71216",
-    "points": 180
+    "points": 190
   },
   {
     "accountAddress": "0x585EF5aB2e4Ed8bFfE3f2Cc9F59Eb41e642E9365",
-    "points": 100
+    "points": 130
   },
   {
     "accountAddress": "0x4a7749Dfbe8F6a877BB8d3ca5827626A6790E5E6",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x855245e2Dc526118d8dFC764d8DC51046685b457",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x30f504ce30F72FE42a0Bfeb3a217089ab063F287",
@@ -1509,11 +1505,11 @@
   },
   {
     "accountAddress": "0xc0f5067506af6Baafdd13147F596FaD4Ed87b864",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xa2DfF5378eC7dd60fDA1fe6b77f554a5829cc38B",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xe8dD90c98B9fe37800ccEB1125dBFF414E62DbCC",
@@ -1524,12 +1520,16 @@
     "points": 40
   },
   {
+    "accountAddress": "0x8Faf30cfFfd369F9e2aFf5Fa535dEe797c2004a4",
+    "points": 60
+  },
+  {
     "accountAddress": "0x28f6f20234343650583DE155dF4cEFB44E8fC0Fa",
     "points": 40
   },
   {
     "accountAddress": "0x91a1DD80fE620F166A4bC7E43971cE240fd67484",
-    "points": 220
+    "points": 240
   },
   {
     "accountAddress": "0x81274ca733c3EC2D16BdD7f40D5969578263D275",
@@ -1553,7 +1553,7 @@
   },
   {
     "accountAddress": "0x0CD414224183997e5cAb4440a4cBBe022Ad54019",
-    "points": 120
+    "points": 140
   },
   {
     "accountAddress": "0x4DD1EE458ce7060fc41a1b9E97B4961E2Ea239ec",
@@ -1577,7 +1577,7 @@
   },
   {
     "accountAddress": "0x6BDa0404288459CdC35B95A0162636088DCCBee8",
-    "points": 80
+    "points": 100
   },
   {
     "accountAddress": "0xBC15c03Ef17A6936e8AD9b7b9a527C5a5f0a1A62",
@@ -1605,7 +1605,7 @@
   },
   {
     "accountAddress": "0x604622dDa402f800f737Ccdef7a9c8F2B6c5F931",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x5d31F798b1832995552FA0992c5A64Ed7AB70277",
@@ -1613,7 +1613,7 @@
   },
   {
     "accountAddress": "0xfDE13BeA89541A928E554F7125636298251B15F4",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x2eaF07b7eEc52076535d301fd889Afd6fa92e45b",
@@ -1673,151 +1673,151 @@
   },
   {
     "accountAddress": "0x6447618618c692A814d72556EBc998875D604Fd4",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x884D2651edC5d8C28dC5C72FEd9133F77ae03318",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x371bb5277de2A4B2a0ba976Cd2e18fB1C4c6aeBc",
-    "points": 120
+    "points": 140
   },
   {
     "accountAddress": "0xf2674C1762E026293eebe49F86BEE81de39cD76a",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x8dDCA55a69842d9Ea1AC039Dc623f747c8Ef6438",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x0857dadB540E0729E58561C16125174D47D34ceC",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xE0fd7F11c4F0354f134A1D69E10FfEb8E352B46d",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x9d24b20d69f49179ca900a1d29307F52e17aE8bF",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xEd0eD9B7c2E9AB4087f89503c0DA16a66789C85E",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xDe8D15cD26cE794Df311b982A6512F8AD34CCB8a",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xc7f125149D7ea034D1a750eB10839dD3a961dbdB",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x50920C6aca5E44E5B6948264d4D1B94a53eE608e",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x42A9CF494Df977bbB90A1A45233dF6d3794A4894",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x021fddeD7ad6902627b57e76C90511fd70B36f29",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xDbbD4880CC6fb401d67b58C940Ec6c680d74E420",
-    "points": 240
+    "points": 280
   },
   {
     "accountAddress": "0x7a4ddC389c692D69fB9f4326FB69398FCD02E669",
-    "points": 500
+    "points": 630
   },
   {
     "accountAddress": "0xb92fF3d26Df2Cf4C663618e5dcAA9Cd1e96Ecfa4",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x1F101873f110d4cF0562D7B60Bbb616154a89738",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xA5cB9569a5711F71c16f48654b85f908bdd0fc93",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x2E3cF756F11436F68dc820b134D66F098b57B800",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xab91D799E225a2518bBA3c9C8D94E5C58d4b015B",
-    "points": 240
+    "points": 260
   },
   {
     "accountAddress": "0xC84839229a27b288c94323141A69Ea5b5560de7c",
-    "points": 100
+    "points": 130
   },
   {
     "accountAddress": "0xdFb43A609cE8B6597FcBcad6cBc2fA0C461211C2",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xB681C301ae7D6B6D4686fBc3bde80a713f03Acd4",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x485Ba8694626150d701340C3bf41db8F75054E45",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xeE34A35d3AF8F873C9BEa9AD7095d5Bf056833d7",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x381b4dC2087a4059F21e6915F713Db07257c82C9",
-    "points": 360
+    "points": 420
   },
   {
     "accountAddress": "0x1df336c84b56CCf03195A1Fef2f78843f1d690d4",
-    "points": 180
+    "points": 210
   },
   {
     "accountAddress": "0x04B6F5794d0A6E164d62f87f4adcC820EF93896C",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xE2F622966Baba4527ad6526256C23Dc8C2217077",
-    "points": 160
+    "points": 200
   },
   {
     "accountAddress": "0xAb32B2DF84A51aD02Dc0719C93E9Fdcad96B10E2",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x3a1Cb9b55Cff831Ed9CFca4d37F006044dAEbddc",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0x7650d09e50C2720E15D9977734C118B1Bf333dbf",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xEf4cE733BEBEe4e417b74e656757aD8D3f206EEB",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x8880DCB49b056f6Ac28A64EB292aEE9353b6e2C3",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xe785Afc25C1ebf30aE3Dbef40693baEc6B95afa3",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x44AA9F1C5d23971210EE16E96FFD95A06C295987",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x2f7Da1b033A48aE4B82333b83D16f1e6852cF85E",
@@ -1881,7 +1881,7 @@
   },
   {
     "accountAddress": "0xcb7dB076B6b12dD5aafc2DeE4F2AF23bF66742d7",
-    "points": 140
+    "points": 190
   },
   {
     "accountAddress": "0xFB5c9Ae2352A1b87aFF4fcdDe110DdA5eAE55FE4",
@@ -1913,7 +1913,7 @@
   },
   {
     "accountAddress": "0x6A6fe07478F79967e0bC4f05B255383096691113",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x9A98cCE1CdC2dFD1Dd6f556000F5d8Fe5c24ac68",
@@ -1937,7 +1937,7 @@
   },
   {
     "accountAddress": "0x4189ab08F226612a0181642b63f55FC2e6fA0537",
-    "points": 200
+    "points": 220
   },
   {
     "accountAddress": "0xfA9Ff5581cC458D3ba3983308F93417E5Fde2013",
@@ -1961,7 +1961,7 @@
   },
   {
     "accountAddress": "0x6bDc7B4F8BdF2c54eE53A65b575b0ac006a164D8",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x686F901bAf2ffc50Aa08Ce122B92cA8a49448cA9",
@@ -1981,7 +1981,7 @@
   },
   {
     "accountAddress": "0x69ada258f1afDaaFa6d8339c4e6AcC985F2E6459",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x60205BAb990Bf54C701F8850e56BC52446008930",
@@ -2029,7 +2029,7 @@
   },
   {
     "accountAddress": "0xFcD1bCE5345efa06E715a6099E60F77e7586AB61",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0x41894b3B140590a11617a6490d924024B8bD282C",
@@ -2061,159 +2061,159 @@
   },
   {
     "accountAddress": "0xBCef0F02856126F11CFbcd6F031C7a7f598FE666",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xd4ddEdA27066C7555f42cb68a780Cc839d273fd0",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x018F394AF9bd4496b9b7f06cC6C1925F8CDF004C",
-    "points": 120
+    "points": 140
   },
   {
     "accountAddress": "0xCC0d4963e3fd37Ab7a1788dBa06325313a8aA3df",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x521Cf3426f84d21426da08043e5A23EC523e6F29",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xf3B24c13241e261AE5CAde56C1c6927e492eaab1",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xf7713f561a78696eCE91f6ea117190595BBa7349",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x5a2efA2EE29d675F4bd6f079D82064c5B8397864",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xE94D80e5a85F86596a8220b14F2316150dfB4C1b",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x651171F6734696222C2b1FB8f54b0FcDC896cc8A",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x87724F88F2220B1B7EB7434b0395B51927C51049",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xCfD7Eb22dF95457Aa171ee800f3f23e5Ce480521",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xD05FA8d773b86697Cc381Ca36aB446117C59a600",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x9CAf0f4290Ea3B88Cc0A4313af537d72e8AA2E1c",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xB268D83d4A7e7E27B63FABDbC11aa0BDC77CFF4a",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xb3a220A590F5aCaca0b93B87458a0D9935B9d876",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x3f0FE4ef38d24A4974f32Bd51E15C8517648197E",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x231887E9382a866623a7aF7AE9AD80be2b9109b5",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x00769350FA9CAa48911BCFc102C7CB9032A16384",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x4CB0baCc52CB277517A5dD64aF9Ed3fd166a1391",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xA6E3af5D47183d66ec066fE69Dc5ae23809Bcc55",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x36Eaf9e403190697d44b9A256F28E05aaB770c0a",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x79cf3beC88f5A4D48485dfC82bAD8aaa1fBFb532",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x3Ae3B9372f39990C556Ee348424745095fa02814",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x6B9ec5924753A44709ad6ec0560282E0F70b6A63",
-    "points": 160
+    "points": 220
   },
   {
     "accountAddress": "0x0a6D6F90a76929b7b807c72067863b380D1fe9E0",
-    "points": 240
+    "points": 280
   },
   {
     "accountAddress": "0xc7b80C0bc9Ff9b578635B18EA7554B3274458f58",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xb46BF163C3B7DE6B80270ecE9012A276863842f0",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xC0EAB7AF8DFa203175e0f40eA508135fc7eC781f",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x2Fd5E4f0F9344cB7431e9DCd8D823EC5cc6daD19",
-    "points": 180
+    "points": 210
   },
   {
     "accountAddress": "0xa35df91Bc3Ea8354Ab20EB18fb3e09D8E9c55Be2",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x120EAD6a083b4C411FDF50e39f68adE1Eff2f19d",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xffe9309A3c8eB35c587130B9d5d1BaF60eAFB61b",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xb4E5E88B129917Dd030182887193783600c5BC9c",
-    "points": 80
-  },
-  {
-    "accountAddress": "0xC557570B47Bf25deD6c31Afc6E5aaA3eFfcD316d",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xEcE68748AB3B96021Fbf9B81719AD74Fd0f2eEDd",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xC68249ae9D63685b8c32202458a488D9a1111f56",
-    "points": 120
-  },
-  {
-    "accountAddress": "0xDC87165102F13bCeCb76E8f7b443FDd41D642817",
     "points": 100
   },
   {
+    "accountAddress": "0xC557570B47Bf25deD6c31Afc6E5aaA3eFfcD316d",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xEcE68748AB3B96021Fbf9B81719AD74Fd0f2eEDd",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xC68249ae9D63685b8c32202458a488D9a1111f56",
+    "points": 140
+  },
+  {
+    "accountAddress": "0xDC87165102F13bCeCb76E8f7b443FDd41D642817",
+    "points": 110
+  },
+  {
     "accountAddress": "0x3CfFd17d0f4107039498465671418b5772feC9C5",
-    "points": 120
+    "points": 140
   },
   {
     "accountAddress": "0x60D85a4D16720A98d7BceD90781efebF81537c3F",
@@ -2241,7 +2241,7 @@
   },
   {
     "accountAddress": "0xE80AE7D4C28e4F982af163Af67b33973E556F86A",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0xD7125A645c9f76dd91e4F9d0712fA9aA9DCe1b6D",
@@ -2325,11 +2325,11 @@
   },
   {
     "accountAddress": "0xF482759c8d3F1B42Fff283E61d63A1C52fe1907b",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x387e923Ae81fd593793265C427EDF8844492176c",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x08f1B93F5B064cA69c46354f8a7c8cCAf975291A",
@@ -2357,7 +2357,7 @@
   },
   {
     "accountAddress": "0xD10Fd0E8844032Fb1dC7dE772a837c053De0aF74",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0xf3dB0227fe22cC8caefa36144E567C8D3Db956F7",
@@ -2417,99 +2417,99 @@
   },
   {
     "accountAddress": "0xd54E3808bBf829599f26b017041210F626eA0Eb7",
-    "points": 100
+    "points": 110
   },
   {
     "accountAddress": "0x174Af8cf9995C6F30A0E3367651Cef2c4211983D",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xF37076f7F352a02F66F84C2367eC7c61620a7063",
-    "points": 160
+    "points": 180
   },
   {
     "accountAddress": "0xE45dceE0f553b35B6005E5C787Ee916a20C24700",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x7F1CD22F3E8DfaC287cB6b1D29a4D28ECB797b9c",
-    "points": 300
+    "points": 350
   },
   {
     "accountAddress": "0x3C75Fa881cddE06891FC7dCcB458219B9E50acA2",
-    "points": 120
+    "points": 140
   },
   {
     "accountAddress": "0xc4E4984e243f2b833e31513Ed4A5025922922D61",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x33b13A494505d9f1d5E92f773fDc87E40bB0cFe2",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x5Ff25Ad012E218ba392F713395549A3eE12827fa",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xB056DaF36EdfeeFE9fEcE60A9EBc571aD5453440",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xc11f5BcA59c81788B4AA71339b8E5eac8d21a784",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x46F99f65606FBA036910f3DCc79eD3692730b2D3",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xE08442bbf16a4c6DD6BE2c2FefCb4fd63CF4cE1B",
-    "points": 120
+    "points": 140
   },
   {
     "accountAddress": "0x9100C7457F0555795Ad8F0471583490E44dbB4Aa",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xff57EA41673BE3347A7f02625554eC1F1120D0FF",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x2d94f62d707E1e11aC3362B4A8883f9B513500e6",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x2466cD39f824C9E3364a1a83Bf3aD3265B2acFdF",
-    "points": 120
+    "points": 140
   },
   {
     "accountAddress": "0xcE1a73C183Bbe6450bD941111f2507C5B1294b38",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x6E12A28086548B11dfcc20c75440E0B3c10721f5",
-    "points": 240
+    "points": 280
   },
   {
     "accountAddress": "0x66741DBe71473188d2bEB7893F1dCc28ae9cEb6E",
-    "points": 180
+    "points": 210
   },
   {
     "accountAddress": "0xBA64c4E904f0Bb9FaBFfE74C2f55Fe5A234e084f",
-    "points": 180
+    "points": 210
   },
   {
     "accountAddress": "0xfbCc91008Eda33Cfe3834e2e0f460982867899eB",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x18BCfFC11c38f7e49dC7D68A657d83780175890b",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x1cfb356B92f8c773E585C2660E9757a5689cCd88",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x67F55b544E697a47b8Ec1521e8F636892d69B2B8",
@@ -2565,7 +2565,7 @@
   },
   {
     "accountAddress": "0xC4175855391654f154cA49E7C0bDbF1d2DdA64f5",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x7aFa64FfA82F60F4D004F52696aD7d6A1f47e6bC",
@@ -2605,99 +2605,95 @@
   },
   {
     "accountAddress": "0xF0c0e7d38121E30b251f5bAFA5855A95Abde745C",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x294A67A5AF90181995e07444f04FE723092896a4",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xE02caf48d09462D070aB36ede989a4227A47D7d0",
-    "points": 120
-  },
-  {
-    "accountAddress": "0x427640D793DD8CCd3143bef560D518F188cbF35C",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x6b5387ECb0198906Bd211C319447fc2b826834Ad",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x8a00d9f1dcd8E152F3EC74CF083253b616Dba2cB",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x7bf57Ad30AE741C400Bd8492156460Ae69d7C292",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xa5dA7d8b49B25f324ea00Fe582d5E6BA8C9B78F9",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xE64d0e896fD97C7d2e8C2Bcfd6698A4F042D0001",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xC495C830bD0A44B1016EabCC8d6c50667A94dC96",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xAC02a613C816d53e97331ec8E6c11eC787199A7d",
-    "points": 120
-  },
-  {
-    "accountAddress": "0x3496A0Da043108Ec81022ebEcced3D0cf821A58D",
-    "points": 180
-  },
-  {
-    "accountAddress": "0x92811c982c63d3aff70C6c7546a3f6bDE1D6d861",
-    "points": 160
-  },
-  {
-    "accountAddress": "0xF92D12755a706d8aba5DB11D80c41C4302d3C836",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xDB19893635e96Ae2aa45aD5aaB7A802602E46d44",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xbfeb7D4FDABdb75315Cd5bD3eb85584087c71c20",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xE4050f5fD71c96092b856F4e8156a8a5E84A3eAD",
-    "points": 180
-  },
-  {
-    "accountAddress": "0xF714cEf9C1364A57d688037316aEc1cFD838ea73",
-    "points": 180
-  },
-  {
-    "accountAddress": "0x10bA8BDed9d8Fc5C01fE84D78829Bf3383f5bc42",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x15ce9864B1d92d8e4d0A953BDeb718D13C6090d5",
-    "points": 160
-  },
-  {
-    "accountAddress": "0xb690F441e0d69070aaeaF8f7177916D74f83A186",
-    "points": 160
-  },
-  {
-    "accountAddress": "0x5c01aD8a66712C8fe43363222Db036F7D8F73bCE",
     "points": 140
   },
   {
-    "accountAddress": "0xfA678AEE2bD108C2b1cEeBc1c883cCA5587144E7",
-    "points": 120
+    "accountAddress": "0x427640D793DD8CCd3143bef560D518F188cbF35C",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x6b5387ECb0198906Bd211C319447fc2b826834Ad",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x8a00d9f1dcd8E152F3EC74CF083253b616Dba2cB",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x7bf57Ad30AE741C400Bd8492156460Ae69d7C292",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xa5dA7d8b49B25f324ea00Fe582d5E6BA8C9B78F9",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xE64d0e896fD97C7d2e8C2Bcfd6698A4F042D0001",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xC495C830bD0A44B1016EabCC8d6c50667A94dC96",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xAC02a613C816d53e97331ec8E6c11eC787199A7d",
+    "points": 140
+  },
+  {
+    "accountAddress": "0x3496A0Da043108Ec81022ebEcced3D0cf821A58D",
+    "points": 210
+  },
+  {
+    "accountAddress": "0x92811c982c63d3aff70C6c7546a3f6bDE1D6d861",
+    "points": 180
+  },
+  {
+    "accountAddress": "0xF92D12755a706d8aba5DB11D80c41C4302d3C836",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xDB19893635e96Ae2aa45aD5aaB7A802602E46d44",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xbfeb7D4FDABdb75315Cd5bD3eb85584087c71c20",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xE4050f5fD71c96092b856F4e8156a8a5E84A3eAD",
+    "points": 210
+  },
+  {
+    "accountAddress": "0xF714cEf9C1364A57d688037316aEc1cFD838ea73",
+    "points": 210
+  },
+  {
+    "accountAddress": "0x10bA8BDed9d8Fc5C01fE84D78829Bf3383f5bc42",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x15ce9864B1d92d8e4d0A953BDeb718D13C6090d5",
+    "points": 180
+  },
+  {
+    "accountAddress": "0xb690F441e0d69070aaeaF8f7177916D74f83A186",
+    "points": 180
+  },
+  {
+    "accountAddress": "0x5c01aD8a66712C8fe43363222Db036F7D8F73bCE",
+    "points": 150
   },
   {
     "accountAddress": "0x06002dA1e5f351bE3647aA088DE67f0239F53a92",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x9EE076656155a36dfA074e8B0baA2564A60FdcC8",
@@ -2772,6 +2768,10 @@
     "points": 120
   },
   {
+    "accountAddress": "0xfA678AEE2bD108C2b1cEeBc1c883cCA5587144E7",
+    "points": 130
+  },
+  {
     "accountAddress": "0xFea83C873B59E67E31AA242142449E03e92Ae308",
     "points": 40
   },
@@ -2781,79 +2781,79 @@
   },
   {
     "accountAddress": "0xd649946076d587Af74CAd517734935018a54cc2a",
-    "points": 180
+    "points": 210
   },
   {
     "accountAddress": "0x78989Def8Df8194ef7451506F84674c810F6Df3f",
-    "points": 160
+    "points": 180
   },
   {
     "accountAddress": "0x070dB41C0F4C37Bbf9ee1CD0f457B719a48090C1",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xB699eff6bD3073233469b27BD50047A78Ec22e19",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x60A3604a73c5A553d9658D25a623F69c367Dc44B",
-    "points": 120
-  },
-  {
-    "accountAddress": "0xfb35621B5aD6805a5Fdca7b6810DE5D98C564526",
-    "points": 60
-  },
-  {
-    "accountAddress": "0x8829A06607A4E34677FA31463BCdcdc6F3bF76C5",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xF676F0fCD6951Bd91e39944b10aFBE74254456bE",
-    "points": 180
-  },
-  {
-    "accountAddress": "0xFbd6207cAc6DC88cB28c1d6c84583930Db2ee061",
     "points": 140
   },
   {
+    "accountAddress": "0xfb35621B5aD6805a5Fdca7b6810DE5D98C564526",
+    "points": 70
+  },
+  {
+    "accountAddress": "0x8829A06607A4E34677FA31463BCdcdc6F3bF76C5",
+    "points": 70
+  },
+  {
+    "accountAddress": "0xF676F0fCD6951Bd91e39944b10aFBE74254456bE",
+    "points": 210
+  },
+  {
+    "accountAddress": "0xFbd6207cAc6DC88cB28c1d6c84583930Db2ee061",
+    "points": 150
+  },
+  {
     "accountAddress": "0xed22fBE31492F247ab26DdA404586318cD10f31A",
-    "points": 180
+    "points": 210
   },
   {
     "accountAddress": "0x0ae3bFC783b92A643a9Ec00D54E1fD6250eA093e",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xa29CDbbC00541d29a6496DbaE257cC46E06671F6",
-    "points": 120
+    "points": 140
   },
   {
     "accountAddress": "0xCFEc52223af7aa6546036e464cdAb388432c91Fa",
-    "points": 180
+    "points": 210
   },
   {
     "accountAddress": "0xCDdCeCEf3E9bBa1fe12CC10b9377ee63Af44F1A6",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xFfb8C9ec9951B1d22AE0676A8965de43412CeB7d",
-    "points": 60
+    "points": 100
   },
   {
     "accountAddress": "0x620DBdAc5803a4dC3804e9cFcAA5CAf76701FE92",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x977e1cAA029Adb397d6d37aF1ec3201DD6F33822",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xF4Dadc8962146b3D62e80F3d7801ca24E62Ac3E8",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xe7D6a6ea21cd057393eb1CE3d13FAD58975c18bc",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x41D5C7f3C87303dFDA1FDF96F09aE9De8b75AC34",
@@ -2861,7 +2861,7 @@
   },
   {
     "accountAddress": "0x08a30A4B52Ac4C427500951C0D2B1Ad795df6F0A",
-    "points": 100
+    "points": 130
   },
   {
     "accountAddress": "0xfCBd60a0E300559180057564D3bE80890E3D875B",
@@ -2881,7 +2881,7 @@
   },
   {
     "accountAddress": "0x64F28ea97c78AB79824B63eeC3D61A81f2003609",
-    "points": 70
+    "points": 80
   },
   {
     "accountAddress": "0x0d3b3041B77d6fb8F876C4ff8419543d7F2a032F",
@@ -2953,7 +2953,7 @@
   },
   {
     "accountAddress": "0x246Ba8A0d1Ba0f1870ab7433f8Ec1cBeD2F3C06E",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x056b7552B9D26011Ba8682F1BDeb2390f0889f71",
@@ -2961,103 +2961,107 @@
   },
   {
     "accountAddress": "0x4d7858c816bcd4EcCfdcfb1809CbE9bB8D0A8Bf7",
-    "points": 120
+    "points": 140
   },
   {
     "accountAddress": "0x9D076A881133Cf5C8d7e1C4a6b1355c04d86E16B",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x8883fa4f3b3461351af5a893767d008a8531f2E7",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x4643659b7e16286E60a6A7C2e4dF8b2a70f07dd1",
-    "points": 140
+    "points": 150
+  },
+  {
+    "accountAddress": "0x89B1E3acec5e6AbEd434920a8C181a747Da025BE",
+    "points": 70
   },
   {
     "accountAddress": "0x19C9F422E6158302E8850c9e087A917f113783B4",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x20b29237F89eB90fcDE8EA45340FE0b58F3A18d4",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x2E49FEB94e105DFe9779D6c1660A2d3C516b5D37",
-    "points": 80
+    "points": 100
   },
   {
     "accountAddress": "0xa62c69F91d0A7229a8f925868d8Eb0C6943810fB",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xC43497D9566193C37B16bF17d1bdb2b403fF450c",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xDe49EcA4695Fe0EF40B2e52B1efb0065CcE60302",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x792eDb670693216b52d9d558C1b40Ae93d607056",
-    "points": 80
+    "points": 100
   },
   {
     "accountAddress": "0x3Ce6FFf21881C130F2Ea2BA860F2EE53Fc9b2E43",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xA53De8c364da8037D39a5C3E39F71479930da3E3",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0xB578deBc8A568D5ad3310D64E173Ef1fF0701716",
-    "points": 180
+    "points": 210
   },
   {
     "accountAddress": "0x5dCe71c5fA4FA8593c9B903F093544145BdAf7bF",
-    "points": 120
+    "points": 140
   },
   {
     "accountAddress": "0xE67e64146cc0d688ca26698181754412af88640E",
-    "points": 140
+    "points": 150
   },
   {
     "accountAddress": "0x2d5521FBB5F14021e8dFe002bED822523a62161e",
-    "points": 180
+    "points": 210
   },
   {
     "accountAddress": "0x16A0d58606867fC6CC2131546F4bCad59EC60051",
-    "points": 240
+    "points": 300
   },
   {
     "accountAddress": "0x46f19Dd84De1696d3D9018fc1D7234B9B18Aa182",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x093A688E2B41945EceF4a93f52aBb38AAE9aaC1f",
-    "points": 140
+    "points": 150
   },
   {
     "accountAddress": "0x4F2a4ba8AEd3cA80C05c52E0b35f1A238052362a",
-    "points": 60
+    "points": 70
   },
   {
     "accountAddress": "0x355e73E12AD876603e5314E0A54bDBcFB96bC5ba",
-    "points": 180
+    "points": 210
   },
   {
     "accountAddress": "0x91EeaCD0A75Fe5A4CCb2714561c660F9E9C4C9A1",
-    "points": 180
+    "points": 210
   },
   {
     "accountAddress": "0xCA07A6F0e85b354646d6a21AB909466Cdfb6a27a",
-    "points": 160
+    "points": 180
   },
   {
     "accountAddress": "0x396F4C34Ba65Bc929E8bbe4443a1C1A391A15f89",
-    "points": 180
+    "points": 210
   },
   {
     "accountAddress": "0x990Fe1ED34e4372798bB8A47e4Fe5EA4D9227222",
@@ -3128,144 +3132,140 @@
     "points": 40
   },
   {
-    "accountAddress": "0x89B1E3acec5e6AbEd434920a8C181a747Da025BE",
-    "points": 60
-  },
-  {
     "accountAddress": "0x2AC173713D62e009E28d94d864b5990e79A02057",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x72967D57223D0C78CdcBfBeC510C74bDDc1C20b5",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xFF53350abfb87317e30C4c20316848d25f95Ee20",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x79528c74c52C007eBD42f2A2F39b4CeAf2A3f99F",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xb848e5faEc996D3e8c74DC267B7f3f6f35E8233B",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x108541e5122A04e97A279d5a3dF18E0d71f27E16",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x20B9be08A5fd0a921B1577bD826C5f1127a8003F",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xe77a035621f29a1501735aA05FB308671E7a243E",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0xEb0a0E981202428600C013897C7571C64107e92D",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xCb194aBcbf798d521cA389C130eEAb40F8C08dFC",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x0Bc233eefA34f96db9C130E7EE872aBC079C8fbA",
-    "points": 20
+    "points": 60
   },
   {
     "accountAddress": "0xdC5ecFA3Cc8dC76ad7E390628BA8D0244b4E6cbB",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xb1469ABb3Dbe207484bBBB1044B3716E878b06A8",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x6C8a6D5a1475C0e35F5022F167Cd191551FF3279",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x81c6A442bFB0EcCd4cE1725814eF0127A7fEeDB7",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x4a7D5539808b97313a8ACE3945D85B0415380344",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xAc97948117CAa2493282f2B480e56519D690fFd3",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x736794a02b48308068aE03f3F0c150Bb96F70D58",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x9A44aeAF271063aDfF495411bf252d61D678Dd74",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xd2827A97023a3c89e62838f7c06EaEBB9c90FDF0",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x46bd82cC434d5e5b62431B24917bD23706E48192",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xB3F65571cC59Fc550b9EAe36BdEe09a19482CE71",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x2079aFacBCdcEfD9a19B11195B5aC2Bcc9ab9Bfb",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x60921BD80a3306Fb9674be85ef3bcF206CB23dCf",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xd2dCf06D527bF9CBF04Ee1c565CF50e15E77A811",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x9004B8FB2d11B4516F35847B4048383745E478D4",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xf9e9d488ADc848FEfc5EFf30D450fB60922C9e28",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x77A39a2ECE4Fb163f035411809880FDFE41891b7",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x7f04c4387423c5460f0a797b79B7De2A4769567A",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x1464A5Db83A04E3227E1775e3ce8b4FC7F040B45",
-    "points": 140
+    "points": 210
   },
   {
     "accountAddress": "0x7ab56E08D8Ce1DD21A681e212c7646e3A0Ff27f3",
-    "points": 500
+    "points": 750
   },
   {
     "accountAddress": "0xB1e3AeAee93488935d98d222d75bB9131a75EF82",
-    "points": 100
+    "points": 150
   },
   {
     "accountAddress": "0x98eE98B754EdFE5D2Cb4377E3e7f47E8803Ef8C4",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x9168a80AF210c511e4BE5b32d7de75124D0a4996",
-    "points": 80
+    "points": 120
   },
   {
     "accountAddress": "0xc72E271E6bF468d59c1f97A4c71c0dd19853d5B8",
@@ -3273,447 +3273,447 @@
   },
   {
     "accountAddress": "0x13795624B9CA297896d7a4a84d1a944dDFcf5a3c",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x2ec31068d6451510841578981081124a0f75cC64",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xeC398568e920B9398Db4298493f5605f7925c014",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x1E9fAf64FeA9f351e5cF1902A05Ed3Be59Cd099c",
-    "points": 120
+    "points": 180
   },
   {
     "accountAddress": "0x9AaA8574d19480427696f2290adA5e958675Ad50",
-    "points": 320
+    "points": 480
   },
   {
     "accountAddress": "0xe3Dbb2CC5478d7814E9d6511783b49705DCf4575",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xCa1a2fB7f3179D887504966b25d1606978AdcD42",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x49F5254032fb9562a89b6C113f8a0C0d483e6F0e",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0xe04a058C8Bdd33FbaA973eF129DeffD63a606348",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x0Fa8F0802630A1F5b17aA25d4cfcA8739Ad98493",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xd32B0a3D760fd00d9fe44DC7793A5FE3c028159A",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xe6292c100512cD535F1Ab8B89Bdf069282c17b78",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x5CD69c09137ce0c5EE34b6af51Fdfd0047b61E34",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x0CbC7B0acfA9cE6752dA14f31A566EfB8B16F40A",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x7A94342FC568E6E057C082765b81f4E3F16640D7",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x3a10Fae6da5487e8cEDF7a2012a7Fc45dc7BD878",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x5f1E999d6ABe7db9ba7E2728E0B603cb2a704DBb",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xb77ED19d3F9e374e238d6f8Ef6E47e3aB646Ff2F",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x57589FfEC3CD0Ed0258528De9b6EE9fD1D3AAd98",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x7bC10EAA9E024FAeed3B58c50257Ce9Ca33f9376",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x87Ad30d45c2E07CFCae5deD378523587CC42B250",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xF15aFd7caB7927d1CfFC9155F5C33044eE3E6067",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xf7F828B175F96B51C679a738a471405b9ab248ad",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x7e1F869329C2b264De65B9f0e14f00F6481C2b4c",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x4FD83ca2ECFD69A37F8c6C4d88377d861f60190B",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xDf66dB585A39190B941740d9f1B00AA63140b6E0",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x784ef860A461eB44Fe3717BF5403ac0AA24E4e9A",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xEec729bbdf5d12A0268818c634Aa664A1A877A03",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x32Cb32C66Ed6Ac092D12632A5bC6a78E8eFdE8E0",
-    "points": 60
+    "points": 90
   },
   {
     "accountAddress": "0x134CA4fee2a9B53007e1cDc811c8c06Fa05cf4dD",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xFd8E716694E95BDC116634DBB0a34aFbbB3B01a6",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x02DEDd0877BC3B935527A372dCc18c8BfAA272Cf",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x01c351258167662b5d621d74A46930359DE0793A",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x97802Df5eE13a7F82f60242FE2eb8257CF66E3E9",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x2791C7169d9d930703a4A16Ce1c467539946D847",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x5045422807906613dC47Dca0405F73E3701bC92d",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x2Adce538e273c5128f49595B0A2ADDB4AE511DbF",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xe481bF68B259D325D14b19BF89f108EE7B6b8758",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x0e0BbA4Ec21AEef3A7853AD1837aD163E87852E8",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x86d8dF20332a9dEAa373efB1b795CD535158bC56",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x6E703F9264375b88791c958053Be7834eD49d769",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x2E3793d035A46C7bE6f63dC934243D379Da6a2F1",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x1532Be591fBaa9f457C0Ace6dFe79BC7116fCE6A",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xBd4aA4e57052776f42dE2AE6d750b7583E2DC578",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x668AEfd4cc9f5E6fc970F9B0B6C2eBC2E3049517",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x2DCaE1D2eDBEC23dd7C7592dF1348b58eb97Bf91",
-    "points": 80
+    "points": 120
   },
   {
     "accountAddress": "0x6aB54DceFc7245285E0b2A5830C680199aAd1497",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x37994b94550334634fC43A313aB692563D5fe68b",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x693Bc83ADEC6a8BB4C43FEC4770d07BB3F24fA91",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x9Eb5eC163d5623DAcaacbC26DC842200A7b937D5",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x078E4e1507d0d52987C6f7f5c6804C045100922D",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xB1aBD733F367137667460Eb821989BEB77d60939",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x38A9876765568A69ABb2a80cd1e3a9b700CCA42f",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xdFc3f7f77e0F0CEf4D322EacDa40dD084336a66c",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0xBF8527bE9f4ffb6b11E444fe7A3cFb96825cE86F",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x505FFc0682940F8389e3aa05de672CA6D1727a69",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xA941E3849Df9A6b8FaE751b54b51f060D3D1e267",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x1140b65E15Ef61624ABf004070e9A466Abd89dDD",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xAa92eEa9843a6c63873B0956cE3cA61fbb85037B",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x6d90825cb8a00B1d2951E64D62f455Ac149214A6",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x4c73DADE7425E7b286ddb0160A9Af5Ec41424B20",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xaa162a427011438b91CB1C89e7fE75aB72BF1E4B",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x1e5F5fab659687fA29201D8C46A1dD85C12BD3D9",
-    "points": 240
+    "points": 360
   },
   {
     "accountAddress": "0x62De92EF3DaD871b0AdEE3c835D3F0989c1Ef00f",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x26c9C310d7cd00C0131a1Dd8BB5b391ab14b6523",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x9C85C376A50721c75E4E015AC22EfE066dbB73EC",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xec6b2d00Ed35045A8e1733B3DF2296033AA314af",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x294bbBc74E34a79C29721590be13facb018F6b0d",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x22d3961C6318ff80406881493D7f844354dbe56c",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xa9Ee4D72dD6081668e8b30649E9E095fCA00AB9F",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x8eCa96806675Ed3882C844a8D2bB09005EeAd9bf",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xE55AbC76735f2D8619802EfAa7112B4CC07a502a",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x016099f9c894285B4BCf82424A4dbDE44195ebBC",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x71bDf19F1634eCcA3a405B11DCF6e732FC1583c5",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xE78954432D9A0319B139020404197AeF16a4C831",
-    "points": 60
+    "points": 90
   },
   {
     "accountAddress": "0x212e3916ee3dc0cbdAA80ad747aeBc6f30e8fBc4",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x917745978cBfB631DA987fcc74Cf291De1Eb472F",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x9aa786Ca5EFCAaeCd487f54d8C672de12A6abbb4",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xD6e57927dE19128642aC68547089600c4E666E7C",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xA66Db1785E461E759Ba3040e5332547413c21D3E",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x3D6a38098b2F9b624631e28920d062E006aE08Fd",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x2146520cA9FaBB6ad227d0e8BCe2bF18Fd742BAB",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x343b12a3e3FBD3C789d3b2E56Ca7FdE146a80E49",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xC15D6E60323bd35c4B41d6eF8A42a60b52058576",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x23F97986B80bb63f665baa0e370562d88b21ffE3",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xBE7c75A06c42fc9E4bcecBfFC48a09a483D681E9",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0xD5c27DFc8ad9791d618Bb132a7830c3282E25905",
-    "points": 60
+    "points": 90
   },
   {
     "accountAddress": "0x34a8c6caB4A188312cca1E826f9F027cF7833e1C",
-    "points": 80
+    "points": 120
   },
   {
     "accountAddress": "0x19e1B1C93cCad5FAc8F0b960eeAaD647FB1F09Db",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xd717c2fD8477D7489CB1efA8c746EF93c52d9671",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xb5Cf87D082840d97fFfF99C1C3758C4dB95D5988",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xFcb341E284BFBd8A466172e83B79fdf70a8490E8",
-    "points": 60
+    "points": 90
   },
   {
     "accountAddress": "0x3E8AE5c434ceedA08Bc0c3fAbF407E7DEEEf1Dc6",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x0417EC6f83119a19aD81264E6E6dC70D22823824",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x84F5BeD3B872776D84dd745Fb1d5B6F60d0be01e",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x9Ed24B2D86E9EeAf5f8dBc36A3BbCBCe5a3DBa94",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x2c7956Fb5fA79Ba7db5AD2F3B1c36Ef79E9338b9",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x7cEd3AAE9f63107dC2AAdF0B35999c92Bf7f7009",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x86DD8176D98561cE948BaAba4330607A7Cf1bD79",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xC0728f8a114a1D91fACAC917add0C55A24c6baf7",
-    "points": 140
+    "points": 210
   },
   {
     "accountAddress": "0x2D4F3a353F75dc9c18b6c11B764426422c5e99d1",
-    "points": 300
+    "points": 450
   },
   {
     "accountAddress": "0x35eD8C41938263FC17a612D6a104a59084eca6C8",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x4d1EAb4fbDF03577e6c9B5dD81a57Bc377A5dB02",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xC43d205a2079B9393Ae2dcD0B2Ac5F1b1564d31f",
-    "points": 80
+    "points": 120
   },
   {
     "accountAddress": "0x8264D50dfF6a1652554F0AB67a6f270Fea588602",
-    "points": 200
+    "points": 300
   },
   {
     "accountAddress": "0x3f725524c7b5Dc77D5E60BE3E15c32f9d10d3201",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xB1daf0BE0Aa88B58bdE5dcA2aCa7b64b14572fEd",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x7DcC604655a708c6Bcfa56F8Cf2AD407dEc257EC",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xbb1217979Ff15eE21740b21FfB17782E36AC582d",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x1bA2A8eF7EA16b7d5bC7F0463459DAbE0ECD834f",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xF7342ADf626F88Aba14A64DBC18b8923337c8d8c",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0xCFF8d1BF0431f21b341632C57f106f378b4D890b",
@@ -3721,131 +3721,131 @@
   },
   {
     "accountAddress": "0x37B4eF5911e15124f4CB632Cb3250ca9d99a8653",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x22D84648A257f04201646C3ccD90Ead9d501097d",
-    "points": 60
+    "points": 90
   },
   {
     "accountAddress": "0xFebC9ba56cda711910Ffd7017373EE4499C0fA9a",
-    "points": 60
+    "points": 90
+  },
+  {
+    "accountAddress": "0x7331219b871AF5c0cd3a3f16223d80b7A46a58AD",
+    "points": 120
+  },
+  {
+    "accountAddress": "0x4abF037f7E2D1E282BE879F7f89DED38BD0253d7",
+    "points": 360
+  },
+  {
+    "accountAddress": "0xdf99145Aed8782Ad89144Aac11a5fE1dE2FB0562",
+    "points": 30
   },
   {
     "accountAddress": "0x546694782b87ca0120275a3ab96D91e423Cb7Ee2",
     "points": 20
   },
   {
-    "accountAddress": "0x7331219b871AF5c0cd3a3f16223d80b7A46a58AD",
-    "points": 80
-  },
-  {
-    "accountAddress": "0x4abF037f7E2D1E282BE879F7f89DED38BD0253d7",
-    "points": 240
-  },
-  {
-    "accountAddress": "0xdf99145Aed8782Ad89144Aac11a5fE1dE2FB0562",
-    "points": 20
-  },
-  {
     "accountAddress": "0x7eD8172D07a67207922c2597d60aB026670ff556",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xE51C0a5c749b261A498097065fae7bC6951983Dd",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x876677A5E47c6E5b2a3232297827eB83BB366bf3",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x0ACFdcF97909503C844e0AE437EdD0fF9AF6cFff",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x586aa3a0070fA6e9538eAff8001D03f7dae26151",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x3eAfc41faD5FE4baEcC63335A79e63F4A9e12b58",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xDCe907750f7E3247D71eebf89c66068D541A0eF0",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xA97B4b1E1a4B1ec18bd1aad91948beF83b925bDB",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xd77f7CB0A3aE45eb3e5A05E50ff41ac0F1D170de",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x15b448B489Ed682C4E81f3eFCB1038AC011093f6",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xF8FC4905f908a459BE57e337c24de5D4EC87a143",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x44A47bf2568D3EC4Df109E1F292468e6C758825a",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xbB19763183F8e4EC8eC6f3c83D47DEC2c510E6a4",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xfCAf1DB0AB580F7E46cC0607d89E0A8B75323D74",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x8C9884d4D9603B1970b3654437441F10b0e8A9FA",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x7Ba123Cd172bF908431Bc8B53659b6e2D60072e9",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x13A23674da44c3AB073DBF8AAD5F76C316d89bdc",
-    "points": 80
+    "points": 120
   },
   {
     "accountAddress": "0x5Ef65D0188889d906b999B5110ed64a33c6193FC",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xdbF1548378F19D0578BDfb6F3DB8632Fc2F5e31A",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x7f0908c36593058CF90Ed7d27878Fc2f9Af878d1",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x08f0fD004C1142C00EC2720D80fA9C7BeF5C43c7",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xCdAa484a6A787cD20707cFa94d9841850CDf99Ff",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xeb3E78dD812CEF1a80201BF36d9AEe1399269114",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0xC842575acD573015C982421bD0B6607d498EecFE",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x9CAA4591f62FD18C3bE93974FE3282750a4091a6",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x54c604ca96594F9233D7B533e8c85F6614d6E5Fb",
@@ -3853,215 +3853,215 @@
   },
   {
     "accountAddress": "0xEB62fba39FBeF0b71F3e020434b448e3929770F2",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x901dbE5b89efCe99e66893a8B40DebF7E2D6f208",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x42392E46A5eF600D36782F69EdD02d4E41D45E3D",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x77B46A19e1bDE4AB5B31268472dDdF01E8a8cd60",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x8765593E3bc24c19e2b56c26151BaC6089D353a9",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x4422c18D69Ad5cBC926c55aC9371388E34491115",
-    "points": 60
+    "points": 90
   },
   {
     "accountAddress": "0x04C3956B193F3Fd1caFC02A6386e85e8b31b6274",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x882CE71DA1A4BB61B2A0a49A29cc19d403a92E3B",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x5c1400db3994a25bE52787415074a50379F60F6f",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x165612B9be13c0625412984e564b689aD7897b06",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x8f56f471C778ed6Bb16c5591831909a7CBeBedc4",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x79714d34A44AfecCB03BCAf5361b229734104aE1",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xBe51a77F0d2cE7d3B58534556D42Fa9C6BE1895E",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x601634F3d0746b550e68439286c1ad022a5f2B88",
-    "points": 100
+    "points": 150
   },
   {
     "accountAddress": "0x58E88384352B1710d2dAC1f7992B2e5c9E706811",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xc33E8eA534fE5b24AB66D48C7C90774f539Cf753",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xD4812cEB1e40fd7F0A1E86a922769572A2203860",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x82f7655f988e8f7C392C33bd653e66B97EBEE722",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xDbC886Ee0819551d9Ee6Da1E0431a6447EF07882",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xC56d64c7511F051FFb2b5D6af6e1B14185B2163d",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xEB45725F817B8Ed79fc83bc2Bd1A26Ef08489024",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x4b9cF9153935E17000d896e78F4230ECd3d9D997",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x3c8B81193B595F918853C519440F2c5737f5e28b",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x61bB1c37E7A898CbfDF76166bC64a9355c8f1909",
-    "points": 60
+    "points": 90
   },
   {
     "accountAddress": "0xc20b9F5c266D25BC90D4C0EC48a7d97455997f06",
-    "points": 400
+    "points": 600
   },
   {
     "accountAddress": "0x88C787039eF11B56A2961F9358071C09EB1628F4",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x0b9a03A70E64340DEbe13E5f020dbeaE408a69B5",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x3bd55E6038592202947Fb8908Dd2e9A82F1E55AD",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x95Dff9eC25dace005b049847e73B16Fd1ECE1603",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x4aD0d8f0A100A74547e4B66C008CaE6e91Ef6d8b",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x83b82b0d0a2533c50a3A4682e07a1075a448Be02",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x6Ec5958Dd316c61E1f5799CE45dB06bC668c0dcf",
-    "points": 40
-  },
-  {
-    "accountAddress": "0x88B22270cE1F587675c3fe37D0C241f5B2c96203",
-    "points": 20
-  },
-  {
-    "accountAddress": "0x3eC9D4C7B85Be897B5c9f18f35566EE644DCCC4a",
-    "points": 40
-  },
-  {
-    "accountAddress": "0xd3b7DF4D1132c32332cD2003896d35474d128123",
-    "points": 40
-  },
-  {
-    "accountAddress": "0x7F4dB3A7268Ba32446696d12204fDddc7b3bd97a",
-    "points": 20
-  },
-  {
-    "accountAddress": "0xCf49a38fD28E7E3A5d1612A77BBde00a3e0cE1c8",
-    "points": 20
-  },
-  {
-    "accountAddress": "0xBa3E1041c27c702773470987aE59ffaad8258f32",
-    "points": 20
-  },
-  {
-    "accountAddress": "0x9412ED148CB58a2eaa4B81B2BB2941672d7Fc3Ea",
-    "points": 20
-  },
-  {
-    "accountAddress": "0x332c19C2ec51195B5Db74c39cBeC234e55CdFa45",
-    "points": 20
-  },
-  {
-    "accountAddress": "0x032f23420BeCe6F21f40086D76F5DB9aE7B9D1d0",
-    "points": 40
-  },
-  {
-    "accountAddress": "0x8d69CE99d2CAE11d00BfbE0A92334545C25ac41E",
-    "points": 20
-  },
-  {
-    "accountAddress": "0x1c65e7912668490b72506E6B7C216245f9075ae1",
-    "points": 20
-  },
-  {
-    "accountAddress": "0xD36341bE5A4BAF5B6F25bC0ae8621B05376dC440",
     "points": 60
   },
   {
+    "accountAddress": "0x88B22270cE1F587675c3fe37D0C241f5B2c96203",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x3eC9D4C7B85Be897B5c9f18f35566EE644DCCC4a",
+    "points": 60
+  },
+  {
+    "accountAddress": "0xd3b7DF4D1132c32332cD2003896d35474d128123",
+    "points": 60
+  },
+  {
+    "accountAddress": "0x7F4dB3A7268Ba32446696d12204fDddc7b3bd97a",
+    "points": 30
+  },
+  {
+    "accountAddress": "0xCf49a38fD28E7E3A5d1612A77BBde00a3e0cE1c8",
+    "points": 30
+  },
+  {
+    "accountAddress": "0xBa3E1041c27c702773470987aE59ffaad8258f32",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x9412ED148CB58a2eaa4B81B2BB2941672d7Fc3Ea",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x332c19C2ec51195B5Db74c39cBeC234e55CdFa45",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x032f23420BeCe6F21f40086D76F5DB9aE7B9D1d0",
+    "points": 60
+  },
+  {
+    "accountAddress": "0x8d69CE99d2CAE11d00BfbE0A92334545C25ac41E",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x1c65e7912668490b72506E6B7C216245f9075ae1",
+    "points": 30
+  },
+  {
+    "accountAddress": "0xD36341bE5A4BAF5B6F25bC0ae8621B05376dC440",
+    "points": 90
+  },
+  {
     "accountAddress": "0x36cF624bF90D79ee31a61b7a6CF12CFc7546EEc2",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x668385B9F1184D00c05182712395aa7D09561F1b",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x2A118E44C36AA4a6D37dB63135b2FE530ebf9db8",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xe635626afCCe39259285E2D53b7f6A268399e024",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xc6e055A0Ed3E03b78FFb5F7bbCF04301636632BA",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x80D2b40846495b220a610065df2Db53D023CBfCc",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x4d59e49E07510Cd8804d815BC6a2412A2fCc561C",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x0e27B477E154b5CC1581461Ae76AA860C54DD854",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x08A629F9696e2608D75b15Efe53124f8666dF49D",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x749269b7B60d060Ed441634beCcda009f65CFf56",
@@ -4069,151 +4069,151 @@
   },
   {
     "accountAddress": "0xBA7B4EE76D43EF7C177d1D3c7c968b272A8F0Deb",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xDAE1EaD7485836F4Bd2A6dDc6e3b972538e0FE2d",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x11e4319f513eed41c61592E2deB11E1eb6F58F37",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xD57180E1e63D5b450f7bD3eB18D9B78eDfC1aC37",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x4230C8C44aaA1e27067De8662814157789818D4e",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xe50bE01B8Ec20791dD17e516aeD56Cf17c5F08fD",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x47010ed567Dc9D97fe84269d83D20F3938284Fdc",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xE4F7B6d11c8A25c778e70bFC8CCAfF690e017BcB",
-    "points": 40
-  },
-  {
-    "accountAddress": "0xAe507de137Ee051a5FBB39fede471C9Ab482EE63",
-    "points": 20
-  },
-  {
-    "accountAddress": "0x5f9Dd045A593134FC3D5Df5aA27Eb00A100bc34e",
-    "points": 20
-  },
-  {
-    "accountAddress": "0xC0498C8B9577C110515575FB8A29ECb53F6b11b8",
-    "points": 20
-  },
-  {
-    "accountAddress": "0xC0BaFC6Dd13319fdDf3d721e99965B2f1fED512c",
-    "points": 40
-  },
-  {
-    "accountAddress": "0xbE19fbF22Db05AE8bF5ede60e6FaAad887Cdc66a",
-    "points": 20
-  },
-  {
-    "accountAddress": "0x48Afe477F4c9439a9056525083d2F251E3402e5A",
-    "points": 20
-  },
-  {
-    "accountAddress": "0x5eE89be87d5356BD97b441669A2a21dC1dA627D6",
-    "points": 20
-  },
-  {
-    "accountAddress": "0x75F9e77f594BF95c123c10e32aa45F17581dA7e5",
-    "points": 20
-  },
-  {
-    "accountAddress": "0x47db21FaA120Afbd9BeCdF00d8d24991BE6BF57F",
-    "points": 40
-  },
-  {
-    "accountAddress": "0x09dBD7E2dDeb17Cfaa3f46a9ac058E9D1f47f42D",
-    "points": 20
-  },
-  {
-    "accountAddress": "0xa04591BF1E246eEDeb17B825cB2d4f0dc1A5B5BB",
-    "points": 20
-  },
-  {
-    "accountAddress": "0x3524876e26B3151e9704d49819D518B92f979c45",
-    "points": 80
-  },
-  {
-    "accountAddress": "0xF3321515aBaFa0E2440ea87e7802a13a3d9BA9cb",
-    "points": 20
-  },
-  {
-    "accountAddress": "0xF1fb42a37d016FE336D484d0F9f8D5fB0348f83d",
-    "points": 20
-  },
-  {
-    "accountAddress": "0x27e32Ef9576dc05F4D08d978106fC16351d4cb0c",
-    "points": 20
-  },
-  {
-    "accountAddress": "0x1040e76d75F741220c18807095EC7b830DCB262B",
-    "points": 20
-  },
-  {
-    "accountAddress": "0x9C40DAa3210F14202090617a273F4860ef3d7fdc",
-    "points": 20
-  },
-  {
-    "accountAddress": "0x1DcA72492386e8De33edadD06F346C8504Ff4275",
-    "points": 40
-  },
-  {
-    "accountAddress": "0xa5bEb5cd9dB63FCd7FcBBadA698E0105bd74A676",
     "points": 60
   },
   {
+    "accountAddress": "0xAe507de137Ee051a5FBB39fede471C9Ab482EE63",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x5f9Dd045A593134FC3D5Df5aA27Eb00A100bc34e",
+    "points": 30
+  },
+  {
+    "accountAddress": "0xC0BaFC6Dd13319fdDf3d721e99965B2f1fED512c",
+    "points": 60
+  },
+  {
+    "accountAddress": "0xbE19fbF22Db05AE8bF5ede60e6FaAad887Cdc66a",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x48Afe477F4c9439a9056525083d2F251E3402e5A",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x5eE89be87d5356BD97b441669A2a21dC1dA627D6",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x75F9e77f594BF95c123c10e32aa45F17581dA7e5",
+    "points": 30
+  },
+  {
+    "accountAddress": "0xC0498C8B9577C110515575FB8A29ECb53F6b11b8",
+    "points": 50
+  },
+  {
+    "accountAddress": "0x47db21FaA120Afbd9BeCdF00d8d24991BE6BF57F",
+    "points": 60
+  },
+  {
+    "accountAddress": "0x09dBD7E2dDeb17Cfaa3f46a9ac058E9D1f47f42D",
+    "points": 30
+  },
+  {
+    "accountAddress": "0xa04591BF1E246eEDeb17B825cB2d4f0dc1A5B5BB",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x3524876e26B3151e9704d49819D518B92f979c45",
+    "points": 110
+  },
+  {
+    "accountAddress": "0xF3321515aBaFa0E2440ea87e7802a13a3d9BA9cb",
+    "points": 30
+  },
+  {
+    "accountAddress": "0xF1fb42a37d016FE336D484d0F9f8D5fB0348f83d",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x27e32Ef9576dc05F4D08d978106fC16351d4cb0c",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x1040e76d75F741220c18807095EC7b830DCB262B",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x9C40DAa3210F14202090617a273F4860ef3d7fdc",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x1DcA72492386e8De33edadD06F346C8504Ff4275",
+    "points": 60
+  },
+  {
+    "accountAddress": "0xa5bEb5cd9dB63FCd7FcBBadA698E0105bd74A676",
+    "points": 80
+  },
+  {
     "accountAddress": "0xC5052Df28c0aAfFE1f53A3B0E2164B304653f23d",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x5F2eddC74eDC175f6B890a127207BdD72ef02a29",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x3cc4801BA6e87A25779aB6762C5aDA4cE92B5eF5",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xCe9f4a5CF9287cEB652Ca10f37F74D3784aE998E",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x964EcEe685b613d198bE950eef779d3fF8BFdb92",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0x7f48a4e2E6976E327BB5daeF63D073d50e6A2763",
-    "points": 40
+    "points": 60
   },
   {
     "accountAddress": "0xddf1f447b500B2662571eeBB0F0DcD035f27F2e0",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xA0ADfFe5c897a284A81D7CE5206495323256a26d",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xd567935F550e658fdd8245f59EC9a0118AD3fe03",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xBF98e5FEf825CcD68dcFF3cF0a766faB413D6207",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0xF55369de9C417e6AeE657828217B6824961dF4e3",
@@ -4229,11 +4229,11 @@
   },
   {
     "accountAddress": "0x6ecf94B09613864a9796d8D66d63551956f0632C",
-    "points": 30
+    "points": 70
   },
   {
     "accountAddress": "0x1346d9c6315F6c23FE280B49Ef215aebd49338b2",
-    "points": 30
+    "points": 60
   },
   {
     "accountAddress": "0xFc9167568ffDcec9E0eb56496059c42a4eD4EcfC",
@@ -4249,30 +4249,66 @@
   },
   {
     "accountAddress": "0xaF2108A064Faf690371ddE0212666F72BF82dBaD",
-    "points": 80
+    "points": 240
   },
   {
     "accountAddress": "0xd94118935E9D33A0197fE3C6C34dF13256c16259",
-    "points": 20
+    "points": 30
   },
   {
     "accountAddress": "0x1ceC3a47c47314DE00b5Ff059dB5f3035e566582",
-    "points": 100
+    "points": 150
+  },
+  {
+    "accountAddress": "0xd4F6b38673AEB94debcFbe5c0EA94B2FB49b28D6",
+    "points": 60
+  },
+  {
+    "accountAddress": "0x91F97b83F89954553B8BAdFD548155C4130C5785",
+    "points": 80
+  },
+  {
+    "accountAddress": "0xB774EC644BAACdaD54943A776B152481b50C1442",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x620bC0f364Ab8FC809d0fD3CC50CcdBbc514e769",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x2E8DBF9E97a78b98B8fE75Ba38A637330C6c8BB0",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x7f184ed7dcA8285a29db157B63CEDa0046EcbC70",
+    "points": 90
+  },
+  {
+    "accountAddress": "0x2F523b2eD461117c2f1125D16eDFAef1446C7D1A",
+    "points": 60
+  },
+  {
+    "accountAddress": "0xd556293bdc05Bf8fB4bfA548287eD1F78F73cb6a",
+    "points": 30
+  },
+  {
+    "accountAddress": "0xEB3f4311Ec5169c6eB50828aeBCC957B58Fe6Be9",
+    "points": 40
+  },
+  {
+    "accountAddress": "0x9ff80Eb2A2b22B181EA1fbC885a030825CD48922",
+    "points": 30
+  },
+  {
+    "accountAddress": "0x7B9B33Cc43fab223C3979fef69516d974c5Ca0AF",
+    "points": 60
   },
   {
     "accountAddress": "0x9c74a997c58ed50e96DAf0DEcBCc7ddF89681f2b",
     "points": 80
   },
   {
-    "accountAddress": "0xd4F6b38673AEB94debcFbe5c0EA94B2FB49b28D6",
-    "points": 40
-  },
-  {
-    "accountAddress": "0x91F97b83F89954553B8BAdFD548155C4130C5785",
-    "points": 60
-  },
-  {
-    "accountAddress": "0xEB3f4311Ec5169c6eB50828aeBCC957B58Fe6Be9",
-    "points": 10
+    "accountAddress": "0x81A1F6476e474b1f7eBD96928bb201d60f43E738",
+    "points": 20
   }
 ]
