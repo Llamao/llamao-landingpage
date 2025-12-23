@@ -8,6 +8,7 @@ export default function ArtGalleryPage() {
       <div className="w-full h-full flex flex-col items-center">
         <Suspense fallback={<div className="min-h-screen" />}>
           <GalleryGrid />
+          {/* update ubild */}
         </Suspense>
       </div>
     </PageLayout>
