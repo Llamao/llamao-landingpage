@@ -1,11 +1,15 @@
 import { heroui } from "@heroui/react";
 import type { Config } from "tailwindcss";
+import path from "path";
 
 const config: Config = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./node_modules/@heroui/*/dist/**/*.{js,ts,jsx,tsx,mjs}",
+    path.join(process.cwd(), "app/**/*.{js,ts,jsx,tsx,mdx}"),
+    path.join(process.cwd(), "components/**/*.{js,ts,jsx,tsx,mdx}"),
+    path.join(
+      process.cwd(),
+      "node_modules/@heroui/*/dist/**/*.{js,ts,jsx,tsx,mjs}"
+    ),
   ],
   theme: {
     extend: {},
