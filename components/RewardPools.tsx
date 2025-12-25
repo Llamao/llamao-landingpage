@@ -913,7 +913,7 @@ export default function RewardPools() {
                         className="w-full flex justify-end text-[10px] sm:text-xs md:text-sm pixelify-sans-500 mb-1"
                         variants={fadeInUp}
                       >
-                        Snapshot Date: 23/12/2025 9:00am UTC
+                        Snapshot Date: 24/12/2025 9:00am UTC
                       </motion.div>
                       <motion.div
                         className="w-full my-3 mb-4 sm:my-4 sm:mb-5"
