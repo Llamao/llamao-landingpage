@@ -1,8 +1,8 @@
 import { heroui } from "@heroui/react";
-import type { Config } from "tailwindcss";
 import path from "path";
 
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+const config = {
   content: [
     path.join(process.cwd(), "app/**/*.{js,ts,jsx,tsx,mdx}"),
     path.join(process.cwd(), "components/**/*.{js,ts,jsx,tsx,mdx}"),
