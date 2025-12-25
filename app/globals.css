@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@plugin './hero.ts';
+@source '../node_modules/@heroui/*/dist/**/*.{js,ts,jsx,tsx}';
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -19,6 +21,8 @@ body {
   background: linear-gradient(#9abec4, #ffffff);
   /* Tùy chọn: Ngăn gradient lặp lại nếu nội dung trang quá ngắn */
   background-repeat: no-repeat;
+  /* Tạo stacking context mới để các phần tử con có z-index âm (như BG) hiển thị trên nền body */
+  isolation: isolate;
 }
 
 .press-start-2p-regular {

@@ -39,6 +39,10 @@ const pixelifySans = Pixelify_Sans({
 
 export const metadata = baseMetadata;
 
+import { Providers } from "./providers";
+
+// ... existing imports
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -49,8 +53,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${pressStart.variable} ${silkscreen.variable} ${pixelifySans.variable} antialiased`}
       >
-        {children}
-        <Analytics />
+        <Providers>
+          {children}
+          <Analytics />
+        </Providers>
       </body>
     </html>
   );

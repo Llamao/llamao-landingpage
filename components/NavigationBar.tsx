@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -22,6 +21,7 @@ const NavigationBar = () => {
     { href: "/about", label: "Llabout", variant: "default" },
     { href: "/lore", label: "Llore", variant: "default" },
     { href: "/chillmao", label: "Chillmao", variant: "default" },
+    { href: "/art-gallary", label: "Gallery", variant: "default" },
     { href: "/reward-pools", label: "Reward Pools", variant: "cta" },
   ];
 
@@ -66,28 +66,7 @@ const NavigationBar = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="relative z-[100] flex justify-center w-full px-4 lg:px-0"
     >
-      <div className="relative w-full 2xl:max-w-[1040px] min-h-[92px] z-[100] grid mx-auto">
-        <Image
-          src={"/nav-background.svg"}
-          alt=""
-          fill
-          sizes="100vw"
-          style={{ objectFit: "contain" }}
-          loading="lazy"
-          aria-hidden
-          className="pointer-events-none select-none object-contain z-40 hidden md:block"
-        />
-        <Image
-          src={"/nav-background-mobile.svg"}
-          alt=""
-          fill
-          sizes="100vw"
-          style={{ objectFit: "contain" }}
-          loading="lazy"
-          aria-hidden
-          className="pointer-events-none select-none object-contain z-40 md:hidden"
-        />
-
+      <div className="relative w-full 2xl:max-w-[1100px] min-h-[92px] z-[100] grid mx-auto bg-white border-4 border-[#A6C9FF]">
         <div className="press-start-2p-regular relative z-50 flex items-center justify-between px-4 py-3 lg:hidden">
           <Link
             href={pathname}
@@ -123,7 +102,7 @@ const NavigationBar = () => {
           </motion.button>
         </div>
 
-        <ul className="press-start-2p-regular relative z-50 hidden w-full flex-wrap items-center justify-center gap-4 lg:flex lg:gap-10">
+        <ul className="press-start-2p-regular relative z-50 hidden w-full flex-nowrap items-center justify-center gap-4 lg:flex lg:gap-10">
           {navLinks.map((link, index) => {
             const variant = getActiveVariant(link);
             return (
