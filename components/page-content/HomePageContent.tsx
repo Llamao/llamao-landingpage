@@ -30,7 +30,7 @@ export default function HomePageContent() {
         </motion.div>
         <motion.div
           variants={stackVariants}
-          className="flex flex-col items-center z-30 w-full mx-auto pb-10 md:pb-12 md:w-[80%] lg:w-[60%] xl:w-[50%] xl:pb-8"
+          className="flex flex-col items-center z-30 w-full mx-auto"
           initial="hidden"
           animate="visible"
         >

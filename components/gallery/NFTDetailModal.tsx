@@ -9,6 +9,7 @@ import {
   ModalFooter,
   Button,
   Chip,
+  Tooltip,
 } from "@heroui/react";
 import Image from "next/image";
 import { X, Share2, Heart, Search, Check } from "lucide-react";
@@ -37,6 +38,7 @@ interface NFTDetailModalProps {
   rarityScore?: number;
   isFavorite?: boolean;
   onToggleFavorite?: () => void;
+  onAttributeSearch?: (value: string) => void;
 }
 
 export const NFTDetailModal = ({
@@ -46,9 +48,9 @@ export const NFTDetailModal = ({
   traitCounts,
   totalSupply = 0,
   rarityRank,
-  rarityScore,
   isFavorite = false,
   onToggleFavorite,
+  onAttributeSearch,
 }: NFTDetailModalProps) => {
   const [isCopied, setIsCopied] = useState(false);
 
@@ -75,7 +77,7 @@ export const NFTDetailModal = ({
       isOpen={isOpen}
       onClose={onClose}
       size="5xl"
-      className="bg-[#f3e8ff]" // Light purple background to match design
+      className="bg-[#f3e8ff]"
       hideCloseButton
       backdrop="blur"
       classNames={{
@@ -90,37 +92,45 @@ export const NFTDetailModal = ({
                 <Button isIconOnly variant="light" onPress={onClose} size="sm">
                   <span className="text-xl">‹</span>
                 </Button>
-                <h2 className="text-lg md:text-xl font-bold text-gray-800">
+                <h2 className="text-lg md:text-xl font-bold text-gray-800 silkscreen-bold">
                   {nft.name}
                 </h2>
               </div>
               <div className="flex items-center gap-2 text-gray-500">
-                <Button
-                  isIconOnly
-                  variant="light"
-                  radius="full"
-                  size="sm"
-                  onPress={onToggleFavorite}
-                  className={isFavorite ? "text-red-500" : ""}
+                <Tooltip
+                  content={
+                    isFavorite ? "Remove from Favorites" : "Add to Favorites"
+                  }
                 >
-                  <Heart
-                    size={20}
-                    fill={isFavorite ? "currentColor" : "none"}
-                  />
-                </Button>
-                <Button
-                  isIconOnly
-                  variant="light"
-                  radius="full"
-                  size="sm"
-                  onPress={handleShare}
-                >
-                  {isCopied ? (
-                    <Check size={20} className="text-green-500" />
-                  ) : (
-                    <Share2 size={20} />
-                  )}
-                </Button>
+                  <Button
+                    isIconOnly
+                    variant="light"
+                    radius="full"
+                    size="sm"
+                    onPress={onToggleFavorite}
+                    className={isFavorite ? "text-red-500" : ""}
+                  >
+                    <Heart
+                      size={20}
+                      fill={isFavorite ? "currentColor" : "none"}
+                    />
+                  </Button>
+                </Tooltip>
+                <Tooltip content={isCopied ? "Link Copied" : "Share Link"}>
+                  <Button
+                    isIconOnly
+                    variant="light"
+                    radius="full"
+                    size="sm"
+                    onPress={handleShare}
+                  >
+                    {isCopied ? (
+                      <Check size={20} className="text-green-500" />
+                    ) : (
+                      <Share2 size={20} />
+                    )}
+                  </Button>
+                </Tooltip>
                 <Button
                   isIconOnly
                   variant="light"
@@ -135,7 +145,7 @@ export const NFTDetailModal = ({
 
             <ModalBody className="p-0 flex flex-col md:flex-row overflow-hidden">
               {/* Left Column: Image */}
-              <div className="w-full md:w-1/2 p-6 md:p-8 flex items-center justify-center bg-[#e0c8ff]/30 relative overflow-hidden">
+              <div className="w-full md:w-1/2 flex items-center justify-center bg-[#e0c8ff]/30 relative overflow-hidden">
                 {/* Snow Effect Overlay for Modal Image area */}
                 <div className="absolute inset-0 pointer-events-none">
                   {[...Array(20)].map((_, i) => (
@@ -154,12 +164,12 @@ export const NFTDetailModal = ({
                   ))}
                 </div>
 
-                <div className="relative aspect-square w-full max-w-[400px] rounded-2xl overflow-hidden shadow-xl bg-white">
+                <div className="relative aspect-square w-full overflow-hidden">
                   <Image
                     src={nft.image}
                     alt={nft.name}
                     fill
-                    className="object-contain p-2"
+                    className="object-contain"
                     unoptimized
                   />
                 </div>
@@ -168,7 +178,9 @@ export const NFTDetailModal = ({
               {/* Right Column: Details */}
               <div className="w-full md:w-1/2 p-6 md:p-8 overflow-y-auto max-h-[60vh] md:max-h-[unset] bg-white/40">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-lg font-bold text-gray-700">Traits</h3>
+                  <h3 className="text-lg font-bold text-gray-700 silkscreen-bold">
+                    Traits
+                  </h3>
                   <div className="flex gap-2">
                     {/* Rank and Score */}
                     {rarityRank && (
@@ -181,15 +193,6 @@ export const NFTDetailModal = ({
                         {totalSupply}
                       </Chip>
                     )}
-                    {rarityScore && (
-                      <Chip
-                        size="sm"
-                        variant="flat"
-                        className="bg-yellow-100 text-yellow-700"
-                      >
-                        ⭐ {rarityScore.toFixed(0)}
-                      </Chip>
-                    )}
                   </div>
                 </div>
 
@@ -200,7 +203,7 @@ export const NFTDetailModal = ({
                       className="flex items-center justify-between p-3 rounded-xl bg-purple-100/50 hover:bg-purple-100 transition-colors border border-purple-200/50"
                     >
                       <div className="flex flex-col">
-                        <span className="text-xs uppercase text-gray-500 font-semibold mb-1">
+                        <span className="text-xs uppercase text-gray-500 font-semibold mb-1 pixelify-sans-600">
                           {trait.traitType}
                         </span>
                         {/* No value here, it's on the right usually, but design shows flexible layout.
@@ -210,15 +213,20 @@ export const NFTDetailModal = ({
                       </div>
 
                       <div className="flex items-center gap-3">
-                        <span className="text-xs font-bold text-purple-600 bg-white/80 px-2 py-1 rounded-md">
+                        <span className="text-xs font-bold text-purple-600 bg-white/80 px-2 py-1 rounded-md pixelify-sans-700">
                           {getTraitPercentage(trait.traitType, trait.value)}%
                         </span>
-                        <span className="text-sm font-medium text-gray-700">
+                        <span className="text-sm font-medium text-gray-700 pixelify-sans-500">
                           {trait.value}
                         </span>
                         <Search
                           size={16}
                           className="text-gray-400 cursor-pointer hover:text-purple-600"
+                          onClick={() => {
+                            if (onAttributeSearch) {
+                              onAttributeSearch(trait.value);
+                            }
+                          }}
                         />
                       </div>
                       {/* Re-aligning to match image closer:
