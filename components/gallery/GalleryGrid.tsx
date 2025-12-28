@@ -2,13 +2,13 @@
 
 import React, { useMemo, useState, useEffect, useCallback } from "react";
 
-import { Input, Button, Select, SelectItem } from "@heroui/react";
+import { Input, Button, Select, SelectItem, Tooltip } from "@heroui/react";
 import {
   Search,
   SlidersHorizontal,
   LayoutGrid,
   LayoutList,
-  RefreshCcw,
+  Shuffle,
   BarChart3,
   Heart,
 } from "lucide-react";
@@ -45,7 +45,7 @@ const allAssetsArray = Object.values(data.metadata).sort(
 
 const ITEMS_PER_PAGE = 48;
 
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
 
 export const GalleryGrid = () => {
   const [columns, setColumns] = React.useState(6);
@@ -72,7 +72,6 @@ export const GalleryGrid = () => {
   const [showFavorites, setShowFavorites] = useState(false);
 
   const searchParams = useSearchParams();
-  const router = useRouter();
   const pathname = usePathname();
 
   React.useEffect(() => {
@@ -129,7 +128,12 @@ export const GalleryGrid = () => {
       result = result.filter(
         (item) =>
           item.name.toLowerCase().includes(lowerQuery) ||
-          item.tokenId.includes(lowerQuery)
+          item.tokenId.includes(lowerQuery) ||
+          item.attributes.some(
+            (attr) =>
+              attr.value.toLowerCase().includes(lowerQuery) ||
+              attr.traitType.toLowerCase().includes(lowerQuery)
+          )
       );
     }
 
@@ -274,55 +278,63 @@ export const GalleryGrid = () => {
           />
         </div>
         <div className="flex items-center gap-3 w-full md:w-auto overflow-x-auto no-scrollbar py-2 pointer-events-auto">
-          <Button
-            startContent={<SlidersHorizontal size={18} />}
-            radius="lg"
-            onPress={() => setIsFilterOpen(true)}
-            endContent={
-              Object.values(selectedFilters).flat().length > 0 ? (
-                <div className="bg-purple-500 text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full ml-1">
-                  {Object.values(selectedFilters).flat().length}
-                </div>
-              ) : null
-            }
-          >
-            Filters
-          </Button>
+          <Tooltip content="Filter Attributes">
+            <Button
+              startContent={<SlidersHorizontal size={18} />}
+              radius="lg"
+              onPress={() => setIsFilterOpen(true)}
+              endContent={
+                Object.values(selectedFilters).flat().length > 0 ? (
+                  <div className="bg-purple-500 text-white text-[10px] w-5 h-5 flex items-center justify-center rounded-full ml-1">
+                    {Object.values(selectedFilters).flat().length}
+                  </div>
+                ) : null
+              }
+            >
+              <span className="pixelify-sans-600">Filters</span>
+            </Button>
+          </Tooltip>
 
-          <Button
-            isIconOnly
-            radius="lg"
-            onPress={() => setShowFavorites(!showFavorites)}
-            className={
-              showFavorites ? "text-red-500 bg-red-100" : "text-default-500"
-            }
-          >
-            <Heart size={20} fill={showFavorites ? "currentColor" : "none"} />
-          </Button>
+          <Tooltip content="Show Favorites">
+            <Button
+              isIconOnly
+              radius="lg"
+              onPress={() => setShowFavorites(!showFavorites)}
+              className={
+                showFavorites ? "text-red-500 bg-red-100" : "text-default-500"
+              }
+            >
+              <Heart size={20} fill={showFavorites ? "currentColor" : "none"} />
+            </Button>
+          </Tooltip>
 
-          <Button
-            isIconOnly
-            className="text-default-500"
-            onPress={() => setIsStatsOpen(true)}
-          >
-            <BarChart3 size={24} />
-          </Button>
+          <Tooltip content="Collection Stats">
+            <Button
+              isIconOnly
+              className="text-default-500"
+              onPress={() => setIsStatsOpen(true)}
+            >
+              <BarChart3 size={24} />
+            </Button>
+          </Tooltip>
 
-          <Button
-            isIconOnly
-            className="text-default-500"
-            onPress={() => {
-              const randomIndex = Math.floor(
-                Math.random() * allAssetsArray.length
-              );
-              setSelectedNFT(allAssetsArray[randomIndex]);
-              setIsModalOpen(true);
-            }}
-          >
-            <RefreshCcw size={22} />
-          </Button>
+          <Tooltip content="Random NFT">
+            <Button
+              isIconOnly
+              className="text-default-500"
+              onPress={() => {
+                const randomIndex = Math.floor(
+                  Math.random() * allAssetsArray.length
+                );
+                setSelectedNFT(allAssetsArray[randomIndex]);
+                setIsModalOpen(true);
+              }}
+            >
+              <Shuffle size={22} />
+            </Button>
+          </Tooltip>
 
-          <div className="text-sm text-white font-semibold px-2 whitespace-nowrap">
+          <div className="text-sm text-white font-semibold px-2 whitespace-nowrap pixelify-sans-600">
             {filteredItems.length > 0
               ? `${filteredItems.length} / ${allAssetsArray.length}`
               : "Loading..."}
@@ -423,13 +435,15 @@ export const GalleryGrid = () => {
         rarityRank={
           selectedNFT ? data.rarityRanks[selectedNFT.tokenId] : undefined
         }
-        rarityScore={
-          selectedNFT ? data.rarityScores[selectedNFT.tokenId] : undefined
-        }
         isFavorite={selectedNFT ? favorites.has(selectedNFT.tokenId) : false}
         onToggleFavorite={
           selectedNFT ? () => toggleFavorite(selectedNFT.tokenId) : () => {}
         }
+        onAttributeSearch={(value) => {
+          setSearchQuery(value);
+          setPage(1);
+          handleModalClose();
+        }}
       />
 
       {/* Filter Sidebar */}

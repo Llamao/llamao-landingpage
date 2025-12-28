@@ -25,7 +25,7 @@ const Nobg = () => {
           width={860}
           height={850}
           sizes="(max-width: 768px) 70vw, 520px"
-          className="w-[350px] md:w-[500px] xl:w-[500px] 2xl:w-[600px] h-auto"
+          className="w-full h-auto"
           priority
         />
       </motion.div>
