@@ -58,6 +58,7 @@ export const GalleryGrid = () => {
 
   // Search & Filter States
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchType, setSearchType] = useState<string>("name");
   const [sortKey, setSortKey] = useState("id_asc");
 
   // New Filter State
@@ -66,6 +67,9 @@ export const GalleryGrid = () => {
   const [selectedFilters, setSelectedFilters] = useState<
     Record<string, string[]>
   >({}); // TraitType -> Array of Values
+
+  // Extract available trait types
+  const traitTypes = useMemo(() => Object.keys(data.traitStats).sort(), []);
 
   // Favorites State
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
@@ -125,16 +129,22 @@ export const GalleryGrid = () => {
     // 1. Search
     if (searchQuery) {
       const lowerQuery = searchQuery.toLowerCase();
-      result = result.filter(
-        (item) =>
-          item.name.toLowerCase().includes(lowerQuery) ||
-          item.tokenId.includes(lowerQuery) ||
+      if (searchType === "name") {
+        result = result.filter(
+          (item) =>
+            item.name.toLowerCase().includes(lowerQuery) ||
+            item.tokenId.includes(lowerQuery)
+        );
+      } else {
+        // Search by Specific Attribute
+        result = result.filter((item) =>
           item.attributes.some(
             (attr) =>
-              attr.value.toLowerCase().includes(lowerQuery) ||
-              attr.traitType.toLowerCase().includes(lowerQuery)
+              attr.traitType === searchType &&
+              attr.value.toLowerCase().includes(lowerQuery)
           )
-      );
+        );
+      }
     }
 
     // 2. Trait Filters
@@ -177,7 +187,14 @@ export const GalleryGrid = () => {
     }
 
     return result;
-  }, [searchQuery, sortKey, selectedFilters, showFavorites, favorites]);
+  }, [
+    searchQuery,
+    searchType,
+    sortKey,
+    selectedFilters,
+    showFavorites,
+    favorites,
+  ]);
 
   // Calculate visible items based on page
   const visibleItems = useMemo(() => {
@@ -264,9 +281,10 @@ export const GalleryGrid = () => {
     <div className="w-full flex flex-col gap-6 py-8 px-4 max-w-7xl mx-auto">
       {/* Controls Bar */}
       <div className="flex flex-col md:flex-row gap-4 items-center justify-between z-40 p-1 pointer-events-none">
-        <div className="w-full md:w-80 pointer-events-auto">
+        <div className="w-full md:w-80 pointer-events-auto flex items-center gap-2">
           <Input
-            placeholder="Search..."
+            className="flex-grow"
+            placeholder={`Search by ${searchType}...`}
             startContent={<Search size={18} />}
             type="search"
             radius="lg"
@@ -276,6 +294,36 @@ export const GalleryGrid = () => {
               setPage(1);
             }}
           />
+          <div className="w-64">
+            <Select
+              items={[
+                { key: "name", label: "Name / ID" },
+                ...traitTypes.map((t) => ({ key: t, label: t })),
+              ]}
+              selectedKeys={[searchType]}
+              radius="lg"
+              onChange={(e) => {
+                if (e.target.value) {
+                  setSearchType(e.target.value);
+                  setPage(1);
+                }
+              }}
+              aria-label="Search Type"
+              classNames={{
+                trigger: "bg-white/80 backdrop-blur-md",
+              }}
+              disallowEmptySelection
+              renderValue={(items) => {
+                return items.map((item) => (
+                  <div key={item.key} className="flex items-center gap-2">
+                    {item.data?.label}
+                  </div>
+                ));
+              }}
+            >
+              {(item) => <SelectItem key={item.key}>{item.label}</SelectItem>}
+            </Select>
+          </div>
         </div>
         <div className="flex items-center gap-3 w-full md:w-auto overflow-x-auto no-scrollbar py-2 pointer-events-auto">
           <Tooltip content="Filter Attributes">
@@ -318,38 +366,22 @@ export const GalleryGrid = () => {
             </Button>
           </Tooltip>
 
-          <Tooltip content="Random NFT">
-            <Button
-              isIconOnly
-              className="text-default-500"
-              onPress={() => {
-                const randomIndex = Math.floor(
-                  Math.random() * allAssetsArray.length
-                );
-                setSelectedNFT(allAssetsArray[randomIndex]);
-                setIsModalOpen(true);
-              }}
-            >
-              <Shuffle size={22} />
-            </Button>
-          </Tooltip>
-
           <div className="text-sm text-white font-semibold px-2 whitespace-nowrap pixelify-sans-600">
             {filteredItems.length > 0
               ? `${filteredItems.length} / ${allAssetsArray.length}`
               : "Loading..."}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 bg-black/20 p-1 rounded-lg backdrop-blur-sm">
             <Button
               isIconOnly
               size="sm"
-              variant={columns === 4 ? "flat" : "light"}
+              variant="flat"
               className={`${
                 columns === 4
-                  ? "bg-white/40 text-white shadow-sm"
-                  : "text-black/40 hover:text-white"
-              } h-8 w-8`}
+                  ? "bg-white text-black shadow-md scale-105"
+                  : "bg-transparent text-white/50 hover:text-white"
+              } h-8 w-8 transition-all duration-200`}
               radius="md"
               onPress={() => setColumns(4)}
             >
@@ -358,12 +390,12 @@ export const GalleryGrid = () => {
             <Button
               isIconOnly
               size="sm"
-              variant={columns === 6 ? "flat" : "light"}
+              variant="flat"
               className={`${
                 columns === 6
-                  ? "bg-white/40 text-white shadow-sm"
-                  : "text-black/40 hover:text-white"
-              } h-8 w-8`}
+                  ? "bg-white text-black shadow-md scale-105"
+                  : "bg-transparent text-white/50 hover:text-white"
+              } h-8 w-8 transition-all duration-200`}
               radius="md"
               onPress={() => setColumns(6)}
             >
@@ -372,12 +404,12 @@ export const GalleryGrid = () => {
             <Button
               isIconOnly
               size="sm"
-              variant={columns === 8 ? "flat" : "light"}
+              variant="flat"
               className={`${
                 columns === 8
-                  ? "bg-white/40 text-white shadow-sm"
-                  : "text-black/40 hover:text-white"
-              } h-8 w-8`}
+                  ? "bg-white text-black shadow-md scale-105"
+                  : "bg-transparent text-white/50 hover:text-white"
+              } h-8 w-8 transition-all duration-200`}
               radius="md"
               onPress={() => setColumns(8)}
             >
@@ -439,8 +471,9 @@ export const GalleryGrid = () => {
         onToggleFavorite={
           selectedNFT ? () => toggleFavorite(selectedNFT.tokenId) : () => {}
         }
-        onAttributeSearch={(value) => {
+        onAttributeSearch={(traitType, value) => {
           setSearchQuery(value);
+          setSearchType(traitType);
           setPage(1);
           handleModalClose();
         }}
