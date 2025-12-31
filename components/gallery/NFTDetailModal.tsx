@@ -106,22 +106,11 @@ export const NFTDetailModal = ({
           <>
             <ModalHeader className="flex items-center justify-between p-4 md:p-6 border-b border-black/5 bg-white/30 backdrop-blur-md">
               <div className="flex items-center gap-2">
-                <h2 className="text-2xl md:text-3xl text-gray-900 pixelify-sans-700">
+                <h2 className="text-2xl md:text-3xl text-gray-900 vt323-regular">
                   {nft.name}
                 </h2>
               </div>
               <div className="flex items-center gap-2 text-gray-500">
-                <Tooltip content="Download Image">
-                  <Button
-                    isIconOnly
-                    variant="light"
-                    radius="full"
-                    size="sm"
-                    onPress={handleDownload}
-                  >
-                    <Download size={20} />
-                  </Button>
-                </Tooltip>
                 <Tooltip
                   content={
                     isFavorite ? "Remove from Favorites" : "Add to Favorites"

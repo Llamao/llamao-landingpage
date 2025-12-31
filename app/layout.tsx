@@ -6,6 +6,7 @@ import {
   Pixelify_Sans,
   Press_Start_2P,
   Silkscreen,
+  VT323,
 } from "next/font/google";
 import "./globals.css";
 
@@ -37,6 +38,12 @@ const pixelifySans = Pixelify_Sans({
   variable: "--font-pixelify",
 });
 
+const vt323 = VT323({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-vt323",
+});
+
 export const metadata = baseMetadata;
 
 import { Providers } from "./providers";
@@ -51,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${pressStart.variable} ${silkscreen.variable} ${pixelifySans.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${pressStart.variable} ${silkscreen.variable} ${pixelifySans.variable} ${vt323.variable} antialiased`}
       >
         <Providers>
           {children}
