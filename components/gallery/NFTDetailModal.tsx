@@ -12,7 +12,7 @@ import {
   Tooltip,
 } from "@heroui/react";
 import Image from "next/image";
-import { X, Share2, Heart, Search, Check } from "lucide-react";
+import { X, Share2, Heart, Search, Check, Download } from "lucide-react";
 
 interface Trait {
   traitType: string;
@@ -38,7 +38,7 @@ interface NFTDetailModalProps {
   rarityScore?: number;
   isFavorite?: boolean;
   onToggleFavorite?: () => void;
-  onAttributeSearch?: (value: string) => void;
+  onAttributeSearch?: (traitType: string, value: string) => void;
 }
 
 export const NFTDetailModal = ({
@@ -72,6 +72,23 @@ export const NFTDetailModal = ({
     });
   };
 
+  const handleDownload = async () => {
+    try {
+      const response = await fetch(nft.image);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${nft.name.replace(/\s+/g, "_")}.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Error downloading image:", error);
+    }
+  };
+
   return (
     <Modal
       isOpen={isOpen}
@@ -89,10 +106,7 @@ export const NFTDetailModal = ({
           <>
             <ModalHeader className="flex items-center justify-between p-4 md:p-6 border-b border-black/5 bg-white/30 backdrop-blur-md">
               <div className="flex items-center gap-2">
-                <Button isIconOnly variant="light" onPress={onClose} size="sm">
-                  <span className="text-xl">‹</span>
-                </Button>
-                <h2 className="text-lg md:text-xl font-bold text-gray-800 silkscreen-bold">
+                <h2 className="text-2xl md:text-3xl text-gray-900 vt323-regular">
                   {nft.name}
                 </h2>
               </div>
@@ -143,11 +157,9 @@ export const NFTDetailModal = ({
               </div>
             </ModalHeader>
 
-            <ModalBody className="p-0 flex flex-col md:flex-row overflow-hidden">
-              {/* Left Column: Image */}
+            <ModalBody className="p-0 flex flex-col md:flex-row gap-0 overflow-hidden">
               <div className="w-full md:w-1/2 flex items-center justify-center bg-[#e0c8ff]/30 relative overflow-hidden">
-                {/* Snow Effect Overlay for Modal Image area */}
-                <div className="absolute inset-0 pointer-events-none">
+                {/* <div className="absolute inset-0 pointer-events-none">
                   {[...Array(20)].map((_, i) => (
                     <div
                       key={i}
@@ -162,7 +174,7 @@ export const NFTDetailModal = ({
                       }}
                     />
                   ))}
-                </div>
+                </div> */}
 
                 <div className="relative aspect-square w-full overflow-hidden">
                   <Image
@@ -175,7 +187,6 @@ export const NFTDetailModal = ({
                 </div>
               </div>
 
-              {/* Right Column: Details */}
               <div className="w-full md:w-1/2 p-6 md:p-8 overflow-y-auto max-h-[60vh] md:max-h-[unset] bg-white/40">
                 <div className="flex items-center justify-between mb-6">
                   <h3 className="text-lg font-bold text-gray-700 silkscreen-bold">
@@ -224,7 +235,7 @@ export const NFTDetailModal = ({
                           className="text-gray-400 cursor-pointer hover:text-purple-600"
                           onClick={() => {
                             if (onAttributeSearch) {
-                              onAttributeSearch(trait.value);
+                              onAttributeSearch(trait.traitType, trait.value);
                             }
                           }}
                         />
@@ -248,7 +259,7 @@ export const NFTDetailModal = ({
 
             <ModalFooter className="p-4 md:p-6 bg-white/50 border-t border-black/5 flex justify-between gap-4">
               <Button
-                className="flex-1 bg-[#E93D82] text-white shadow-lg shadow-pink-200"
+                className="flex-1 bg-[#e42575] text-white shadow-lg shadow-pink-200"
                 size="lg"
                 onPress={() =>
                   window.open(
@@ -256,12 +267,19 @@ export const NFTDetailModal = ({
                     "_blank"
                   )
                 }
-                startContent={<span className="font-bold text-lg">M</span>}
+                startContent={
+                  <Image
+                    src={"/magiceden.png"}
+                    width={24}
+                    height={24}
+                    alt="Magic Eden"
+                  />
+                }
               >
                 Magic Eden
               </Button>
               <Button
-                className="flex-1 bg-[#2081E2] text-white shadow-lg shadow-blue-200"
+                className="flex-1 bg-[#0086ff] text-white shadow-lg shadow-blue-200"
                 size="lg"
                 onPress={() =>
                   window.open(
@@ -269,7 +287,14 @@ export const NFTDetailModal = ({
                     "_blank"
                   )
                 }
-                startContent={<span className="font-bold text-lg">⚓</span>}
+                startContent={
+                  <Image
+                    src={"/opensea.png"}
+                    width={24}
+                    height={24}
+                    alt="Opensea"
+                  />
+                }
               >
                 OpenSea
               </Button>
