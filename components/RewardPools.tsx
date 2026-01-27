@@ -529,7 +529,7 @@ export default function RewardPools() {
         id: item.accountAddress,
         address: `${item.accountAddress.slice(
           0,
-          10
+          10,
         )}...${item.accountAddress.slice(-4)}`,
         points: numberFormatter.format(item.points),
       }));
@@ -554,7 +554,7 @@ export default function RewardPools() {
   const highlightedParticipant = useMemo(() => {
     if (!activeSearch) return null;
     return data.find((p) =>
-      p.id.toLowerCase().includes(activeSearch.toLowerCase())
+      p.id.toLowerCase().includes(activeSearch.toLowerCase()),
     );
   }, [data, activeSearch]);
 
@@ -898,17 +898,16 @@ export default function RewardPools() {
                     animate="visible"
                     variants={staggerContainer}
                   >
-                    {/* <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-                      <motion.div
-                        className="press-start-2p-regular bg-[#9977DD] text-white px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 rounded shadow-[4px_4px_0_0_#663300]"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        COMING SOON
-                      </motion.div>
-                    </div> */}
-                    <>
+                    <div className="absolute inset-0 z-50 flex items-center justify-center backdrop-blur-[2px] bg-white/10 rounded-lg">
+                      <div className="bg-[#B091FF] border-2 border-[#4A2C1A] px-6 py-4 rounded-lg shadow-[4px_4px_0_0_#4A2C1A] max-w-[90%] sm:max-w-[400px]">
+                        <p className="pixelify-sans-500 text-center text-white text-xs sm:text-sm md:text-base leading-relaxed">
+                          The campaign is over! Check the winners in our Discord
+                          announcement.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="pointer-events-none opacity-50 select-none filter blur-[1px]">
                       <motion.div
                         className="w-full flex justify-end text-[10px] sm:text-xs md:text-sm pixelify-sans-500 mb-1"
                         variants={fadeInUp}
@@ -939,6 +938,7 @@ export default function RewardPools() {
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 onKeyDown={handleKeyDown}
                                 className="w-full bg-transparent border-none outline-none text-[8px] sm:text-[10px] md:text-xs lg:text-sm placeholder:text-black/50"
+                                disabled
                               />
                             </div>
                           </AlertDescription>
@@ -1057,7 +1057,7 @@ export default function RewardPools() {
                                               {row[key]}
                                             </p>
                                           </div>
-                                        )
+                                        ),
                                       )}
                                     </div>
                                   </AlertDescription>
@@ -1084,7 +1084,7 @@ export default function RewardPools() {
                           </p>
                         </motion.div>
                       )}
-                    </>
+                    </div>
                   </motion.div>
                 )}
               </motion.div>
