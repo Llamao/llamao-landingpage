@@ -684,6 +684,8 @@ export default function RewardPools() {
     });
   }, [sortOption]);
 
+  const isCampaignOver = true;
+
   return (
     <motion.div
       className="relative w-full max-w-full overflow-x-hidden overflow-y-visible 2xl:max-w-[1400px] 2xl:mx-auto 2xl:px-4"
@@ -709,439 +711,463 @@ export default function RewardPools() {
               className="absolute left-[50%] -top-12 -translate-x-1/2 w-[250px] sm:-top-14 sm:w-[300px] md:-top-16 md:w-[350px] lg:-top-15 lg:w-[400px] xl:w-[514px] 2xl:-top-10 2xl:w-[460px]"
             />
 
-            <motion.div
-              className="flex h-full w-full flex-col gap-2 px-2 py-1 sm:gap-3 sm:px-3 sm:py-1 sm:pb-6 md:gap-4 md:px-4 md:py-2 md:pb-8 xl:grid xl:grid-cols-3 xl:gap-6 xl:px-6 xl:py-2 pb-0 xl:pt-0 2xl:gap-4 2xl:px-5 2xl:py-1"
-              variants={staggerContainer}
-            >
+            <div className="relative w-full">
+              {isCampaignOver && (
+                <div className="absolute inset-0 z-50 flex items-center justify-center backdrop-blur-[6px] bg-white/10 rounded-lg pointer-events-auto">
+                  <div className="bg-[#B091FF] border-2 border-[#4A2C1A] px-6 py-4 rounded-lg shadow-[4px_4px_0_0_#4A2C1A] max-w-[90%] sm:max-w-[400px]">
+                    <p className="pixelify-sans-500 text-center text-white text-xs sm:text-sm md:text-base leading-relaxed">
+                      The campaign is over! Check the winners in our Discord
+                      announcement.
+                    </p>
+                  </div>
+                </div>
+              )}
               <motion.div
-                className="flex flex-col space-y-1 sm:space-y-2 xl:col-span-2 xl:space-y-3 2xl:space-y-2"
+                className={`flex h-full w-full flex-col gap-2 px-2 py-1 sm:gap-3 sm:px-3 sm:py-1 sm:pb-6 md:gap-4 md:px-4 md:py-2 md:pb-8 xl:grid xl:grid-cols-3 xl:gap-6 xl:px-6 xl:py-2 pb-0 xl:pt-0 2xl:gap-4 2xl:px-5 2xl:py-1 ${
+                  isCampaignOver
+                    ? "pointer-events-none opacity-50 select-none filter blur-[1px]"
+                    : ""
+                }`}
                 variants={staggerContainer}
               >
                 <motion.div
-                  className="grid w-full grid-cols-1 gap-4 -mt-6 mb-4 sm:-mt-6 sm:mb-3 md:-mt-7 md:mb-4 lg:-mt-8 lg:mb-5 xl:mt-0 xl:mb-5 sm:grid-cols-2 sm:gap-4 md:gap-5 2xl:mb-4 2xl:gap-3"
-                  variants={staggerList}
+                  className="flex flex-col space-y-1 sm:space-y-2 xl:col-span-2 xl:space-y-3 2xl:space-y-2"
+                  variants={staggerContainer}
                 >
-                  {tabs.map((tab) => (
-                    <motion.div key={tab.key} variants={fadeInUp}>
-                      <TabButton
-                        label={tab.label}
-                        isActive={activeTab === tab.key}
-                        onClick={() => setActiveTab(tab.key)}
-                      />
-                    </motion.div>
-                  ))}
-                </motion.div>
-
-                {activeTab === "rewards" ? (
                   <motion.div
-                    key="rewards"
-                    className="space-y-2 min-h-[300px] sm:min-h-[340px] md:min-h-[380px] lg:min-h-[430px] xl:min-h-0 2xl:min-h-0"
-                    initial="hidden"
-                    animate="visible"
-                    variants={staggerContainer}
+                    className="grid w-full grid-cols-1 gap-4 -mt-6 mb-4 sm:-mt-6 sm:mb-3 md:-mt-7 md:mb-4 lg:-mt-8 lg:mb-5 xl:mt-0 xl:mb-5 sm:grid-cols-2 sm:gap-4 md:gap-5 2xl:mb-4 2xl:gap-3"
+                    variants={staggerList}
                   >
+                    {tabs.map((tab) => (
+                      <motion.div key={tab.key} variants={fadeInUp}>
+                        <TabButton
+                          label={tab.label}
+                          isActive={activeTab === tab.key}
+                          onClick={() => setActiveTab(tab.key)}
+                        />
+                      </motion.div>
+                    ))}
+                  </motion.div>
+
+                  {activeTab === "rewards" ? (
                     <motion.div
-                      className="flex min-h-[220px] w-full flex-col border-2 border-[#D7B594] bg-[#11151F] px-2 py-2 sm:border-4 sm:px-3 sm:py-3 md:border-[6px] md:px-4 md:py-4 2xl:min-h-[200px] 2xl:px-3 2xl:py-3"
-                      variants={fadeInUp}
+                      key="rewards"
+                      className="space-y-2 min-h-[300px] sm:min-h-[340px] md:min-h-[380px] lg:min-h-[430px] xl:min-h-0 2xl:min-h-0"
+                      initial="hidden"
+                      animate="visible"
+                      variants={staggerContainer}
                     >
-                      <Carousel
-                        setApi={setApi}
-                        opts={{
-                          align: "start",
-                          loop: true,
-                          slidesToScroll: 1,
-                        }}
-                        className="w-full"
-                        onMouseEnter={() => setCarouselPaused(true)}
-                        onMouseLeave={() => setCarouselPaused(false)}
+                      <motion.div
+                        className="flex min-h-[220px] w-full flex-col border-2 border-[#D7B594] bg-[#11151F] px-2 py-2 sm:border-4 sm:px-3 sm:py-3 md:border-[6px] md:px-4 md:py-4 2xl:min-h-[200px] 2xl:px-3 2xl:py-3"
+                        variants={fadeInUp}
                       >
-                        <CarouselContent className="-ml-3 sm:-ml-4">
-                          {rewardItems.map((item, index) => {
-                            const isSelected = index === current;
-                            const badgeClasses =
-                              item.category === "NFT"
-                                ? "bg-[#FFE1BD] text-[#6A3200]"
-                                : "bg-[#D8EEFF] text-[#0B3F66]";
-                            const featuredLabel =
-                              item.featuredName ?? item.name;
+                        <Carousel
+                          setApi={setApi}
+                          opts={{
+                            align: "start",
+                            loop: true,
+                            slidesToScroll: 1,
+                          }}
+                          className="w-full"
+                          onMouseEnter={() => setCarouselPaused(true)}
+                          onMouseLeave={() => setCarouselPaused(false)}
+                        >
+                          <CarouselContent className="-ml-3 sm:-ml-4">
+                            {rewardItems.map((item, index) => {
+                              const isSelected = index === current;
+                              const badgeClasses =
+                                item.category === "NFT"
+                                  ? "bg-[#FFE1BD] text-[#6A3200]"
+                                  : "bg-[#D8EEFF] text-[#0B3F66]";
+                              const featuredLabel =
+                                item.featuredName ?? item.name;
 
-                            return (
-                              <CarouselItem
-                                key={item.id}
-                                className="pl-3 sm:pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4"
-                              >
-                                <motion.div
-                                  className={`press-start-2p-regular flex h-full flex-col items-center justify-start gap-2.5 rounded bg-[#090B12] px-2.5 py-2.5 text-center text-[10px] leading-tight text-white transition-colors duration-200 ease-out hover:bg-[#2B1B5A] hover:text-[#F8F4FF] sm:text-xs md:text-sm ${
-                                    isSelected
-                                      ? "border border-[#F4B63D] shadow-[0_0_0_2px_#1A1D26]"
-                                      : "border border-[#F4B63D]/30 shadow-[0_0_0_2px_#1A1D26/30]"
-                                  }`}
-                                  variants={fadeInUp}
+                              return (
+                                <CarouselItem
+                                  key={item.id}
+                                  className="pl-3 sm:pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4"
                                 >
-                                  <div className="relative w-full flex items-center justify-center h-24 sm:h-28 md:h-32 lg:h-36">
-                                    <Image
-                                      src={
-                                        item.imageSrc || DEFAULT_REWARD_IMAGE
-                                      }
-                                      alt={item.name}
-                                      width={200}
-                                      height={200}
-                                      sizes="(max-width: 768px) 45vw, 200px"
-                                      className="max-h-full w-auto object-contain"
-                                    />
-                                  </div>
-                                  <div className="flex flex-col gap-1.5 shrink-0 w-full text-center px-1 min-h-20">
-                                    <span
-                                      className={`text-[9px] uppercase tracking-wide px-2 py-1 rounded ${badgeClasses} block w-full`}
-                                    >
-                                      {item.category}
-                                    </span>
-                                    <p className="text-white text-[11px] sm:text-xs md:text-sm leading-tight text-center wrap-break-word whitespace-normal flex items-center justify-center w-full min-h-[2.4em] px-1">
-                                      {featuredLabel}
-                                    </p>
-                                  </div>
-                                </motion.div>
-                              </CarouselItem>
-                            );
-                          })}
-                        </CarouselContent>
-                      </Carousel>
-                    </motion.div>
+                                  <motion.div
+                                    className={`press-start-2p-regular flex h-full flex-col items-center justify-start gap-2.5 rounded bg-[#090B12] px-2.5 py-2.5 text-center text-[10px] leading-tight text-white transition-colors duration-200 ease-out hover:bg-[#2B1B5A] hover:text-[#F8F4FF] sm:text-xs md:text-sm ${
+                                      isSelected
+                                        ? "border border-[#F4B63D] shadow-[0_0_0_2px_#1A1D26]"
+                                        : "border border-[#F4B63D]/30 shadow-[0_0_0_2px_#1A1D26/30]"
+                                    }`}
+                                    variants={fadeInUp}
+                                  >
+                                    <div className="relative w-full flex items-center justify-center h-24 sm:h-28 md:h-32 lg:h-36">
+                                      <Image
+                                        src={
+                                          item.imageSrc || DEFAULT_REWARD_IMAGE
+                                        }
+                                        alt={item.name}
+                                        width={200}
+                                        height={200}
+                                        sizes="(max-width: 768px) 45vw, 200px"
+                                        className="max-h-full w-auto object-contain"
+                                      />
+                                    </div>
+                                    <div className="flex flex-col gap-1.5 shrink-0 w-full text-center px-1 min-h-20">
+                                      <span
+                                        className={`text-[9px] uppercase tracking-wide px-2 py-1 rounded ${badgeClasses} block w-full`}
+                                      >
+                                        {item.category}
+                                      </span>
+                                      <p className="text-white text-[11px] sm:text-xs md:text-sm leading-tight text-center wrap-break-word whitespace-normal flex items-center justify-center w-full min-h-[2.4em] px-1">
+                                        {featuredLabel}
+                                      </p>
+                                    </div>
+                                  </motion.div>
+                                </CarouselItem>
+                              );
+                            })}
+                          </CarouselContent>
+                        </Carousel>
+                      </motion.div>
 
+                      <motion.div
+                        className="flex w-full flex-col gap-3 text-black pixelify-sans-500 sm:flex-row sm:items-center sm:justify-between sm:gap-2 md:gap-3"
+                        variants={fadeInUp}
+                      >
+                        <p className="text-xs sm:text-sm md:text-base lg:text-lg 2xl:text-base">
+                          All Items
+                        </p>
+                        <div className="flex items-center gap-0 sm:gap-3 md:gap-4 lg:gap-6">
+                          <div className="relative inline-flex items-center">
+                            <select
+                              value={sortOption}
+                              onChange={(e) =>
+                                setSortOption(e.target.value as SortOption)
+                              }
+                              className="pixelify-sans-500 text-[8px] w-fit sm:text-[10px] md:text-xs lg:text-sm appearance-none bg-transparent border-none outline-none cursor-pointer pr-7 sm:pr-8"
+                            >
+                              <option value="recently-added">
+                                Sort by: Recently Added
+                              </option>
+                              <option value="quantity-asc">
+                                Sort by: Quantity (Ascending)
+                              </option>
+                              <option value="quantity-desc">
+                                Sort by: Quantity (Descending)
+                              </option>
+                            </select>
+                            <Image
+                              src="/arrow-black.svg"
+                              alt="arrow"
+                              width={20}
+                              height={12}
+                              sizes="24px"
+                              className="pointer-events-none absolute right-4 top-1/2 h-auto w-3 -translate-y-1/2 sm:right-2 sm:w-4 md:w-5 lg:w-6"
+                            />
+                          </div>
+                        </div>
+                      </motion.div>
+
+                      <motion.div
+                        className="space-y-4 sm:space-y-5 md:space-y-6 w-full max-w-full mx-auto max-h-56 sm:max-h-60 lg:max-h-64 overflow-y-auto pr-1 reward-pools-scroll"
+                        variants={staggerList}
+                      >
+                        {sortedRewards.map((item) => {
+                          const badgeClasses =
+                            item.category === "NFT"
+                              ? "bg-[#FFE1BD] text-[#6A3200]"
+                              : "bg-[#D8EEFF] text-[#0B3F66]";
+                          const cardBackground =
+                            item.category === "NFT"
+                              ? "bg-[#FFF8ED]"
+                              : "bg-[#EAF4FF]";
+
+                          return (
+                            <motion.div key={item.id} variants={fadeInUp}>
+                              <Alert
+                                borderColor="black"
+                                className={`${cardBackground} px-1 py-0.5 sm:px-1.5 sm:py-1`}
+                              >
+                                <AlertDescription className="pixelify-sans-500 flex w-full flex-row items-center gap-2 px-0 py-0 text-black sm:gap-3">
+                                  <span
+                                    className={`press-start-2p-regular text-[7px] uppercase tracking-wide px-2 py-1 rounded ${badgeClasses} shrink-0 w-[75px] text-center`}
+                                  >
+                                    {item.category}
+                                  </span>
+                                  <p className="flex-1 min-w-0 text-[10px] sm:text-xs md:text-sm lg:text-base truncate">
+                                    {item.name}
+                                  </p>
+                                  <div className="flex items-center gap-1 text-[8px] sm:text-[10px] md:text-xs lg:text-sm shrink-0">
+                                    <span className="uppercase text-[#475160] tracking-wide">
+                                      Qty
+                                    </span>
+                                    <span className="press-start-2p-regular text-[10px] sm:text-xs md:text-sm">
+                                      {item.displayQuantity}
+                                    </span>
+                                  </div>
+                                </AlertDescription>
+                              </Alert>
+                            </motion.div>
+                          );
+                        })}
+                      </motion.div>
+                    </motion.div>
+                  ) : (
                     <motion.div
-                      className="flex w-full flex-col gap-3 text-black pixelify-sans-500 sm:flex-row sm:items-center sm:justify-between sm:gap-2 md:gap-3"
-                      variants={fadeInUp}
+                      key="participants"
+                      className="relative space-y-3 sm:space-y-4 md:space-y-5"
+                      initial="hidden"
+                      animate="visible"
+                      variants={staggerContainer}
                     >
-                      <p className="text-xs sm:text-sm md:text-base lg:text-lg 2xl:text-base">
-                        All Items
-                      </p>
-                      <div className="flex items-center gap-0 sm:gap-3 md:gap-4 lg:gap-6">
-                        <div className="relative inline-flex items-center">
-                          <select
-                            value={sortOption}
-                            onChange={(e) =>
-                              setSortOption(e.target.value as SortOption)
-                            }
-                            className="pixelify-sans-500 text-[8px] w-fit sm:text-[10px] md:text-xs lg:text-sm appearance-none bg-transparent border-none outline-none cursor-pointer pr-7 sm:pr-8"
-                          >
-                            <option value="recently-added">
-                              Sort by: Recently Added
-                            </option>
-                            <option value="quantity-asc">
-                              Sort by: Quantity (Ascending)
-                            </option>
-                            <option value="quantity-desc">
-                              Sort by: Quantity (Descending)
-                            </option>
-                          </select>
-                          <Image
-                            src="/arrow-black.svg"
-                            alt="arrow"
-                            width={20}
-                            height={12}
-                            sizes="24px"
-                            className="pointer-events-none absolute right-4 top-1/2 h-auto w-3 -translate-y-1/2 sm:right-2 sm:w-4 md:w-5 lg:w-6"
-                          />
+                      <div className="absolute inset-0 z-50 flex items-center justify-center backdrop-blur-[2px] bg-white/10 rounded-lg">
+                        <div className="bg-[#B091FF] border-2 border-[#4A2C1A] px-6 py-4 rounded-lg shadow-[4px_4px_0_0_#4A2C1A] max-w-[90%] sm:max-w-[400px]">
+                          <p className="pixelify-sans-500 text-center text-white text-xs sm:text-sm md:text-base leading-relaxed">
+                            The campaign is over! Check the winners in our
+                            Discord announcement.
+                          </p>
                         </div>
                       </div>
-                    </motion.div>
 
-                    <motion.div
-                      className="space-y-4 sm:space-y-5 md:space-y-6 w-full max-w-full mx-auto max-h-56 sm:max-h-60 lg:max-h-64 overflow-y-auto pr-1 reward-pools-scroll"
-                      variants={staggerList}
-                    >
-                      {sortedRewards.map((item) => {
-                        const badgeClasses =
-                          item.category === "NFT"
-                            ? "bg-[#FFE1BD] text-[#6A3200]"
-                            : "bg-[#D8EEFF] text-[#0B3F66]";
-                        const cardBackground =
-                          item.category === "NFT"
-                            ? "bg-[#FFF8ED]"
-                            : "bg-[#EAF4FF]";
-
-                        return (
-                          <motion.div key={item.id} variants={fadeInUp}>
-                            <Alert
-                              borderColor="black"
-                              className={`${cardBackground} px-1 py-0.5 sm:px-1.5 sm:py-1`}
-                            >
-                              <AlertDescription className="pixelify-sans-500 flex w-full flex-row items-center gap-2 px-0 py-0 text-black sm:gap-3">
-                                <span
-                                  className={`press-start-2p-regular text-[7px] uppercase tracking-wide px-2 py-1 rounded ${badgeClasses} shrink-0 w-[75px] text-center`}
-                                >
-                                  {item.category}
-                                </span>
-                                <p className="flex-1 min-w-0 text-[10px] sm:text-xs md:text-sm lg:text-base truncate">
-                                  {item.name}
-                                </p>
-                                <div className="flex items-center gap-1 text-[8px] sm:text-[10px] md:text-xs lg:text-sm shrink-0">
-                                  <span className="uppercase text-[#475160] tracking-wide">
-                                    Qty
-                                  </span>
-                                  <span className="press-start-2p-regular text-[10px] sm:text-xs md:text-sm">
-                                    {item.displayQuantity}
-                                  </span>
+                      <div className="pointer-events-none opacity-50 select-none filter blur-[1px]">
+                        <motion.div
+                          className="w-full flex justify-end text-[10px] sm:text-xs md:text-sm pixelify-sans-500 mb-1"
+                          variants={fadeInUp}
+                        >
+                          Snapshot Date: 13/1/2026 9:00am UTC
+                        </motion.div>
+                        <motion.div
+                          className="w-full my-3 mb-4 sm:my-4 sm:mb-5"
+                          variants={fadeInUp}
+                        >
+                          <Alert borderColor="black">
+                            <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-0.5 px-0.5 py-0 text-black sm:flex-row sm:items-center sm:justify-between sm:gap-1 sm:px-0.5 sm:py-0">
+                              <div className="flex items-center gap-1 sm:gap-1.5 w-full">
+                                <div className="h-auto w-4 shrink-0 sm:w-4 md:w-5 lg:w-6">
+                                  <Image
+                                    src="/search.svg"
+                                    alt="search"
+                                    width={20}
+                                    height={20}
+                                    sizes="20px"
+                                    className="h-auto w-full"
+                                  />
                                 </div>
-                              </AlertDescription>
-                            </Alert>
-                          </motion.div>
-                        );
-                      })}
-                    </motion.div>
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="participants"
-                    className="relative space-y-3 sm:space-y-4 md:space-y-5"
-                    initial="hidden"
-                    animate="visible"
-                    variants={staggerContainer}
-                  >
-                    <div className="absolute inset-0 z-50 flex items-center justify-center backdrop-blur-[2px] bg-white/10 rounded-lg">
-                      <div className="bg-[#B091FF] border-2 border-[#4A2C1A] px-6 py-4 rounded-lg shadow-[4px_4px_0_0_#4A2C1A] max-w-[90%] sm:max-w-[400px]">
-                        <p className="pixelify-sans-500 text-center text-white text-xs sm:text-sm md:text-base leading-relaxed">
-                          The campaign is over! Check the winners in our Discord
-                          announcement.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="pointer-events-none opacity-50 select-none filter blur-[1px]">
-                      <motion.div
-                        className="w-full flex justify-end text-[10px] sm:text-xs md:text-sm pixelify-sans-500 mb-1"
-                        variants={fadeInUp}
-                      >
-                        Snapshot Date: 13/1/2026 9:00am UTC
-                      </motion.div>
-                      <motion.div
-                        className="w-full my-3 mb-4 sm:my-4 sm:mb-5"
-                        variants={fadeInUp}
-                      >
-                        <Alert borderColor="black">
-                          <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-0.5 px-0.5 py-0 text-black sm:flex-row sm:items-center sm:justify-between sm:gap-1 sm:px-0.5 sm:py-0">
-                            <div className="flex items-center gap-1 sm:gap-1.5 w-full">
-                              <div className="h-auto w-4 shrink-0 sm:w-4 md:w-5 lg:w-6">
-                                <Image
-                                  src="/search.svg"
-                                  alt="search"
-                                  width={20}
-                                  height={20}
-                                  sizes="20px"
-                                  className="h-auto w-full"
+                                <input
+                                  type="text"
+                                  placeholder="Search participant address"
+                                  value={searchQuery}
+                                  onChange={(e) =>
+                                    setSearchQuery(e.target.value)
+                                  }
+                                  onKeyDown={handleKeyDown}
+                                  className="w-full bg-transparent border-none outline-none text-[8px] sm:text-[10px] md:text-xs lg:text-sm placeholder:text-black/50"
+                                  disabled
                                 />
                               </div>
-                              <input
-                                type="text"
-                                placeholder="Search participant address"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                onKeyDown={handleKeyDown}
-                                className="w-full bg-transparent border-none outline-none text-[8px] sm:text-[10px] md:text-xs lg:text-sm placeholder:text-black/50"
-                                disabled
-                              />
-                            </div>
-                          </AlertDescription>
-                        </Alert>
-                      </motion.div>
-                      {isLoading ? (
-                        <div className="flex w-full items-center justify-center py-10">
-                          <Loader2 className="h-8 w-8 animate-spin text-[#B091FF]" />
-                        </div>
-                      ) : data.length > 0 ? (
-                        <motion.div
-                          className="w-full space-y-2 pixelify-sans-500 sm:space-y-3"
-                          initial="hidden"
-                          animate="visible"
-                          variants={staggerContainer}
-                        >
+                            </AlertDescription>
+                          </Alert>
+                        </motion.div>
+                        {isLoading ? (
+                          <div className="flex w-full items-center justify-center py-10">
+                            <Loader2 className="h-8 w-8 animate-spin text-[#B091FF]" />
+                          </div>
+                        ) : data.length > 0 ? (
                           <motion.div
-                            className="hidden w-full gap-2 px-1 text-[8px] text-[#1E3445] sm:grid sm:grid-cols-[minmax(0,2fr)_auto_auto] sm:gap-3 sm:text-[10px] md:text-xs"
-                            variants={fadeInUp}
+                            className="w-full space-y-2 pixelify-sans-500 sm:space-y-3"
+                            initial="hidden"
+                            animate="visible"
+                            variants={staggerContainer}
                           >
-                            <p className="sm:pl-3">Participants</p>
-                            <p className="sm:pl-2">Entries</p>
-                          </motion.div>
+                            <motion.div
+                              className="hidden w-full gap-2 px-1 text-[8px] text-[#1E3445] sm:grid sm:grid-cols-[minmax(0,2fr)_auto_auto] sm:gap-3 sm:text-[10px] md:text-xs"
+                              variants={fadeInUp}
+                            >
+                              <p className="sm:pl-3">Participants</p>
+                              <p className="sm:pl-2">Entries</p>
+                            </motion.div>
 
-                          <motion.div
-                            className="space-y-4 sm:space-y-4 max-h-[420px] overflow-y-auto reward-pools-scroll pr-2"
-                            variants={staggerList}
-                            onScroll={handleScroll}
-                          >
-                            {highlightedParticipant && (
-                              <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.3 }}
-                              >
+                            <motion.div
+                              className="space-y-4 sm:space-y-4 max-h-[420px] overflow-y-auto reward-pools-scroll pr-2"
+                              variants={staggerList}
+                              onScroll={handleScroll}
+                            >
+                              {highlightedParticipant && (
                                 <motion.div
-                                  animate={{
-                                    scale: [1, 1.015, 1],
-                                    filter: [
-                                      "drop-shadow(0 0 0px rgba(176, 145, 255, 0))",
-                                      "drop-shadow(0 0 4px rgba(176, 145, 255, 0.5))",
-                                      "drop-shadow(0 0 0px rgba(176, 145, 255, 0))",
-                                    ],
-                                  }}
-                                  // transition={{
-                                  //   duration: 2,
-                                  //   repeat: Infinity,
-                                  //   ease: "easeInOut",
-                                  // }}
+                                  initial={{ opacity: 0, y: 20 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ duration: 0.3 }}
                                 >
-                                  <Alert
-                                    borderColor="black"
-                                    className="bg-[#C9B9F7]"
+                                  <motion.div
+                                    animate={{
+                                      scale: [1, 1.015, 1],
+                                      filter: [
+                                        "drop-shadow(0 0 0px rgba(176, 145, 255, 0))",
+                                        "drop-shadow(0 0 4px rgba(176, 145, 255, 0.5))",
+                                        "drop-shadow(0 0 0px rgba(176, 145, 255, 0))",
+                                      ],
+                                    }}
+                                    // transition={{
+                                    //   duration: 2,
+                                    //   repeat: Infinity,
+                                    //   ease: "easeInOut",
+                                    // }}
                                   >
-                                    <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-3 px-0 py-0 text-black sm:gap-4 sm:px-0.5 sm:py-0">
-                                      <div className="grid w-full items-center grid-cols-1 gap-4 sm:grid-cols-[minmax(0,2fr)_auto_auto] sm:gap-4 md:gap-5">
-                                        <div className="flex items-start gap-3 sm:items-center sm:gap-4">
-                                          <div className="h-auto w-8 shrink-0 sm:w-10 md:w-12">
-                                            <Image
-                                              src="/llamao-gen.png"
-                                              alt="llamao"
-                                              width={100}
-                                              height={100}
-                                              sizes="64px"
-                                              className="h-auto w-full"
-                                            />
+                                    <Alert
+                                      borderColor="black"
+                                      className="bg-[#C9B9F7]"
+                                    >
+                                      <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-3 px-0 py-0 text-black sm:gap-4 sm:px-0.5 sm:py-0">
+                                        <div className="grid w-full items-center grid-cols-1 gap-4 sm:grid-cols-[minmax(0,2fr)_auto_auto] sm:gap-4 md:gap-5">
+                                          <div className="flex items-start gap-3 sm:items-center sm:gap-4">
+                                            <div className="h-auto w-8 shrink-0 sm:w-10 md:w-12">
+                                              <Image
+                                                src="/llamao-gen.png"
+                                                alt="llamao"
+                                                width={100}
+                                                height={100}
+                                                sizes="64px"
+                                                className="h-auto w-full"
+                                              />
+                                            </div>
+                                            <div className="flex flex-col gap-1.5 min-w-0 flex-1 overflow-hidden">
+                                              <span className="text-[9px] uppercase text-[#475160] sm:hidden">
+                                                Participant
+                                              </span>
+                                              <p className="pixelify-sans-500 text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
+                                                YOU
+                                              </p>
+                                              <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
+                                                {highlightedParticipant.address}
+                                              </p>
+                                            </div>
                                           </div>
-                                          <div className="flex flex-col gap-1.5 min-w-0 flex-1 overflow-hidden">
-                                            <span className="text-[9px] uppercase text-[#475160] sm:hidden">
-                                              Participant
-                                            </span>
-                                            <p className="pixelify-sans-500 text-[8px] sm:text-[10px] md:text-xs lg:text-sm">
-                                              YOU
-                                            </p>
-                                            <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
-                                              {highlightedParticipant.address}
-                                            </p>
-                                          </div>
-                                        </div>
 
-                                        <div className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden">
-                                          <span className="text-[8px] uppercase text-[#475160] sm:hidden">
-                                            Total Points
-                                          </span>
-                                          <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
-                                            {highlightedParticipant.points}
-                                          </p>
+                                          <div className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden">
+                                            <span className="text-[8px] uppercase text-[#475160] sm:hidden">
+                                              Total Points
+                                            </span>
+                                            <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
+                                              {highlightedParticipant.points}
+                                            </p>
+                                          </div>
                                         </div>
+                                      </AlertDescription>
+                                    </Alert>
+                                  </motion.div>
+                                </motion.div>
+                              )}
+
+                              {displayedData.map((row) => (
+                                <motion.div
+                                  key={row.id}
+                                  initial={{ opacity: 0, y: 20 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  transition={{ duration: 0.3 }}
+                                >
+                                  <Alert borderColor="black">
+                                    <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-2 px-0.5 py-0 text-black sm:gap-3 sm:px-1 sm:py-0">
+                                      <div className="grid w-full items-center grid-cols-1 gap-3 sm:grid-cols-[minmax(0,2fr)_auto_auto] sm:gap-4 md:gap-5">
+                                        {participantFields.map(
+                                          ({ key, label }) => (
+                                            <div
+                                              key={`${row.id}-${key}`}
+                                              className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden"
+                                            >
+                                              <span className="text-[8px] uppercase text-[#475160] sm:hidden">
+                                                {label}
+                                              </span>
+                                              <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
+                                                {row[key]}
+                                              </p>
+                                            </div>
+                                          ),
+                                        )}
                                       </div>
                                     </AlertDescription>
                                   </Alert>
                                 </motion.div>
-                              </motion.div>
-                            )}
-
-                            {displayedData.map((row) => (
-                              <motion.div
-                                key={row.id}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.3 }}
-                              >
-                                <Alert borderColor="black">
-                                  <AlertDescription className="pixelify-sans-500 flex w-full flex-col gap-2 px-0.5 py-0 text-black sm:gap-3 sm:px-1 sm:py-0">
-                                    <div className="grid w-full items-center grid-cols-1 gap-3 sm:grid-cols-[minmax(0,2fr)_auto_auto] sm:gap-4 md:gap-5">
-                                      {participantFields.map(
-                                        ({ key, label }) => (
-                                          <div
-                                            key={`${row.id}-${key}`}
-                                            className="flex flex-col gap-1.5 text-[8px] sm:text-[10px] md:text-xs lg:text-sm min-w-0 overflow-hidden"
-                                          >
-                                            <span className="text-[8px] uppercase text-[#475160] sm:hidden">
-                                              {label}
-                                            </span>
-                                            <p className="press-start-2p-regular wrap-break-word break-all text-[8px] sm:wrap-break-word sm:text-[10px] md:text-xs lg:text-sm overflow-wrap-anywhere">
-                                              {row[key]}
-                                            </p>
-                                          </div>
-                                        ),
-                                      )}
-                                    </div>
-                                  </AlertDescription>
-                                </Alert>
-                              </motion.div>
-                            ))}
+                              ))}
+                            </motion.div>
                           </motion.div>
-                        </motion.div>
-                      ) : (
-                        <motion.div
-                          className="press-start-2p-regular flex w-full flex-col items-center justify-center gap-2 rounded-md border border-dashed border-[#B091FF] bg-[#F7F2FF] py-6 text-center text-[#6043AF] sm:gap-3 sm:border-2 sm:py-8 md:gap-4 md:border-4 md:py-10 lg:py-12"
-                          variants={fadeInUp}
-                        >
-                          <Image
-                            src="/reward-pool-bg.svg"
-                            alt="participants coming soon"
-                            width={220}
-                            height={48}
-                            sizes="(max-width: 640px) 60vw, 220px"
-                            className="h-auto w-full max-w-[140px] select-none sm:max-w-[180px] md:max-w-[200px] lg:max-w-[220px]"
-                          />
-                          <p className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm px-2">
-                            Participants list is coming soon.
+                        ) : (
+                          <motion.div
+                            className="press-start-2p-regular flex w-full flex-col items-center justify-center gap-2 rounded-md border border-dashed border-[#B091FF] bg-[#F7F2FF] py-6 text-center text-[#6043AF] sm:gap-3 sm:border-2 sm:py-8 md:gap-4 md:border-4 md:py-10 lg:py-12"
+                            variants={fadeInUp}
+                          >
+                            <Image
+                              src="/reward-pool-bg.svg"
+                              alt="participants coming soon"
+                              width={220}
+                              height={48}
+                              sizes="(max-width: 640px) 60vw, 220px"
+                              className="h-auto w-full max-w-[140px] select-none sm:max-w-[180px] md:max-w-[200px] lg:max-w-[220px]"
+                            />
+                            <p className="text-[8px] sm:text-[10px] md:text-xs lg:text-sm px-2">
+                              Participants list is coming soon.
+                            </p>
+                          </motion.div>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </motion.div>
+
+                <motion.div
+                  className="flex flex-col gap-4 sm:gap-5 md:grid md:grid-cols-2 md:gap-6 md:auto-rows-[1fr] lg:gap-8 xl:flex xl:flex-col xl:col-span-1 xl:gap-10 2xl:gap-4"
+                  variants={staggerContainer}
+                >
+                  <motion.div
+                    variants={fadeInUp}
+                    className="md:col-span-1 h-full"
+                  >
+                    <Alert
+                      borderColor="#6043AF"
+                      className="md:h-full xl:h-auto"
+                    >
+                      <AlertDescription className="pixelify-sans-500 flex md:h-full xl:h-auto flex-col gap-2 px-0.5 py-0.5 text-black sm:gap-3 sm:px-1 sm:py-0.5 md:gap-3 md:px-1.5 md:py-0.5 lg:gap-4 xl:py-4">
+                        <div className="flex w-full flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                          <p className="silkscreen-regular text-sm text-[#2245C5] sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-xl">
+                            YOUR NFT
                           </p>
-                        </motion.div>
-                      )}
-                    </div>
+                        </div>
+
+                        <BlurredBackgroundButton text="COMING SOON" id="nft" />
+
+                        <div className="w-full text-[8px] sm:text-[10px] md:text-xs lg:text-sm xl:text-base">
+                          The Llamao Blessing Pool is a reward campaign designed
+                          to appreciate and celebrate our community members who
+                          support Llamao by minting and holding NFTs on mainnet
+                        </div>
+                      </AlertDescription>
+                    </Alert>
                   </motion.div>
-                )}
-              </motion.div>
 
-              <motion.div
-                className="flex flex-col gap-4 sm:gap-5 md:grid md:grid-cols-2 md:gap-6 md:auto-rows-[1fr] lg:gap-8 xl:flex xl:flex-col xl:col-span-1 xl:gap-10 2xl:gap-4"
-                variants={staggerContainer}
-              >
-                <motion.div
-                  variants={fadeInUp}
-                  className="md:col-span-1 h-full"
-                >
-                  <Alert borderColor="#6043AF" className="md:h-full xl:h-auto">
-                    <AlertDescription className="pixelify-sans-500 flex md:h-full xl:h-auto flex-col gap-2 px-0.5 py-0.5 text-black sm:gap-3 sm:px-1 sm:py-0.5 md:gap-3 md:px-1.5 md:py-0.5 lg:gap-4 xl:py-4">
-                      <div className="flex w-full flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                        <p className="silkscreen-regular text-sm text-[#2245C5] sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-xl">
-                          YOUR NFT
-                        </p>
-                      </div>
+                  <motion.div
+                    variants={fadeInUp}
+                    className="md:col-span-1 h-full"
+                  >
+                    <Alert
+                      borderColor="#6043AF"
+                      className="md:h-full xl:h-auto"
+                    >
+                      <AlertDescription className="pixelify-sans-500 flex md:h-full xl:h-auto flex-col gap-2 px-0.5 py-0.5 text-black sm:gap-3 sm:px-1 sm:py-0.5 md:gap-3 md:px-1 md:py-0.5 lg:gap-4 xl:py-4">
+                        <div className="flex w-full items-center justify-between">
+                          <p className="silkscreen-regular text-sm text-[#2245C5] sm:text-base md:text-lg lg:text-xl xl:tracking-tight xl:text-xl 2xl:text-xl">
+                            COUNTDOWN TIMER
+                          </p>
+                        </div>
 
-                      <BlurredBackgroundButton text="COMING SOON" id="nft" />
+                        <BlurredBackgroundButton
+                          text="STAY TUNED"
+                          id="countdown"
+                          variant="xl-compact"
+                        />
 
-                      <div className="w-full text-[8px] sm:text-[10px] md:text-xs lg:text-sm xl:text-base">
-                        The Llamao Blessing Pool is a reward campaign designed
-                        to appreciate and celebrate our community members who
-                        support Llamao by minting and holding NFTs on mainnet
-                      </div>
-                    </AlertDescription>
-                  </Alert>
-                </motion.div>
-
-                <motion.div
-                  variants={fadeInUp}
-                  className="md:col-span-1 h-full"
-                >
-                  <Alert borderColor="#6043AF" className="md:h-full xl:h-auto">
-                    <AlertDescription className="pixelify-sans-500 flex md:h-full xl:h-auto flex-col gap-2 px-0.5 py-0.5 text-black sm:gap-3 sm:px-1 sm:py-0.5 md:gap-3 md:px-1 md:py-0.5 lg:gap-4 xl:py-4">
-                      <div className="flex w-full items-center justify-between">
-                        <p className="silkscreen-regular text-sm text-[#2245C5] sm:text-base md:text-lg lg:text-xl xl:tracking-tight xl:text-xl 2xl:text-xl">
-                          COUNTDOWN TIMER
-                        </p>
-                      </div>
-
-                      <BlurredBackgroundButton
-                        text="STAY TUNED"
-                        id="countdown"
-                        variant="xl-compact"
-                      />
-
-                      <div className="w-full text-[8px] sm:text-[10px] md:text-xs lg:text-sm xl:text-base">
-                        {`Once the raffle date is set, the countdown is on. Don’t miss it`}
-                      </div>
-                    </AlertDescription>
-                  </Alert>
+                        <div className="w-full text-[8px] sm:text-[10px] md:text-xs lg:text-sm xl:text-base">
+                          {`Once the raffle date is set, the countdown is on. Don’t miss it`}
+                        </div>
+                      </AlertDescription>
+                    </Alert>
+                  </motion.div>
                 </motion.div>
               </motion.div>
-            </motion.div>
+            </div>
           </motion.div>
         </motion.div>
       </motion.div>
